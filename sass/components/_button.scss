@@ -14,6 +14,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  cursor: pointer;
 
   &:hover {
     background: var(--hover-color);
@@ -35,6 +36,7 @@
   justify-content: center;
   cursor: pointer;
   border: 1px solid var(--primery-color);
+  cursor: pointer;
 
   &:hover {
     background: var(--hover-color);
@@ -48,6 +50,7 @@
   border: 1px solid var(--primery-color);
   border-radius: 5px;
   background-color: var(--white-color);
+  cursor: pointer;
 
   &:hover {
     box-shadow: 0 3px 10px 0 #6d6d6d;
@@ -58,10 +61,13 @@
   width: 18px;
   height: 18px;
   transform: rotate(90deg);
+  cursor: pointer;
 }
 
 .arrow_icon_rigth {
+  margin: 0 auto;
   width: 18px;
   height: 18px;
   transform: rotate(270deg);
+  cursor: pointer;
 }

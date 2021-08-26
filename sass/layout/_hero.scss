@@ -6,9 +6,10 @@
       rgba(243, 243, 243, 0.55),
       rgba(243, 243, 243, 0.55)
     ),
-    url(../../images/hero-bg.jpg);
+    url(../images/hero-bg.jpg);
   background-repeat: no-repeat;
-  max-width: 1440px;
+  width: 100%;
+  background-size: cover;
   margin: 0 auto;
 }
 

@@ -4,9 +4,10 @@
       rgba(222, 222, 222, 0.6),
       rgba(222, 222, 222, 0.6)
     ),
-    url(../../images/testimonial-bg.png);
+    url(../images/testimonial-bg.png);
   background-repeat: no-repeat;
-  max-width: 1440px;
+  width: 100%;
+  background-size: cover;
   margin: 0 auto;
   padding: 80px 0;
 

@@ -38,8 +38,9 @@ a {
 /** @format */
 .container {
   width: 1160px;
-  margin-left: auto;
-  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
 }
 
 /** @format */
@@ -60,49 +61,47 @@ a {
 @font-face {
   font-family: "Hind Siliguri";
   font-weight: 300;
-  src: url("../../fonts/HindSiliguri-Light.ttf") format("truetype");
+  src: url("../fonts/HindSiliguri-Light.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Hind Siliguri";
   font-weight: 400;
-  src: url("../../fonts/HindSiliguri-Regular.ttf") format("truetype");
+  src: url("../fonts/HindSiliguri-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Hind Siliguri";
   font-weight: 500;
-  src: url("../../fonts/HindSiliguri-Medium.ttf") format("truetype");
+  src: url("../fonts/HindSiliguri-Medium.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Hind Siliguri";
   font-weight: 600;
-  src: url("../../fonts/HindSiliguri-SemiBold.ttf") format("truetype");
+  src: url("../fonts/HindSiliguri-SemiBold.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Hind Siliguri";
   font-weight: 700;
-  src: url("../../fonts/HindSiliguri-Bold.ttf") format("truetype");
+  src: url("../fonts/HindSiliguri-Bold.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Lucida Grande";
   font-weight: 700;
-  src: url("../../fonts/lucida-grande.ttf") format("truetype");
+  src: url("../fonts/lucida-grande.ttf") format("truetype");
 }
 
 /** @format */
 .header {
   position: fixed;
   z-index: 10;
-  background-image: linear-gradient(rgba(243, 243, 243, 0.55), rgba(243, 243, 243, 0.55)), url(../../images/hero-bg.jpg);
+  background-image: linear-gradient(rgba(243, 243, 243, 0.55), rgba(243, 243, 243, 0.55)), url(../images/hero-bg.jpg);
   background-repeat: no-repeat;
-  width: 1440px;
-  margin: 0 auto;
-  left: -47px;
-  top: 0;
+  width: 100%;
+  background-size: cover;
 }
 
 .header_item:not(:last-child) {
@@ -126,6 +125,21 @@ a {
   color: var(--primery-color);
   font-size: 15px;
   letter-spacing: 0;
+}
+
+.header_nav-link:hover {
+  font-weight: 600;
+  padding-bottom: 2px;
+}
+
+.header_nav-link:hover::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: var(--primery-color);
+  border-radius: 2px;
 }
 
 .header_item {
@@ -159,9 +173,10 @@ a {
 .hero {
   padding-top: 155px;
   padding-bottom: 206px;
-  background-image: linear-gradient(rgba(243, 243, 243, 0.55), rgba(243, 243, 243, 0.55)), url(../../images/hero-bg.jpg);
+  background-image: linear-gradient(rgba(243, 243, 243, 0.55), rgba(243, 243, 243, 0.55)), url(../images/hero-bg.jpg);
   background-repeat: no-repeat;
-  max-width: 1440px;
+  width: 100%;
+  background-size: cover;
   margin: 0 auto;
 }
 
@@ -404,6 +419,7 @@ a {
 .portfolio_item:hover {
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .portfolio_item:hover .icon_box {
@@ -456,9 +472,10 @@ a {
 
 /** @format */
 .testimonials {
-  background-image: linear-gradient(rgba(222, 222, 222, 0.6), rgba(222, 222, 222, 0.6)), url(../../images/testimonial-bg.png);
+  background-image: linear-gradient(rgba(222, 222, 222, 0.6), rgba(222, 222, 222, 0.6)), url(../images/testimonial-bg.png);
   background-repeat: no-repeat;
-  max-width: 1440px;
+  width: 100%;
+  background-size: cover;
   margin: 0 auto;
   padding: 80px 0;
 }
@@ -621,6 +638,7 @@ a {
 .map_icon {
   height: 45px;
   width: 45px;
+  margin-right: 15px;
 }
 
 .form-input {
@@ -691,9 +709,8 @@ a {
   z-index: 11;
   background-color: #f8f8f8;
   border-top: 1px solid #dddddd;
-  width: 1440px;
+  width: 100%;
   margin: 0 auto;
-  left: -42px;
   bottom: 0;
 }
 
@@ -839,7 +856,7 @@ a {
 .author_icon {
   position: absolute;
   top: 0;
-  right: 0;
+  right: -100px;
   height: 40px;
   width: 40px;
   fill: #d8d8d8;
@@ -1176,6 +1193,7 @@ a {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  cursor: pointer;
 }
 
 .button-dark:hover {
@@ -1196,6 +1214,7 @@ a {
   justify-content: center;
   cursor: pointer;
   border: 1px solid var(--primery-color);
+  cursor: pointer;
 }
 
 .button-light:hover {
@@ -1209,6 +1228,7 @@ a {
   border: 1px solid var(--primery-color);
   border-radius: 5px;
   background-color: var(--white-color);
+  cursor: pointer;
 }
 
 .button-arrow:hover {
@@ -1219,12 +1239,15 @@ a {
   width: 18px;
   height: 18px;
   transform: rotate(90deg);
+  cursor: pointer;
 }
 
 .arrow_icon_rigth {
+  margin: 0 auto;
   width: 18px;
   height: 18px;
   transform: rotate(270deg);
+  cursor: pointer;
 }
 
 /** @format */
