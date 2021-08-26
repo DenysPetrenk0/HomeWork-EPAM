@@ -1,0 +1,161 @@
+/** @format */
+.search {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 52px;
+  margin-bottom: 30px;
+
+  &_icon {
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    fill: var(--primery-color);
+    margin-right: 15px;
+  }
+}
+
+.search_imput {
+  box-sizing: border-box;
+  display: inline-block;
+  height: 45px;
+  width: 320px;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  padding-left: 10px;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    border: 1px solid var(--primery-color);
+  }
+
+  &::placeholder {
+    font-family: Hind Siliguri;
+    color: var(--primery-color);
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 1.66;
+  }
+}
+
+.blog {
+  position: relative;
+  display: flex;
+  margin-bottom: 50px;
+  border-radius: 5px;
+  background-color: #fcf6f6;
+
+  &_info {
+    position: relative;
+    margin-left: 40px;
+  }
+
+  &_play_icon {
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    height: 72px;
+    width: 72px;
+  }
+
+  &:hover {
+    box-shadow: 0 3px 10px 0 #6d6d6d;
+  }
+}
+
+.author {
+  display: flex;
+  margin-bottom: 35px;
+  padding-top: 15px;
+
+  &_name {
+    font-family: Hind Siliguri;
+    color: var(--primery-color);
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.64;
+  }
+
+  &_img {
+    margin-right: 15px;
+    height: 52px;
+    width: 52px;
+  }
+
+  &_blog_title {
+    font-family: Hind Siliguri;
+    color: var(--primery-color);
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.3;
+    margin-bottom: 23px;
+  }
+
+  &_blog_text {
+    font-family: Hind Siliguri;
+    color: var(--primery-color);
+    font-size: 17px;
+    letter-spacing: 0;
+    line-height: 1.52;
+    margin-bottom: 30px;
+    max-width: 460px;
+
+    &_comment {
+      font-family: Hind Siliguri;
+      color: var(--primery-color);
+      font-size: 17px;
+      letter-spacing: 0;
+      line-height: 1.52;
+      margin-bottom: 30px;
+      max-width: 1033px;
+    }
+  }
+
+  &_btn {
+    height: 45px;
+    width: 121px;
+  }
+
+  &_icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    fill: #d8d8d8;
+    margin-top: 15px;
+    margin-right: 20px;
+  }
+}
+
+.star_icon {
+  height: 14px;
+  width: 14px;
+}
+
+.read-more {
+  text-align: center;
+  margin-top: 75px;
+  margin-bottom: 80px;
+
+  &_btn {
+    margin: 0 auto;
+  }
+}
+
+.blog_comment {
+  position: relative;
+  padding: 17px 27px;
+
+  &_author {
+    display: flex;
+    margin-bottom: 40px;
+  }
+}

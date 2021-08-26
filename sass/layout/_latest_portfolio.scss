@@ -1,0 +1,90 @@
+/** @format */
+.latest_portfolio {
+  padding-bottom: 60px;
+}
+
+.portfolio_list {
+  display: flex;
+  margin-right: -40px;
+  margin-bottom: 40px;
+}
+
+.portfolio_item {
+  position: relative;
+  flex-basis: calc((100% - 80px) / 3);
+  margin-right: 40px;
+
+  &_title {
+    font-family: Hind Siliguri;
+    color: var(--white-color);
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &_text {
+    font-family: Hind Siliguri;
+    color: var(--white-color);
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 1.66;
+    text-align: center;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+  }
+
+  &:hover .icon_box {
+    display: flex;
+  }
+}
+
+.text_box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.box-btn_arrow {
+  display: flex;
+  justify-content: space-between;
+  width: 360px;
+  margin: 0 auto 40px;
+}
+
+.btn-all-works {
+  margin: 0 auto;
+  height: 45px;
+  width: 136px;
+}
+
+.icon_box {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 101px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.portfolio_icon {
+  height: 17px;
+  width: 17px;
+  fill: #ffffff;
+
+  &:not(:last-child) {
+    margin-right: 25px;
+  }
+}

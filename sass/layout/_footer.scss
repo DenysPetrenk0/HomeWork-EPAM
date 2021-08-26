@@ -1,0 +1,25 @@
+/** @format */
+.footer {
+  position: fixed;
+  z-index: 11;
+  background-color: #f8f8f8;
+  border-top: 1px solid #dddddd;
+  width: 1440px;
+  margin: 0 auto;
+  left: -42px;
+  bottom: 0;
+}
+
+.footer_box {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 0;
+
+  &_text {
+    font-family: Hind Siliguri;
+    color: #333333;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 1.66;
+  }
+}
