@@ -1,0 +1,53 @@
+/** @format */
+.hero {
+  padding-top: 155px;
+  padding-bottom: 206px;
+  background-image: linear-gradient(
+      rgba(243, 243, 243, 0.55),
+      rgba(243, 243, 243, 0.55)
+    ),
+    url(../images/hero-bg.jpg);
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: cover;
+  margin: 0 auto;
+}
+
+.hero_title {
+  font-family: Hind Siliguri;
+  color: var(--primery-color);
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.32;
+  margin-bottom: 22px;
+  max-width: 416px;
+}
+
+.hero_text {
+  font-family: Hind Siliguri;
+  color: var(--primery-color);
+  font-size: 17px;
+  letter-spacing: 0;
+  line-height: 1.52;
+  margin-bottom: 22px;
+  max-width: 660px;
+}
+
+.hero_btn {
+  display: flex;
+
+  & .button-dark {
+    margin-right: 25px;
+  }
+
+  &_dark {
+    width: 100px;
+    height: 45px;
+  }
+
+  &_ligth {
+    width: 125px;
+    height: 45px;
+  }
+}

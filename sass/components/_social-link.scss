@@ -1,0 +1,14 @@
+/** @format */
+
+.social_list {
+  display: flex;
+}
+
+.social_item:not(:last-child) {
+  margin-right: 25px;
+}
+
+.social_icon {
+  height: 23px;
+  width: 23px;
+}

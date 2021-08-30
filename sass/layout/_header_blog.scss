@@ -1,0 +1,36 @@
+/** @format */
+.header_blog {
+  width: 1440px;
+}
+
+.logo {
+  color: var(--primery-color);
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 1.64;
+}
+
+.header_nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.header_list {
+  display: flex;
+}
+
+.header_item:not(:last-child) {
+  margin-right: 40px;
+}
+
+.header_nav-link {
+  font-family: Hind Siliguri;
+  color: var(--primery-color);
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 1.66;
+}

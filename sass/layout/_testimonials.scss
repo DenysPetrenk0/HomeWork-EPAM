@@ -1,0 +1,55 @@
+/** @format */
+.testimonials {
+  background-image: linear-gradient(
+      rgba(222, 222, 222, 0.6),
+      rgba(222, 222, 222, 0.6)
+    ),
+    url(../images/testimonial-bg.png);
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: cover;
+  margin: 0 auto;
+  padding: 80px 0;
+
+  & .title {
+    margin-bottom: 65px;
+  }
+}
+
+.testimoials_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimoials-box {
+  display: flex;
+  justify-content: center;
+  padding: 0 30px;
+
+  &_user {
+    height: 265px;
+    width: 280px;
+    background-color: #494a4d;
+  }
+
+  &_citation {
+    font-family: Hind Siliguri;
+    color: var(--white-color);
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.52;
+    margin-bottom: 37px;
+    padding: 60px 40px 0 48px;
+  }
+
+  &_text {
+    font-family: Hind Siliguri;
+    color: var(--white-color);
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 1.66;
+    padding-left: 48px;
+  }
+}
