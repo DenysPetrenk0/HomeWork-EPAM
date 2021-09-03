@@ -1,15 +1,16 @@
 /** @format */
+.latest-posts {
+  &__list {
+    display: flex;
+    margin-right: -40px;
+  }
 
-.latest_posts-list {
-  display: flex;
-  margin-right: -40px;
-}
+  &__item {
+    flex-basis: calc((100% - 80px) / 3);
+    margin-right: 40px;
+  }
 
-.latest_posts-item {
-  flex-basis: calc((100% - 80px) / 3);
-  margin-right: 40px;
-
-  &_title {
+  &__title {
     font-family: Hind Siliguri;
     color: var(--primery-color);
     font-size: 19px;
@@ -20,7 +21,7 @@
     padding-bottom: 5px;
   }
 
-  &_text {
+  &__text {
     font-family: Hind Siliguri;
     color: var(--primery-color);
     font-size: 14px;
@@ -29,7 +30,7 @@
     padding-bottom: 32px;
   }
 
-  &_comment {
+  &__comment {
     font-family: Hind Siliguri;
     color: var(--comment-color);
     font-size: 15px;

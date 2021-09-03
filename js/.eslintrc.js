@@ -1,0 +1,12 @@
+/** @format */
+
+module.exports = {
+  extends: "google",
+  rules: {
+    "no-console": "off",
+    "linebreak-style": "off",
+  },
+  env: {
+    es6: true,
+  },
+};
