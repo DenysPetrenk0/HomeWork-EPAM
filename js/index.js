@@ -57,7 +57,7 @@ const tickets = (persons) => {
   return "YES";
 };
 
-console.log(tickets([25, 100]));
+// console.log(tickets([25, 100]));
 
 const getSum = (number1, number2) => {
   let sum = [];
@@ -157,3 +157,58 @@ const getQuantityPostsByAuthor = (listOfPosts, authorName) => {
 //     author: "Uncle",
 //   },
 // ];
+// ============================================= HW_04=======================================================
+
+let complexFunction = function (arg1, arg2) {
+  return arg1 + arg2;
+};
+
+const cache = (func) => func.bind(null);
+
+let cachedFunction = cache(complexFunction);
+
+// console.log(complexFunction("foo", "bar"));
+// console.log(complexFunction("foo", "bar"));
+// console.log(complexFunction("foo", "baz"));
+
+const ladder = {
+  step: 0,
+
+  up() {
+    this.step += 1;
+    return this;
+  },
+
+  down() {
+    this.step -= 1;
+    return this;
+  },
+
+  showStep() {
+    console.log(this.step);
+    return this;
+  },
+};
+
+// ladder.up().up().down().up().showStep();
+
+const mathSum = (args) => {
+  return args.reduce.call(args, (arg, relust) => relust + arg, 0);
+};
+
+const mathMul = (args) => {
+  return args.reduce.call(args, (arg, relust) => relust * arg, 1);
+};
+
+const applyAllES6 = (func, ...args) => func.call(null, args);
+
+// console.log(applyAllES6(mathSum, 1, 2, 3));
+// console.log(applyAllES6(mathMul, 2, 3, 4));
+
+function applyAll(func) {
+  var args = [].slice.call(arguments, 1);
+  return func.call(null, args);
+}
+
+// console.log(applyAll(mathSum, 1, 2, 3));
+// console.log(applyAll(mathMul, 2, 3, 4));
