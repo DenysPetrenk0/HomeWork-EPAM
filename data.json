@@ -1,0 +1,19 @@
+{
+  "posts": [
+    {
+      "img": { "src": "./images/post1.png", "width": 360 },
+      "h3": "In the Future We Will All Live in Star Wars",
+      "text": "The thing you’re doing now, reading prose on a screen, is going out of fashion. The defining narrative of our online moment concerns the decline of text, and the exploding reach and power of audio and video…"
+    },
+    {
+      "img": { "src": "./images/post2.png", "width": 360 },
+      "h3": "Rubik’s Cube? No, Robotics and AI are…",
+      "text": "In other words, I will try to de-hype the crowd about the recent development in robotics. Concretely, OpenAI has claimed some pretty amazing results with learning to solve the Rubik’s cube with a robotic hand…"
+    },
+    {
+      "img": { "src": "./images/post3.png", "width": 360 },
+      "h3": "How the Internet of Things will Transfo…",
+      "text": "The Internet of Things (IoT) promises to be the most important technological development for consumers since the advent of the smartphone. Experts believe that this collection of internet-connected technolog…"
+    }
+  ]
+}
