@@ -1,19 +1,144 @@
-{
-  "posts": [
-    {
-      "img": { "src": "./images/post1.png", "width": 360 },
-      "h3": "In the Future We Will All Live in Star Wars",
-      "text": "The thing you’re doing now, reading prose on a screen, is going out of fashion. The defining narrative of our online moment concerns the decline of text, and the exploding reach and power of audio and video…"
+const data = {
+  "header": {
+    "content": [],
+  },
+  "hero": {
+    "title": {
+      "primary": "Ideas and perspectives you won’t find anywhere else",
+      "second":
+        "BlogWorld taps into the brains of the world’s most insightful writers, thinkers, and storytellers to bring you the smartest takes on topics that matter. So whatever your interest, you can always find fresh thinking and unique perspectives.",
     },
-    {
-      "img": { "src": "./images/post2.png", "width": 360 },
-      "h3": "Rubik’s Cube? No, Robotics and AI are…",
-      "text": "In other words, I will try to de-hype the crowd about the recent development in robotics. Concretely, OpenAI has claimed some pretty amazing results with learning to solve the Rubik’s cube with a robotic hand…"
+    "content": [],
+  },
+  "about": {
+    "title": {
+      "primary": "About us",
+      "second":
+        "Put there articles successfully special warrant submit agree what along then",
     },
-    {
-      "img": { "src": "./images/post3.png", "width": 360 },
-      "h3": "How the Internet of Things will Transfo…",
-      "text": "The Internet of Things (IoT) promises to be the most important technological development for consumers since the advent of the smartphone. Experts believe that this collection of internet-connected technolog…"
-    }
-  ]
+    "content": {
+      "exampel": [
+        {
+          "img": "./images/atoms/a-icon-typography.svg",
+          "text": "Typography",
+          "nameClass": "typography",
+        },
+        {
+          "img": "./images/atoms/a-icon-iconset.svg",
+          "text": "Icon set",
+          "nameClass": "icon-set",
+        },
+        {
+          "img": "./images/atoms/a-icon-accurate.svg",
+          "text": "Accurate",
+          "nameClass": "accurate",
+        },
+      ],
+      "images": {
+        "src": "./images/about-us.png",
+        "alt": "video",
+        "width": 860,
+      },
+    },
+  },
+  "latestPosts": {
+    "title": {
+      "primary": "Latest posts",
+      "second":
+        "   Information is a source of learning. But unless it is organized, processed and available to the right people",
+    },
+    "content": [
+      {
+        "img": { "src": "./images/post1.png", "width": 360 },
+        "h3": "In the Future We Will All Live in Star Wars",
+        "text": "The thing you’re doing now, reading prose on a screen, is going out of fashion. The defining narrative of our online moment concerns the decline of text, and the exploding reach and power of audio and video…",
+        "description": { "date": "20 oct, 2019", "time": "10 min read", "commetn": 11 },
+      },
+      {
+        "img": { "src": "./images/post2.png", "width": 360 },
+        "h3": "Rubik’s Cube? No, Robotics and AI are…",
+        "text": "In other words, I will try to de-hype the crowd about the recent development in robotics. Concretely, OpenAI has claimed some pretty amazing results with learning to solve the Rubik’s cube with a robotic hand…",
+        "description": { "date": "11 oct, 2019", "time": "7 min read", "commetn": 19 },
+      },
+      {
+        "img": { "src": "./images/post3.png", "width": 360 },
+        "h3": "How the Internet of Things will Transfo…",
+        "text": "The Internet of Things (IoT) promises to be the most important technological development for consumers since the advent of the smartphone. Experts believe that this collection of internet-connected technolog…",
+        "description": { "date": "28 sep, 2019", "time": "16 min read", "commetn": 41 },
+      },
+    ],
+  },
+  "portfolio": {
+    "title": {
+      "primary": "Latest portfolio",
+      "second":
+        "Put there articles successfully special warrant submit agree what along then",
+    },
+    "content": [
+      {
+        "img": "./images/portfolio1.png",
+        "h3": "Art Ocean",
+        "text": "Photography, art, nature",
+      },
+      {
+        "img": "./images/portfolio2.png",
+        "h3": "City guide",
+        "text": "Photography, city, way",
+      },
+      {
+        "img": "./images/portfolio3.png",
+        "h3": "Mountains",
+        "text": "Art, hiking",
+      },
+    ],
+  },
+  "testimonials": {
+    "title": {
+      "primary": "Testimonials",
+      "second": "",
+    },
+    "content": [
+      {
+        "text": "We move at a fast pace. I’m always working on something. I am excited about it!",
+        "name": "Martin Oda",
+        "profession": "Product desgner",
+        "image":"./images/user.png",
+      }
+    ],
+      },
+  "contact": {
+    "title": {
+      "primary": "Contact us",
+      "second":
+        "Put there articles successfully special warrant submit agree what along then",
+    },
+    "content": 
+   {
+     "step": 
+     { 
+      "stepTitle": "What will be next step?",
+      "stepList": [
+        {
+          "title": "We’ll prepare a proposal",
+          "text": "Required scope, timeline and apr. price will be included if you provide us with detail information about a project."
+        },
+        {
+          "title": "Together we discuss it",
+          "text": "Let’s get acquainted and discuss all the possible variant and options. Google Hangouts or Skype usually wirks great."
+        },
+        {
+          "title": "Let’s start building",
+          "text": " When the contract is signed and all goals are set we can start the first sprint."
+        },
+      ],
+    },
+    "map": {
+      "text": " Write us a few words about your project and we will prepare proposal for you within 24 hours",
+      "src": "./images/map.png"
+    },
 }
+  },
+  "footer": {
+    "content": [],
+  },
+};

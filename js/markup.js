@@ -1,103 +1,16 @@
 /** @format */
-const data = {
-  header: {
-    content: [],
-  },
-  hero: {
-    title: {
-      primary: "Contact us",
-      second:
-        "Put there articles successfully special warrant submit agree what along then",
-    },
-    content: [],
-  },
-  about: {
-    title: {
-      primary: "Contact us",
-      second:
-        "Put there articles successfully special warrant submit agree what along then",
-    },
-    content: [],
-  },
-  latestPosts: {
-    title: {
-      primary: "Latest posts",
-      second:
-        "   Information is a source of learning. But unless it is organized, processed and available to the right people",
-    },
-    content: [
-      {
-        img: { src: "./images/post1.png", width: 360 },
-        h3: "In the Future We Will All Live in Star Wars",
-        text: "The thing you’re doing now, reading prose on a screen, is going out of fashion. The defining narrative of our online moment concerns the decline of text, and the exploding reach and power of audio and video…",
-        description: { date: "20 oct, 2019", time: "10 min read", commetn: 11 },
-      },
-      {
-        img: { src: "./images/post2.png", width: 360 },
-        h3: "Rubik’s Cube? No, Robotics and AI are…",
-        text: "In other words, I will try to de-hype the crowd about the recent development in robotics. Concretely, OpenAI has claimed some pretty amazing results with learning to solve the Rubik’s cube with a robotic hand…",
-        description: { date: "11 oct, 2019", time: "7 min read", commetn: 19 },
-      },
-      {
-        img: { src: "./images/post3.png", width: 360 },
-        h3: "How the Internet of Things will Transfo…",
-        text: "The Internet of Things (IoT) promises to be the most important technological development for consumers since the advent of the smartphone. Experts believe that this collection of internet-connected technolog…",
-        description: { date: "28 sep, 2019", time: "16 min read", commetn: 41 },
-      },
-    ],
-  },
-  portfolio: {
-    title: {
-      primary: "Latest portfolio",
-      second:
-        "Put there articles successfully special warrant submit agree what along then",
-    },
-    content: [
-      {
-        img: "./images/portfolio1.png",
-        h3: "Art Ocean",
-        text: "Photography, art, nature",
-      },
-      {
-        img: "./images/portfolio2.png",
-        h3: "City guide",
-        text: "Photography, city, way",
-      },
-      {
-        img: "./images/portfolio3.png",
-        h3: "Mountains",
-        text: "Art, hiking",
-      },
-    ],
-  },
-  testimonials: {
-    title: {
-      primary: "Testimonials",
-      second: "",
-    },
-    content: [],
-  },
-  contact: {
-    title: {
-      primary: "Contact us",
-      second:
-        "Put there articles successfully special warrant submit agree what along then",
-    },
-    content: [],
-  },
-  footer: {
-    content: [],
-  },
-};
 console.log(data);
 
 const refs = {
+  hero: document.querySelector("#home"),
   latestPosts: document.querySelector("#latest-posts"),
   portfolio: document.querySelector("#portfolio"),
+  about: document.querySelector("#about"),
+  testimonials: document.querySelector("#testimonials"),
+  contact: document.querySelector("#contact"),
 };
 
 const markupTitle = (value, borderClass) => {
-  console.log(value);
   let div = document.createElement("div");
   let border = document.createElement("div");
   let h2 = document.createElement("h2");
@@ -114,10 +27,10 @@ const markupTitle = (value, borderClass) => {
   return div;
 };
 
-const button = (classBtn) => {
+const createButton = (classBtn) => {
   const btn = document.createElement("button");
   btn.className = classBtn;
-  btn.setAttribute("type", button);
+  btn.setAttribute("type", "button");
 
   return btn;
 };
@@ -155,12 +68,149 @@ const markupDescription = (value) => {
   return div;
 };
 
+const social = [
+  {
+    href: "https://www.facebook.com/",
+    icon: "./images/atoms/a-icon-facebook.svg",
+  },
+  {
+    href: "https://www.instagram.com/",
+    icon: "./images/atoms/a-icon-instagram.svg",
+  },
+  {
+    href: "https://dribbble.com/",
+    icon: "./images/atoms/a-icon-dribbble.svg",
+  },
+];
+
+const markupSocialLink = () => {
+  const ul = document.createElement("ul");
+  ul.className = "social_list";
+
+  social.forEach((elem) => {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    const div = document.createElement("div");
+    const img = document.createElement("img");
+
+    li.className = "social_item";
+    a.className = "social_link";
+    div.className = "social_icon";
+
+    a.setAttribute("href", elem.href);
+    a.setAttribute("target", "_blank");
+    img.setAttribute("src", elem.icon);
+    img.setAttribute("alt", "icon");
+
+    div.append(img);
+    a.append(div);
+    li.append(a);
+    ul.append(li);
+  });
+  return ul;
+};
+
+const markupHeader = () => {
+  const container = document.createElement("div");
+
+  container.className = "container";
+  return container;
+};
+
+const markupHero = () => {
+  const container = document.createElement("div");
+  const btnContainer = document.createElement("div");
+  const title = document.createElement("h1");
+  const text = document.createElement("p");
+  const firstBtn = createButton("button-dark hero__btn__dark");
+  const secondBtn = createButton("button-light hero__btn__ligth");
+
+  container.className = "container";
+  btnContainer.className = "hero__btn";
+  title.className = "hero__title";
+  text.className = "hero__text";
+
+  title.textContent = data.hero.title.primary;
+  text.textContent = data.hero.title.second;
+  firstBtn.textContent = "Explore";
+  secondBtn.textContent = "Learn more";
+
+  btnContainer.append(firstBtn);
+  btnContainer.append(secondBtn);
+
+  container.append(title);
+  container.append(text);
+  container.append(btnContainer);
+
+  return container;
+};
+
+const markupAbout = () => {
+  const container = document.createElement("div");
+  const aboutcontainer = document.createElement("div");
+  const aboutImg = document.createElement("div");
+  const divIcon = document.createElement("div");
+  const p = document.createElement("p");
+  const img = document.createElement("img");
+  const imgIconPlay = document.createElement("img");
+  const ul = document.createElement("ul");
+
+  container.className = "container";
+  ul.className = "about__examples";
+  divIcon.className = "play__icon";
+  p.className = "text";
+  aboutImg.className = "about__image__container";
+  img.className = "about__img";
+  aboutcontainer.className = "about__container";
+
+  p.textContent = data.about.title.second;
+  img.setAttribute("src", data.about.content.images.src);
+  img.setAttribute("alt", data.about.content.images.alt);
+  img.setAttribute("width", data.about.content.images.width);
+  imgIconPlay.setAttribute("src", "./images/atoms/a-icon-play.svg");
+  imgIconPlay.setAttribute("alt", "icon");
+
+  data.about.content.exampel.forEach((elem, idx) => {
+    const li = document.createElement("li");
+    const img = document.createElement("img");
+    const div = document.createElement("div");
+    const divCorner = document.createElement("div");
+    const p = document.createElement("p");
+
+    li.className = elem.nameClass;
+    div.className = "about__icon";
+    p.className = "about__text";
+    divCorner.className = idx % 2 === 0 ? "right__box" : "left__box";
+
+    img.setAttribute("src", elem.img);
+    img.setAttribute("alt", "icon");
+    p.textContent = elem.text;
+
+    div.append(img);
+    li.append(div);
+    li.append(p);
+    li.append(divCorner);
+    ul.append(li);
+  });
+
+  divIcon.append(imgIconPlay);
+  aboutImg.append(img);
+  aboutImg.append(divIcon);
+  aboutcontainer.append(ul);
+  aboutcontainer.append(aboutImg);
+  container.append(markupTitle(data.about.title.primary, "title_border-about"));
+  container.append(p);
+  container.append(aboutcontainer);
+
+  return container;
+};
+
 const markupLatestPosts = () => {
-  const containet = document.createElement("div");
+  const container = document.createElement("div");
   const ul = document.createElement("ul");
   const p = document.createElement("p");
 
-  containet.className = "container";
+  container.className = "container";
   p.className = "text";
   ul.className = "latest-posts__list";
 
@@ -188,28 +238,28 @@ const markupLatestPosts = () => {
     ul.append(li);
   });
 
-  containet.append(
+  container.append(
     markupTitle(data.latestPosts.title.primary, "title_border-latest_posts")
   );
-  containet.append(p);
-  containet.append(ul);
+  container.append(p);
+  container.append(ul);
 
-  return containet;
+  return container;
 };
 
 const markupPortfolio = () => {
-  const containet = document.createElement("div");
+  const container = document.createElement("div");
   const boxBtnArrow = document.createElement("div");
   const divIconBtnLeft = document.createElement("div");
   const divIconBtnRight = document.createElement("div");
   const ul = document.createElement("ul");
   const p = document.createElement("p");
   const imgIconBtn = document.createElement("img");
-  const btn = button("button-light btn-all-works");
-  const btnArrowLeft = button("button-arrow");
-  const btnArrowRigth = button("button-arrow");
+  const btn = createButton("button-light btn-all-works");
+  const btnArrowLeft = createButton("button-arrow");
+  const btnArrowRigth = createButton("button-arrow");
 
-  containet.className = "container";
+  container.className = "container";
   p.className = "text";
   ul.className = "portfolio__list";
   boxBtnArrow.className = "box-btn_arrow";
@@ -271,34 +321,236 @@ const markupPortfolio = () => {
   boxBtnArrow.append(btnArrowLeft);
   boxBtnArrow.append(btnArrowRigth);
 
-  containet.append(
+  container.append(
     markupTitle(data.portfolio.title.primary, "title_border-portfolio")
   );
-  containet.append(p);
-  containet.append(ul);
-  containet.append(boxBtnArrow);
-  containet.append(btn);
+  container.append(p);
+  container.append(ul);
+  container.append(boxBtnArrow);
+  container.append(btn);
 
-  return containet;
+  return container;
 };
 
 const markupTestimonials = () => {
-  const containet = document.createElement("div");
+  const container = document.createElement("div");
+  const testimonialsContainer = document.createElement("div");
+  const testimonialsBox = document.createElement("ul");
+  const divIconBtnLeft = document.createElement("div");
+  const divIconBtnRight = document.createElement("div");
+  const btnLeft = createButton("button-arrow");
+  const btnRight = createButton("button-arrow");
+  const imgIconBtn = document.createElement("img");
 
-  containet.className = "container";
-  return containet;
+  container.className = "container";
+  testimonialsContainer.className = "testimonials__container";
+  divIconBtnLeft.className = "arrow_icon_left";
+  divIconBtnRight.className = "arrow_icon_rigth";
+
+  imgIconBtn.setAttribute("src", "./images/atoms/a-icon-arrow.svg");
+  imgIconBtn.setAttribute("alt", "icon");
+
+  data.testimonials.content.forEach((elem) => {
+    const testimonialsUser = document.createElement("li");
+    const userPhoto = document.createElement("img");
+    const userDiscrp = document.createElement("div");
+    const userText = document.createElement("p");
+    const userName = document.createElement("p");
+
+    testimonialsUser.className = "testimonials__box";
+    userDiscrp.className = "testimonials__box_user";
+    userText.className = "testimonials__box_citation";
+    userName.className = "testimonials__box_text";
+
+    const userProf = userName.cloneNode(false);
+
+    userPhoto.setAttribute("src", elem.image);
+    userPhoto.setAttribute("alt", "user photo");
+    userPhoto.setAttribute("width", 280);
+    userText.textContent = elem.text;
+    userName.textContent = elem.name;
+    userProf.textContent = elem.profession;
+
+    userDiscrp.append(userText);
+    userDiscrp.append(userName);
+    userDiscrp.append(userProf);
+
+    testimonialsUser.append(userDiscrp);
+    testimonialsUser.append(userPhoto);
+    testimonialsBox.append(testimonialsUser);
+  });
+
+  divIconBtnLeft.append(imgIconBtn);
+  divIconBtnRight.append(imgIconBtn.cloneNode(false));
+  btnLeft.append(divIconBtnLeft);
+  btnRight.append(divIconBtnRight);
+
+  testimonialsContainer.append(btnLeft);
+  testimonialsContainer.append(testimonialsBox);
+  testimonialsContainer.append(btnRight);
+  container.append(
+    markupTitle(data.testimonials.title.primary, "title_border-testimonials")
+  );
+  container.append(testimonialsContainer);
+  return container;
 };
 
 const markupContact = () => {
-  const containet = document.createElement("div");
+  const container = document.createElement("div");
+  const contactContainer = document.createElement("div");
+  const stepBox = document.createElement("div");
+  const mapBox = document.createElement("div");
+  const formBox = document.createElement("div");
+  const mapTextBox = document.createElement("div");
+  const p = document.createElement("p");
+  const mapText = document.createElement("p");
+  const formText = document.createElement("p");
+  const stepTitle = document.createElement("h3");
+  const stepList = document.createElement("ul");
+  const iconBox = document.createElement("div");
+  const imgIcon = document.createElement("img");
+  const imgMap = document.createElement("img");
+  const iconHidepass = document.createElement("img");
+  const form = document.createElement("form");
+  const labelText = document.createElement("label");
+  const spanText = document.createElement("span");
+  const hidepass = document.createElement("span");
+  const hidepassIcon = document.createElement("span");
+  const hidepassText = document.createElement("span");
+  const inputText = document.createElement("input");
+  const btnForm = createButton("button-dark form_contact-us_btn");
+  const linkEmail = document.createElement("a");
 
-  containet.className = "container";
-  return containet;
+  container.className = "container";
+  contactContainer.className = "contact_us-box";
+  stepBox.className = "step_box";
+  mapBox.className = "map_box";
+  formBox.className = "form-box";
+  mapTextBox.className = "map_text-box";
+  p.className = "text";
+  stepTitle.className = "title_step";
+  stepList.className = "step_list";
+  mapText.className = "map-text";
+  iconBox.className = "map_icon";
+  form.className = "form_contact-us";
+  labelText.className = "form_field";
+  spanText.className = "input_text";
+  inputText.className = "form-input";
+  hidepass.className = "hidepass";
+  hidepassIcon.className = "hidepass_icon";
+  hidepassText.className = "hidepass_text";
+  formText.className = "form_text";
+
+  p.textContent = data.contact.title.second;
+  stepTitle.textContent = data.contact.content.step.stepTitle;
+  mapText.textContent = data.contact.content.map.text;
+  imgIcon.setAttribute("src", "./images/atoms/a-icon-mail.svg");
+  imgIcon.setAttribute("alt", "icon");
+  imgMap.setAttribute("src", data.contact.content.map.src);
+  imgMap.setAttribute("alt", "map");
+  imgMap.setAttribute("width", 380);
+  form.setAttribute("action", "#");
+  spanText.textContent = "Your name";
+  inputText.setAttribute("type", "text");
+  inputText.setAttribute("name", "user-name");
+  inputText.setAttribute("required", "required");
+  iconHidepass.setAttribute("src", "./images/atoms/a-icon-hidepass.svg");
+  iconHidepass.setAttribute("alt", "icon");
+  hidepassText.textContent = "show";
+  btnForm.setAttribute("type", "submit");
+  btnForm.textContent = "Send message";
+  formText.textContent = "If you need to have a DNA first, just contact us at ";
+  linkEmail.textContent = "email@gmail.com";
+  linkEmail.setAttribute("href", "mailto:email@gmail.com");
+
+  const labeltEmail = labelText.cloneNode(true);
+  const inputEmail = inputText.cloneNode(true);
+  const spanEmail = spanText.cloneNode(true);
+  spanEmail.textContent = "Email";
+  const labelPassword = labelText.cloneNode(true);
+  const inputPassword = inputText.cloneNode(true);
+  const spanPassword = spanText.cloneNode(true);
+  spanPassword.textContent = "Password";
+
+  data.contact.content.step.stepList.forEach((elem, idx) => {
+    const stepItem = document.createElement("li");
+    const stepItemTitle = document.createElement("p");
+    const stepItemText = document.createElement("p");
+    const ovalBox = document.createElement("div");
+    const ovalBorder = document.createElement("div");
+    const ovalPoint = document.createElement("div");
+
+    stepItem.className = "step_item";
+    stepItemTitle.className = "step_title";
+    stepItemText.className = "step_text";
+    ovalBox.className = "oval_box";
+    ovalBorder.className = "oval_border";
+    ovalPoint.className = "oval_border_center";
+
+    stepItemTitle.textContent = `${idx + 1}. ${elem.title}`;
+    stepItemText.textContent = elem.text;
+
+    ovalBorder.append(ovalPoint);
+    ovalBox.append(ovalBorder);
+    stepItem.append(ovalBox);
+    stepItem.append(stepItemTitle);
+    stepItem.append(stepItemText);
+    stepList.append(stepItem);
+  });
+
+  iconBox.append(imgIcon);
+  mapTextBox.append(iconBox);
+  mapTextBox.append(mapText);
+  stepBox.append(markupSocialLink());
+  stepBox.append(stepTitle);
+  stepBox.append(stepList);
+  mapBox.append(mapTextBox);
+  labelText.append(spanText);
+  labelText.append(inputText);
+  labeltEmail.append(spanEmail);
+  labeltEmail.append(inputEmail);
+  hidepass.append(spanPassword);
+  hidepassIcon.append(iconHidepass);
+  hidepass.append(hidepassIcon);
+  hidepass.append(hidepassText);
+  labelPassword.append(hidepass);
+  labelPassword.append(inputPassword);
+  formText.append(linkEmail);
+  form.append(labelText);
+  form.append(labeltEmail);
+  form.append(labelPassword);
+  form.append(btnForm);
+  form.append(formText);
+
+  formBox.append(form);
+  formBox.append(imgMap);
+  mapBox.append(formBox);
+
+  container.append(
+    markupTitle(data.contact.title.primary, "title_border-contact_us")
+  );
+  container.append(p);
+  container.append(contactContainer);
+  contactContainer.append(stepBox);
+  contactContainer.append(mapBox);
+
+  return container;
+};
+
+const markupFooter = () => {
+  const container = document.createElement("div");
+
+  container.className = "container";
+  return container;
 };
 
 const renderMarkup = () => {
+  refs.hero.insertAdjacentElement("beforeend", markupHero());
+  refs.about.insertAdjacentElement("beforeend", markupAbout());
   refs.latestPosts.insertAdjacentElement("beforeend", markupLatestPosts());
   refs.portfolio.insertAdjacentElement("beforeend", markupPortfolio());
+  refs.testimonials.insertAdjacentElement("beforeend", markupTestimonials());
+  refs.contact.insertAdjacentElement("beforeend", markupContact());
 };
 
 renderMarkup();
