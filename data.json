@@ -1,6 +1,35 @@
 const data = {
   "header": {
-    "content": [],
+    "logo": {
+      "img": "BlogWorld", 
+      "href": "./index.html"
+    },
+    "content": [
+      {
+        "href": "#home",
+        "name": "Home"
+      },
+      {
+        "href": "#portfolio",
+        "name": "Portfolio"
+      },
+      {
+        "href": "./blog.html",
+        "name": "Blog"
+      },
+      {
+        "href": "",
+        "name": "Pages"
+      },
+      {
+        "href": "#about",
+        "name": "About"
+      },
+      {
+        "href": "#contact",
+        "name": "Contact"
+      },
+    ],
   },
   "hero": {
     "title": {
@@ -139,6 +168,26 @@ const data = {
 }
   },
   "footer": {
-    "content": [],
+    "logo": {
+      "img": "BlogWorld",
+      "name": "./index.html",
+    },
+    "content": {
+      "text": "&copy; 2019 All Rights Reserved."
+    },
   },
+  "social":  [
+  {
+    "href": "https://www.facebook.com/",
+    "icon": "./images/atoms/a-icon-facebook.svg",
+  },
+  {
+    "href": "https://www.instagram.com/",
+    "icon": "./images/atoms/a-icon-instagram.svg",
+  },
+  {
+    "href": "https://dribbble.com/",
+    "icon": "./images/atoms/a-icon-dribbble.svg",
+  },
+]
 };

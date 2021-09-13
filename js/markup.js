@@ -2,12 +2,15 @@
 console.log(data);
 
 const refs = {
+  header: document.querySelector("#header"),
   hero: document.querySelector("#home"),
   latestPosts: document.querySelector("#latest-posts"),
   portfolio: document.querySelector("#portfolio"),
   about: document.querySelector("#about"),
   testimonials: document.querySelector("#testimonials"),
   contact: document.querySelector("#contact"),
+  footer: document.querySelector("#footer"),
+  root: document.querySelector("#root"),
 };
 
 const markupTitle = (value, borderClass) => {
@@ -68,26 +71,11 @@ const markupDescription = (value) => {
   return div;
 };
 
-const social = [
-  {
-    href: "https://www.facebook.com/",
-    icon: "./images/atoms/a-icon-facebook.svg",
-  },
-  {
-    href: "https://www.instagram.com/",
-    icon: "./images/atoms/a-icon-instagram.svg",
-  },
-  {
-    href: "https://dribbble.com/",
-    icon: "./images/atoms/a-icon-dribbble.svg",
-  },
-];
-
 const markupSocialLink = () => {
   const ul = document.createElement("ul");
   ul.className = "social_list";
 
-  social.forEach((elem) => {
+  data.social.forEach((elem) => {
     const li = document.createElement("li");
     const a = document.createElement("a");
     const div = document.createElement("div");
@@ -111,13 +99,49 @@ const markupSocialLink = () => {
 };
 
 const markupHeader = () => {
+  const header = document.createElement("header");
+  const headerContainer = document.createElement("div");
   const container = document.createElement("div");
+  const nav = document.createElement("nav");
+  const logo = document.createElement("a");
+  const ul = document.createElement("ul");
 
+  header.className = "header";
+  headerContainer.className = "header__container";
   container.className = "container";
-  return container;
+  nav.className = "header__navigation";
+  logo.className = "logo";
+  ul.className = "header__menu";
+
+  logo.textContent = data.header.logo.img;
+  logo.setAttribute("href", data.header.logo.href);
+  header.setAttribute("id", "header");
+
+  data.header.content.forEach((elem) => {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+
+    li.className = "header__menu__item";
+    a.className = "header__menu__link";
+
+    a.setAttribute("href", elem.href);
+    a.textContent = elem.name;
+
+    li.append(a);
+    ul.append(li);
+  });
+
+  nav.append(logo);
+  nav.append(ul);
+  container.append(nav);
+  headerContainer.append(container);
+  header.append(headerContainer);
+
+  return header;
 };
 
 const markupHero = () => {
+  const section = document.createElement("section");
   const container = document.createElement("div");
   const btnContainer = document.createElement("div");
   const title = document.createElement("h1");
@@ -125,11 +149,13 @@ const markupHero = () => {
   const firstBtn = createButton("button-dark hero__btn__dark");
   const secondBtn = createButton("button-light hero__btn__ligth");
 
+  section.className = "hero";
   container.className = "container";
   btnContainer.className = "hero__btn";
   title.className = "hero__title";
   text.className = "hero__text";
 
+  section.setAttribute("id", "home");
   title.textContent = data.hero.title.primary;
   text.textContent = data.hero.title.second;
   firstBtn.textContent = "Explore";
@@ -141,11 +167,13 @@ const markupHero = () => {
   container.append(title);
   container.append(text);
   container.append(btnContainer);
+  section.append(container);
 
-  return container;
+  return section;
 };
 
 const markupAbout = () => {
+  const section = document.createElement("section");
   const container = document.createElement("div");
   const aboutcontainer = document.createElement("div");
   const aboutImg = document.createElement("div");
@@ -155,6 +183,7 @@ const markupAbout = () => {
   const imgIconPlay = document.createElement("img");
   const ul = document.createElement("ul");
 
+  section.className = "about section";
   container.className = "container";
   ul.className = "about__examples";
   divIcon.className = "play__icon";
@@ -163,6 +192,7 @@ const markupAbout = () => {
   img.className = "about__img";
   aboutcontainer.className = "about__container";
 
+  section.setAttribute("id", "about");
   p.textContent = data.about.title.second;
   img.setAttribute("src", data.about.content.images.src);
   img.setAttribute("alt", data.about.content.images.alt);
@@ -201,19 +231,23 @@ const markupAbout = () => {
   container.append(markupTitle(data.about.title.primary, "title_border-about"));
   container.append(p);
   container.append(aboutcontainer);
+  section.append(container);
 
-  return container;
+  return section;
 };
 
 const markupLatestPosts = () => {
+  const section = document.createElement("section");
   const container = document.createElement("div");
   const ul = document.createElement("ul");
   const p = document.createElement("p");
 
+  section.className = "section";
   container.className = "container";
   p.className = "text";
   ul.className = "latest-posts__list";
 
+  section.setAttribute("id", "latest-posts");
   p.textContent = data.latestPosts.title.second;
 
   data.latestPosts.content.forEach((elem) => {
@@ -243,11 +277,13 @@ const markupLatestPosts = () => {
   );
   container.append(p);
   container.append(ul);
+  section.append(container);
 
-  return container;
+  return section;
 };
 
 const markupPortfolio = () => {
+  const section = document.createElement("section");
   const container = document.createElement("div");
   const boxBtnArrow = document.createElement("div");
   const divIconBtnLeft = document.createElement("div");
@@ -259,6 +295,7 @@ const markupPortfolio = () => {
   const btnArrowLeft = createButton("button-arrow");
   const btnArrowRigth = createButton("button-arrow");
 
+  section.className = "portfolio section";
   container.className = "container";
   p.className = "text";
   ul.className = "portfolio__list";
@@ -266,9 +303,9 @@ const markupPortfolio = () => {
   divIconBtnLeft.className = "arrow_icon_left";
   divIconBtnRight.className = "arrow_icon_rigth";
 
+  section.setAttribute("id", "portfolio");
   p.textContent = data.portfolio.title.second;
   btn.textContent = "See all works";
-
   imgIconBtn.setAttribute("src", "./images/atoms/a-icon-arrow.svg");
   imgIconBtn.setAttribute("alt", "icon");
 
@@ -328,11 +365,13 @@ const markupPortfolio = () => {
   container.append(ul);
   container.append(boxBtnArrow);
   container.append(btn);
+  section.append(container);
 
-  return container;
+  return section;
 };
 
 const markupTestimonials = () => {
+  const section = document.createElement("section");
   const container = document.createElement("div");
   const testimonialsContainer = document.createElement("div");
   const testimonialsBox = document.createElement("ul");
@@ -342,11 +381,13 @@ const markupTestimonials = () => {
   const btnRight = createButton("button-arrow");
   const imgIconBtn = document.createElement("img");
 
+  section.className = "testimonials";
   container.className = "container";
   testimonialsContainer.className = "testimonials__container";
   divIconBtnLeft.className = "arrow_icon_left";
   divIconBtnRight.className = "arrow_icon_rigth";
 
+  section.setAttribute("id", "testimonials");
   imgIconBtn.setAttribute("src", "./images/atoms/a-icon-arrow.svg");
   imgIconBtn.setAttribute("alt", "icon");
 
@@ -392,10 +433,13 @@ const markupTestimonials = () => {
     markupTitle(data.testimonials.title.primary, "title_border-testimonials")
   );
   container.append(testimonialsContainer);
-  return container;
+  section.append(container);
+
+  return section;
 };
 
 const markupContact = () => {
+  const section = document.createElement("section");
   const container = document.createElement("div");
   const contactContainer = document.createElement("div");
   const stepBox = document.createElement("div");
@@ -421,6 +465,7 @@ const markupContact = () => {
   const btnForm = createButton("button-dark form_contact-us_btn");
   const linkEmail = document.createElement("a");
 
+  section.className = "contact_us section";
   container.className = "container";
   contactContainer.className = "contact_us-box";
   stepBox.className = "step_box";
@@ -441,6 +486,7 @@ const markupContact = () => {
   hidepassText.className = "hidepass_text";
   formText.className = "form_text";
 
+  section.setAttribute("id", "contact");
   p.textContent = data.contact.title.second;
   stepTitle.textContent = data.contact.content.step.stepTitle;
   mapText.textContent = data.contact.content.map.text;
@@ -533,24 +579,51 @@ const markupContact = () => {
   container.append(contactContainer);
   contactContainer.append(stepBox);
   contactContainer.append(mapBox);
+  section.append(container);
 
-  return container;
+  return section;
 };
 
 const markupFooter = () => {
+  const footer = document.createElement("footer");
   const container = document.createElement("div");
+  const footerBox = document.createElement("div");
+  const logo = document.createElement("a");
+  const p = document.createElement("p");
 
   container.className = "container";
-  return container;
+  logo.className = "logo";
+  p.className = "footer_box_text";
+  footerBox.className = "footer_box";
+  footer.className = "footer";
+
+  logo.textContent = data.footer.logo.img;
+  logo.setAttribute("href", data.footer.logo.name);
+  p.textContent = data.footer.content.text;
+  footer.setAttribute("id", "footer");
+
+  footerBox.append(markupSocialLink());
+  footerBox.append(logo);
+  footerBox.append(p);
+  container.append(footerBox);
+  footer.append(container);
+  return footer;
 };
 
 const renderMarkup = () => {
-  refs.hero.insertAdjacentElement("beforeend", markupHero());
-  refs.about.insertAdjacentElement("beforeend", markupAbout());
-  refs.latestPosts.insertAdjacentElement("beforeend", markupLatestPosts());
-  refs.portfolio.insertAdjacentElement("beforeend", markupPortfolio());
-  refs.testimonials.insertAdjacentElement("beforeend", markupTestimonials());
-  refs.contact.insertAdjacentElement("beforeend", markupContact());
+  const root = document.getElementById("root");
+  const main = document.createElement("main");
+
+  main.append(markupHero());
+  main.append(markupAbout());
+  main.append(markupLatestPosts());
+  main.append(markupPortfolio());
+  main.append(markupTestimonials());
+  main.append(markupContact());
+
+  root.insertAdjacentElement("beforeend", markupHeader());
+  root.insertAdjacentElement("beforeend", main);
+  root.insertAdjacentElement("beforeend", markupFooter());
 };
 
 renderMarkup();
