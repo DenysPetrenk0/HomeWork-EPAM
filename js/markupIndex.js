@@ -1,18 +1,4 @@
 /** @format */
-console.log(data);
-
-const refs = {
-  header: document.querySelector("#header"),
-  hero: document.querySelector("#home"),
-  latestPosts: document.querySelector("#latest-posts"),
-  portfolio: document.querySelector("#portfolio"),
-  about: document.querySelector("#about"),
-  testimonials: document.querySelector("#testimonials"),
-  contact: document.querySelector("#contact"),
-  footer: document.querySelector("#footer"),
-  root: document.querySelector("#root"),
-};
-
 const markupTitle = (value, borderClass) => {
   let div = document.createElement("div");
   let border = document.createElement("div");
@@ -607,6 +593,7 @@ const markupFooter = () => {
   footerBox.append(p);
   container.append(footerBox);
   footer.append(container);
+
   return footer;
 };
 
