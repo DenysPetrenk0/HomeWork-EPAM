@@ -3,39 +3,80 @@
 // ============================================= HW_02=======================================================
 
 const validateTitle = (value) => {
+  const validSingl = [" ", "!", ":", "-", "?", ".", ","];
+  let result = "VALID";
   if (typeof value !== "string") {
-    return "Incorrect input data";
+    result = "Incorrect input data";
+    return result;
   }
 
-  if (value.length <= 2 || value.length >= 20) {
-    return "INVALID";
+  if (
+    value.length < 2 ||
+    value.length > 20 ||
+    value[0] !== value[0].toUpperCase() ||
+    !isNaN(value[0])
+  ) {
+    result = "INVALID";
   }
 
-  if (value[0] !== value[0].toUpperCase() || !isNaN(value[0])) {
-    return "INVALID";
+  if (validSingl.includes(value[0])) {
+    result = "VALID";
   }
-  return "VALID";
+
+  return result;
+};
+
+const checksArg = (arg) => {
+  if (typeof arg === "number" && arg % 3 === 0 && arg % 5 === 0) {
+    arg *= -1;
+  }
+  return arg;
 };
 
 const sum = (arg1, arg2) => {
-  if (typeof arg1 === "number" && arg1 % 15 === 0) {
-    arg1 *= -1;
-  }
-
-  if (typeof arg2 === "number" && arg2 % 15 === 0) {
-    arg2 *= -1;
-  }
+  arg1 = checksArg(arg1);
+  arg2 = checksArg(arg2);
 
   let sum = 0;
   sum = Number(arg1) + Number(arg2);
   return sum;
 };
 
+const checkIsPrime = (arg) => {
+  let result = true;
+  for (let i = 2; i < arg; i++) {
+    if (arg % i === 0) {
+      result = false;
+    }
+  }
+  return result;
+};
+
 const checkNumber = (arg) => {
-  const isPrime = arg % arg === 0 && arg > 1;
-  const isEven = arg % 2 === 0;
+  const arr = [];
   const isMultiple = arg % 10 === 0;
-  return [isPrime, isEven, isMultiple];
+  if (isMultiple) {
+    arr.push(false);
+    arr.push(true);
+    arr.push(true);
+    return arr;
+  }
+
+  const isPrime = arg < 0 ? false : checkIsPrime(arg);
+
+  if (isPrime && arg !== 2 && arg !== 0) {
+    arr.push(true);
+    arr.push(false);
+    arr.push(false);
+    return arr;
+  }
+
+  const isEven = arg % 2 === 0;
+
+  arr.push(isPrime);
+  arr.push(isEven);
+  arr.push(isMultiple);
+  return arr;
 };
 
 // ============================================= HW_03=======================================================
