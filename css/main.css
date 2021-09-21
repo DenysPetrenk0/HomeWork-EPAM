@@ -249,6 +249,42 @@ a {
   margin-bottom: 20px;
 }
 
+.typography__box {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35px;
+  height: 40px;
+  background: #fff;
+  border-radius: 0px 5px;
+  background: #fff;
+}
+
+.typography__box::before {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  bottom: 30px;
+  left: -10px;
+  height: 10px;
+  width: 10px;
+  border-top-right-radius: 5px;
+  box-shadow: 5px 0 0 0 #fff;
+}
+
+.typography__box::after {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  bottom: -10px;
+  left: 25px;
+  height: 10px;
+  width: 10px;
+  border-top-right-radius: 5px;
+  box-shadow: 0 -5px 0 0 #fff;
+}
+
 .icon-set {
   background: linear-gradient(90deg, rgba(146, 177, 255, 0.5) 0%, rgba(35, 86, 255, 0.5) 100%);
   position: relative;
@@ -262,6 +298,42 @@ a {
 
 .icon-set:not(:last-child) {
   margin-bottom: 20px;
+}
+
+.icon-set__box {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 35px;
+  height: 40px;
+  background: #fff;
+  border-radius: 5px 0;
+  background: #fff;
+}
+
+.icon-set__box::before {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  bottom: 30px;
+  left: 36px;
+  height: 10px;
+  width: 10px;
+  border-top-left-radius: 5px;
+  box-shadow: -5px 0 0 0 #fff;
+}
+
+.icon-set__box::after {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  bottom: -10px;
+  left: 0px;
+  height: 10px;
+  width: 10px;
+  border-top-left-radius: 5px;
+  box-shadow: 0 -5px 0 0 #fff;
 }
 
 .accurate {
@@ -279,7 +351,7 @@ a {
   margin-bottom: 20px;
 }
 
-.right__box {
+.accurate__box {
   content: "";
   position: absolute;
   top: 0;
@@ -291,7 +363,7 @@ a {
   background: #fff;
 }
 
-.right__box::before {
+.accurate__box::before {
   content: "";
   position: absolute;
   background-color: transparent;
@@ -303,7 +375,7 @@ a {
   box-shadow: 5px 0 0 0 #fff;
 }
 
-.right__box::after {
+.accurate__box::after {
   content: "";
   position: absolute;
   background-color: transparent;
@@ -312,42 +384,6 @@ a {
   height: 10px;
   width: 10px;
   border-top-right-radius: 5px;
-  box-shadow: 0 -5px 0 0 #fff;
-}
-
-.left__box {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 35px;
-  height: 40px;
-  background: #fff;
-  border-radius: 5px 0;
-  background: #fff;
-}
-
-.left__box::before {
-  content: "";
-  position: absolute;
-  background-color: transparent;
-  bottom: 30px;
-  left: 36px;
-  height: 10px;
-  width: 10px;
-  border-top-left-radius: 5px;
-  box-shadow: -5px 0 0 0 #fff;
-}
-
-.left__box::after {
-  content: "";
-  position: absolute;
-  background-color: transparent;
-  bottom: -10px;
-  left: 0px;
-  height: 10px;
-  width: 10px;
-  border-top-left-radius: 5px;
   box-shadow: 0 -5px 0 0 #fff;
 }
 
@@ -690,7 +726,7 @@ a {
   width: 760px;
 }
 
-.map_box {
+.map-box {
   border-radius: 5px;
   background-color: var(--white-color);
   box-shadow: 0 8px 25px 0 #b7b7b7;
@@ -857,6 +893,7 @@ a {
 }
 
 .blog_info {
+  position: relative;
   margin-left: 40px;
 }
 
@@ -877,10 +914,6 @@ a {
   display: flex;
   margin-bottom: 35px;
   padding-top: 15px;
-}
-
-.author_info {
-  margin-left: 15px;
 }
 
 .author_name {
@@ -936,7 +969,7 @@ a {
 .author_icon {
   position: absolute;
   top: 0;
-  right: 0;
+  right: -100px;
   height: 40px;
   width: 40px;
   fill: #d8d8d8;
@@ -947,7 +980,6 @@ a {
 .star_icon {
   height: 14px;
   width: 14px;
-  margin-right: 3px;
 }
 
 .read-more {
@@ -1297,7 +1329,6 @@ a {
 .button-light:hover {
   background: var(--hover-color);
   color: var(--white-color);
-  cursor: url(../images/atoms/pointer-3.svg), pointer;
 }
 
 .button-arrow {
@@ -1409,7 +1440,7 @@ a {
   border-left: 1px solid var(--primery-color);
   border-right: 1px solid var(--primery-color);
   border-bottom: 1px solid var(--primery-color);
-  top: 64%;
+  top: 80%;
   left: 543px;
 }
 
