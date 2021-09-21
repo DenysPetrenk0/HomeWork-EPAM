@@ -82,23 +82,43 @@ const checkNumber = (arg) => {
 // ============================================= HW_03=======================================================
 
 const tickets = (persons) => {
-  let change = 0;
-  const ticketCost = 25;
+  let twentyFiveDollar = 0;
+  let fiftyDollars = 0;
 
-  for (const person of persons) {
-    const pay = +person;
-
-    if (change < pay - ticketCost) {
-      return "NO. Vasya will not have enough money to give change to 100 dollars";
+  for (let i = 0; i < persons.length; i++) {
+    switch (persons[i]) {
+      case 25:
+        twentyFiveDollar++;
+        break;
+      case 50:
+        twentyFiveDollar--;
+        fiftyDollars++;
+        break;
+      case 100:
+        if (fiftyDollars > 0) {
+          twentyFiveDollar--;
+          fiftyDollars--;
+        } else {
+          twentyFiveDollar -= 3;
+        }
+        break;
+      default:
+        return "Invalid input";
     }
 
-    change += ticketCost;
+    if (twentyFiveDollar < 0 || fiftyDollars < 0) {
+      return "NO";
+    }
   }
-
   return "YES";
 };
 
-// console.log(tickets([25, 100]));
+// console.log(tickets([25, 25, 50])); //+
+// console.log(tickets([25, 100])); //-
+// console.log(tickets([25, 25, 50, 100])); //+
+// console.log(tickets([25, 25, 50, 100, 25, 25, 50, 100])); //+
+// console.log(tickets([25, 50, 50])); //-
+// console.log(tickets([25, 50, 25, 50, 100, 50])); //-
 
 const getSum = (number1, number2) => {
   let sum = [];
@@ -108,8 +128,9 @@ const getSum = (number1, number2) => {
 
   while (array1.length > 0 || array2.length > 0) {
     let number = parseInt(array1.pop() || 0) + parseInt(array2.pop() || 0);
-    if (number >= 10) {
-      number = number - 10;
+
+    if (number > 9) {
+      number = number - 10 + increment;
       increment = 1;
     } else {
       number += increment;
@@ -117,19 +138,29 @@ const getSum = (number1, number2) => {
     }
     sum.unshift(number);
   }
+  if (increment) {
+    sum.unshift(increment);
+  }
   return sum.join("");
 };
+
+// console.log(getSum("119", "11119"));
+// console.log(getSum("9999", "456"));
+// console.log(getSum("99", "1"));
+// console.log(getSum("1", "99"));
+// console.log(getSum("99", "11"));
+// console.log(getSum("199", "99"));
 
 const getQuantityPostsByAuthor = (listOfPosts, authorName) => {
   let post = 0;
   let comm = 0;
   listOfPosts.forEach((item) => {
-    if (item.author === authorName) {
+    if (item.author.includes(authorName)) {
       post += 1;
     }
     if (item.comments) {
       item.comments.forEach((comment) => {
-        if (comment.author === authorName) {
+        if (comment.author.includes(authorName)) {
           comm += 1;
         }
       });
@@ -198,19 +229,29 @@ const getQuantityPostsByAuthor = (listOfPosts, authorName) => {
 //     author: "Uncle",
 //   },
 // ];
+
 // ============================================= HW_04=======================================================
 
 let complexFunction = function (arg1, arg2) {
   return arg1 + arg2;
 };
 
-const cache = (func) => func.bind(null);
+const cache = (func) => {
+  const cache = {};
+  return (...args) => {
+    const cachedValue = args;
+    if (cachedValue in cache) {
+      console.log("from cache");
+      return cache[cachedValue];
+    } else {
+      cache[cachedValue] = func(...args);
+      console.log("new");
+      return cache[cachedValue];
+    }
+  };
+};
 
-let cachedFunction = cache(complexFunction);
-
-// console.log(complexFunction("foo", "bar"));
-// console.log(complexFunction("foo", "bar"));
-// console.log(complexFunction("foo", "baz"));
+const cachedFunction = cache(complexFunction);
 
 const ladder = {
   step: 0,
@@ -227,11 +268,13 @@ const ladder = {
 
   showStep() {
     console.log(this.step);
+    this.step = 0;
     return this;
   },
 };
 
 // ladder.up().up().down().up().showStep();
+// ladder.up().up().down().up().showStep().down().up().showStep();
 
 const mathSum = (args) => {
   return args.reduce.call(args, (arg, relust) => relust + arg, 0);
@@ -243,8 +286,8 @@ const mathMul = (args) => {
 
 const applyAllES6 = (func, ...args) => func.call(null, args);
 
-// console.log(applyAllES6(mathSum, 1, 2, 3));
-// console.log(applyAllES6(mathMul, 2, 3, 4));
+// console.log(applyAllES6(mathSum, 1, 2, 3, 2, 3));
+// console.log(applyAllES6(mathMul, 2, 3, 5, 5));
 
 function applyAll(func) {
   var args = [].slice.call(arguments, 1);
