@@ -911,7 +911,6 @@ a {
 }
 
 .blog_info {
-  position: relative;
   margin-left: 40px;
   background-color: #fcf6f6;
 }
@@ -987,14 +986,18 @@ a {
 }
 
 .author_icon {
-  position: absolute;
-  top: 0;
-  right: -100px;
   height: 40px;
   width: 40px;
   fill: #d8d8d8;
-  margin-top: 15px;
-  margin-right: 20px;
+  margin: 18px 22px;
+}
+
+.author_icon_container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 3px solid #ffffff;
+  border-radius: 5px;
 }
 
 .star_icon {
