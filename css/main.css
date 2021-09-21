@@ -616,6 +616,7 @@ a {
 }
 
 .testimonials__box_citation {
+  position: relative;
   font-family: Hind Siliguri;
   color: var(--white-color);
   font-size: 17px;
@@ -624,6 +625,21 @@ a {
   line-height: 1.52;
   margin-bottom: 37px;
   padding: 60px 40px 0 48px;
+}
+
+.testimonials__box_citation::before {
+  content: open-quote;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  height: 45px;
+  width: 13px;
+  color: #ffffff;
+  font-family: "Hind Siliguri";
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 45px;
 }
 
 .testimonials__box_text {
@@ -675,7 +691,8 @@ a {
   height: 17px;
   width: 17px;
   border-radius: 50%;
-  border: 3px solid var(--primery-color);
+  border: 4px solid var(--primery-color);
+  background-color: white;
 }
 
 .oval_border_center {
@@ -890,11 +907,13 @@ a {
   margin-bottom: 50px;
   border-radius: 5px;
   background-color: #fcf6f6;
+  cursor: url(../images/atoms/pointer-5.svg), pointer;
 }
 
 .blog_info {
   position: relative;
   margin-left: 40px;
+  background-color: #fcf6f6;
 }
 
 .blog_play_icon {
@@ -907,7 +926,7 @@ a {
 }
 
 .blog:hover {
-  box-shadow: 0 3px 10px 0 #6d6d6d;
+  box-shadow: 0 11px 20px -13px #6d6d6d;
 }
 
 .author {
@@ -964,6 +983,7 @@ a {
 .author_btn {
   height: 45px;
   width: 121px;
+  cursor: url(../images/atoms/pointer-4.svg), pointer;
 }
 
 .author_icon {
@@ -1341,7 +1361,7 @@ a {
 }
 
 .button-arrow:hover {
-  box-shadow: 0 3px 10px 0 #6d6d6d;
+  box-shadow: 0 3px 5px 0 #6d6d6d;
 }
 
 .arrow_icon_left {
