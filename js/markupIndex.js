@@ -363,19 +363,24 @@ const markupTestimonials = () => {
   const testimonialsBox = document.createElement("ul");
   const divIconBtnLeft = document.createElement("div");
   const divIconBtnRight = document.createElement("div");
+  const containerBtn = document.createElement("div");
   const btnLeft = createButton("button-arrow");
   const btnRight = createButton("button-arrow");
   const imgIconBtn = document.createElement("img");
 
   section.className = "testimonials";
-  container.className = "container";
+  container.className = "container testimonials__btn__box";
   testimonialsContainer.className = "testimonials__container";
   divIconBtnLeft.className = "arrow_icon_left";
   divIconBtnRight.className = "arrow_icon_rigth";
+  testimonialsBox.className = "slides__container";
+  containerBtn.className = "btn__container";
 
   section.setAttribute("id", "testimonials");
   imgIconBtn.setAttribute("src", "./images/atoms/a-icon-arrow.svg");
   imgIconBtn.setAttribute("alt", "icon");
+  btnLeft.setAttribute("id", "left-btn");
+  btnRight.setAttribute("id", "rigth-btn");
 
   data.testimonials.content.forEach((elem) => {
     const testimonialsUser = document.createElement("li");
@@ -411,14 +416,15 @@ const markupTestimonials = () => {
   divIconBtnRight.append(imgIconBtn.cloneNode(false));
   btnLeft.append(divIconBtnLeft);
   btnRight.append(divIconBtnRight);
+  containerBtn.append(btnLeft);
+  containerBtn.append(btnRight);
 
-  testimonialsContainer.append(btnLeft);
   testimonialsContainer.append(testimonialsBox);
-  testimonialsContainer.append(btnRight);
   container.append(
     markupTitle(data.testimonials.title.primary, "title_border-testimonials")
   );
   container.append(testimonialsContainer);
+  container.append(containerBtn);
   section.append(container);
 
   return section;

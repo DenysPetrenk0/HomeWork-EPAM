@@ -133,6 +133,12 @@ const data = {
         "name": "Martin Oda",
         "profession": "Product desgner",
         "image":"./images/user.png",
+      },
+      {
+        "text": "I have always seen what others have not seen; and what others saw, I did not see!",
+        "name": "Salvador Dali",
+        "profession": "Surrealist artist",
+        "image":"./images/user-1.png",
       }
     ],
       },
