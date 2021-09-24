@@ -1,6 +1,9 @@
 /** @format */
-.header_blog {
-  width: 1440px;
+.header__blog {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  background: #fff;
 }
 
 .logo {

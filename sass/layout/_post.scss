@@ -1,7 +1,7 @@
 /** @format */
 .post_container {
   display: flex;
-  padding-top: 50px;
+  padding-top: 140px;
 }
 
 .post_info {
@@ -64,6 +64,7 @@
     padding: 10px 14px;
     margin-left: 15px;
     margin-bottom: 15px;
+    cursor: url(../images/atoms/pointer-4.svg), pointer;
   }
 }
 
@@ -199,6 +200,21 @@
 
 .Reviews {
   padding-top: 23px;
+
+  &_list {
+    position: relative;
+
+    &::before {
+      z-index: 0;
+      top: 0;
+      left: 30px;
+      position: absolute;
+      content: "";
+      height: 100%;
+      width: 2px;
+      background: #dddddd;
+    }
+  }
 
   &_title {
     font-family: Hind Siliguri;

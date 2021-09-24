@@ -176,6 +176,46 @@ a {
 }
 
 /** @format */
+.header__blog {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  background: #fff;
+}
+
+.logo {
+  color: var(--primery-color);
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 1.64;
+}
+
+.header_nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.header_list {
+  display: flex;
+}
+
+.header_item:not(:last-child) {
+  margin-right: 40px;
+}
+
+.header_nav-link {
+  font-family: Hind Siliguri;
+  color: var(--primery-color);
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 1.66;
+}
+
+/** @format */
 .hero {
   padding-top: 155px;
   padding-bottom: 206px;
@@ -928,6 +968,21 @@ a {
   box-shadow: 0 11px 20px -13px #6d6d6d;
 }
 
+.blog_comment {
+  position: relative;
+  padding: 17px 27px;
+  background-color: #fcf6f6;
+}
+
+.blog_comment_author {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.blog__padding {
+  padding-top: 80px;
+}
+
 .author {
   display: flex;
   margin-bottom: 35px;
@@ -1015,20 +1070,10 @@ a {
   margin: 0 auto;
 }
 
-.blog_comment {
-  position: relative;
-  padding: 17px 27px;
-}
-
-.blog_comment_author {
-  display: flex;
-  margin-bottom: 40px;
-}
-
 /** @format */
 .post_container {
   display: flex;
-  padding-top: 50px;
+  padding-top: 140px;
 }
 
 .post_info {
@@ -1090,6 +1135,7 @@ a {
   padding: 10px 14px;
   margin-left: 15px;
   margin-bottom: 15px;
+  cursor: url(../images/atoms/pointer-4.svg), pointer;
 }
 
 .latest_posts {
@@ -1224,6 +1270,21 @@ a {
 
 .Reviews {
   padding-top: 23px;
+}
+
+.Reviews_list {
+  position: relative;
+}
+
+.Reviews_list::before {
+  z-index: 0;
+  top: 0;
+  left: 30px;
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 2px;
+  background: #dddddd;
 }
 
 .Reviews_title {

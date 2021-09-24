@@ -51,7 +51,6 @@
   cursor: url(../images/atoms/pointer-5.svg), pointer;
 
   &_info {
-    // position: relative;
     margin-left: 40px;
     background-color: #fcf6f6;
   }
@@ -67,6 +66,21 @@
 
   &:hover {
     box-shadow: 0 11px 20px -13px #6d6d6d;
+  }
+
+  &_comment {
+    position: relative;
+    padding: 17px 27px;
+    background-color: #fcf6f6;
+
+    &_author {
+      display: flex;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__padding {
+    padding-top: 80px;
   }
 }
 
@@ -154,15 +168,5 @@
 
   &_btn {
     margin: 0 auto;
-  }
-}
-
-.blog_comment {
-  position: relative;
-  padding: 17px 27px;
-
-  &_author {
-    display: flex;
-    margin-bottom: 40px;
   }
 }
