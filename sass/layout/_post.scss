@@ -1,7 +1,7 @@
 /** @format */
 .post_container {
   display: flex;
-  padding-top: 140px;
+  padding-top: 133px;
 }
 
 .post_info {
@@ -30,7 +30,7 @@
 .post_service {
   width: 460px;
   padding-top: 200px;
-  padding-left: 15px;
+  padding-left: 35px;
 
   &_title {
     font-family: Hind Siliguri;
@@ -207,7 +207,7 @@
     &::before {
       z-index: 0;
       top: 0;
-      left: 30px;
+      left: 37px;
       position: absolute;
       content: "";
       height: 100%;
@@ -227,6 +227,7 @@
   }
 
   &_img_author {
+    z-index: 1;
     height: 80px;
     width: 80px;
     margin-right: 35px;
@@ -243,6 +244,62 @@
       letter-spacing: 0;
       line-height: 1.66;
       max-width: 511px;
+    }
+
+    &:first-child {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: -40px;
+        left: 30px;
+        content: "";
+        box-sizing: border-box;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        border: 2px solid #dddddd;
+        background-color: #ffffff;
+      }
+
+      &::after {
+        z-index: 0;
+        top: -26px;
+        left: 37px;
+        position: absolute;
+        content: "";
+        height: 100%;
+        width: 2px;
+        background: #dddddd;
+      }
+    }
+
+    &:last-child {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 200px;
+        left: 30px;
+        content: "";
+        box-sizing: border-box;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        border: 2px solid #dddddd;
+        background-color: #ffffff;
+      }
+
+      &::after {
+        z-index: 0;
+        top: 77px;
+        left: 37px;
+        position: absolute;
+        content: "";
+        height: 100%;
+        width: 2px;
+        background: #dddddd;
+      }
     }
   }
 
