@@ -9,6 +9,7 @@
         "../sass/utils/_variables.scss",
         "../sass/utils/_fonts.scss",
         "../sass/layout/_header.scss",
+        "../sass/layout/_header_blog.scss",
         "../sass/layout/_hero.scss",
         "../sass/layout/_about_us.scss",
         "../sass/layout/_latest_posts.scss",
