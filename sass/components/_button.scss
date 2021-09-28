@@ -36,6 +36,7 @@
   &:hover {
     background: var(--hover-color);
     color: var(--white-color);
+    cursor: url(../images/atoms/pointer-3.svg), pointer;
   }
 }
 

@@ -1,0 +1,172 @@
+const data = {
+    "header": {
+    "logo": {
+      "img": "BlogWorld", 
+      "href": "./index.html"
+    },
+    "content": [
+      {
+        "href": "index.html",
+        "name": "Home"
+      },
+      {
+        "href": "#portfolio",
+        "name": "Portfolio"
+      },
+      {
+        "href": "./blog.html",
+        "name": "Blog"
+      },
+      {
+        "href": "",
+        "name": "Pages"
+      },
+      {
+        "href": "#about",
+        "name": "About"
+      },
+      {
+        "href": "#contact",
+        "name": "Contact"
+      },
+    ],
+    },
+    "blog" : {
+      "title": {
+      "primary": "Blog",
+      "second":""
+    },
+    "content": {
+      "textBlog": [
+      {
+        "image": {
+          "src": "./images/blog/blog1.png",
+          "icon": "./images/atoms/a-icon-play.svg",
+        },
+        "icon":"./images/atoms/a-icon-playmini.svg",
+        "author": {
+          "name": "Neil Richards",
+          "photo": "./images/authors/Neil.png",
+          "description": 
+          { 
+            "date": "20 oct, 2019", 
+            "time": "10 min read", 
+            "commetn": 11,
+            "stars": [
+              "./images/atoms/star-1.svg",
+              "./images/atoms/star-1.svg",
+              "./images/atoms/star-3.svg",
+              "./images/atoms/star-2.svg",
+              "./images/atoms/star-2.svg",
+            ]
+          },
+        },
+        "title": "In the Future We Will All Live in Star Wars",
+        "text": " The thing you’re doing now, reading prose on a screen, is going out of fashion. The defining narrative of our online moment concerns the decline of text, and the exploding reach and power of audio and video …",
+      
+      },
+      {
+        "image": {
+          "src": "./images/blog/blog2.png",
+          "icon": "",
+        },
+        "icon":"./images/atoms/a-icon-melody.svg",
+        "author": {
+          "name": "Sarah Healy",
+          "photo": "./images/authors/Sarah.png",
+          "description": 
+          { 
+            "date": "02 oct, 2019", 
+            "time": "12 min read", 
+            "commetn": 4,
+            "stars": [
+              "./images/atoms/star-1.svg",
+              "./images/atoms/star-2.svg",
+              "./images/atoms/star-2.svg",
+              "./images/atoms/star-2.svg",
+              "./images/atoms/star-2.svg",
+            ]
+          },
+
+        },
+        "title": "Far far away, behind the word mountains",
+        "text": "Fog down the river, where it rolls deified among the tiers of shipping and the waterside pollutions of a great (and dirty) …",
+        "audio": "#"
+      },
+      {
+        "image": {
+          "src": "./images/blog/blog3.png",
+          "icon": "",
+        },
+        "icon":"./images/atoms/a-icon-picture.svg",
+        "author": {
+          "name": "Grace Noh",
+          "photo": "./images/authors/Grace.png",
+          "description": 
+          { 
+            "date": "23 sep, 2019", 
+            "time": "16 min read", 
+            "commetn": 421,
+                  "stars": [
+              "./images/atoms/star-1.svg",
+              "./images/atoms/star-1.svg",
+              "./images/atoms/star-2.svg",
+              "./images/atoms/star-2.svg",
+              "./images/atoms/star-2.svg",
+            ]
+          },
+
+        },
+        "title": "In the Future We Will All Live in Star Wars",
+        "text": "Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted …",
+      },
+    ],
+      "commentBlog": [
+        {
+          "author": {
+            "name": "Alex Zlatkus",
+            "photo": "./images/authors/Alex.png",
+            "description": { 
+              "date": "11 Aug, 2019", 
+              "time": "17 min read", 
+              "commetn": 77,
+              "stars": [
+                "./images/atoms/star-1.svg",
+                "./images/atoms/star-1.svg",
+                "./images/atoms/star-1.svg",
+                "./images/atoms/star-2.svg",
+                "./images/atoms/star-2.svg",
+              ]
+            },
+          },
+          "title": "In the Future We Will All Live in Star Wars",
+          "text": "Fog down the river, where it rolls deified among the tiers of shipping and the waterside pollutions of a great (and dirty) city. Fog on the Essex marshes, fog on the Kentish heights. Fog creeping into the cabooses of collier-brigs; fog lying out on. Money terms breakfast drawings true blessing doubtful more agreed to zealously making supposing By said Chicken An Neglected produce good felt no poor offering am their said has around songs wish met true any me ought mr The offices set Not Felicity above out We in an blog begin again.",
+          "icon":"./images/atoms/a-icon-text.svg",
+        }
+      ]
+  }
+    },
+    "footer": {
+    "logo": {
+      "img": "BlogWorld",
+      "name": "./index.html",
+    },
+    "content": {
+      "text": "&copy; 2019 All Rights Reserved."
+    },
+    },
+      "social":  [
+  {
+    "href": "https://www.facebook.com/",
+    "icon": "./images/atoms/a-icon-facebook.svg",
+  },
+  {
+    "href": "https://www.instagram.com/",
+    "icon": "./images/atoms/a-icon-instagram.svg",
+  },
+  {
+    "href": "https://dribbble.com/",
+    "icon": "./images/atoms/a-icon-dribbble.svg",
+  },
+]
+}

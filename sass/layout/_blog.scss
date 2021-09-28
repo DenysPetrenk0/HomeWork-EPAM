@@ -89,6 +89,10 @@
   margin-bottom: 35px;
   padding-top: 15px;
 
+  &_info {
+    margin-left: 15px;
+  }
+
   &_name {
     font-family: Hind Siliguri;
     color: var(--primery-color);
@@ -141,6 +145,9 @@
   }
 
   &_icon {
+    position: absolute;
+    top: 0;
+    right: 0;
     height: 40px;
     width: 40px;
     fill: #d8d8d8;
@@ -159,6 +166,7 @@
 .star_icon {
   height: 14px;
   width: 14px;
+  margin-right: 3px;
 }
 
 .read-more {
