@@ -4,7 +4,7 @@ const slideContainer = document.querySelector(".testimonials__btn__box");
 const slide = document.querySelector(".slides__container");
 const leftBtn = document.getElementById("left-btn");
 const rigthBtn = document.getElementById("rigth-btn");
-const interval = 1000;
+const interval = 3000;
 
 let slides = document.querySelectorAll(".testimonials__box");
 let index = 1;
@@ -74,4 +74,4 @@ slideContainer.addEventListener("mouseleave", startSlide);
 leftBtn.addEventListener("click", movePrevSlide);
 rigthBtn.addEventListener("click", moveNextSlide);
 
-// startSlide();
+startSlide();

@@ -1,4 +1,5 @@
 /** @format */
+
 .testimonials {
   background-image: linear-gradient(
       rgba(222, 222, 222, 0.6),
@@ -45,6 +46,21 @@
       line-height: 1.52;
       margin-bottom: 37px;
       padding: 60px 40px 0 48px;
+
+      &::before {
+        content: open-quote;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        height: 45px;
+        width: 13px;
+        color: #ffffff;
+        font-family: "Hind Siliguri";
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 45px;
+      }
     }
 
     &_text {

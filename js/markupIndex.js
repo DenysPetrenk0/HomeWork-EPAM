@@ -1,151 +1,35 @@
 /** @format */
-const markupTitle = (value, borderClass) => {
-  let div = document.createElement("div");
-  let border = document.createElement("div");
-  let h2 = document.createElement("h2");
-
-  h2.className = "title";
-  div.className = "title_box";
-  border.className = borderClass;
-
-  h2.textContent = value;
-
-  div.append(h2);
-  div.append(border);
-
-  return div;
-};
-
-const createButton = (classBtn) => {
-  const btn = document.createElement("button");
-  btn.className = classBtn;
-  btn.setAttribute("type", "button");
-
-  return btn;
-};
-
-const markupDescription = (value) => {
-  const div = document.createElement("div");
-  const icon = document.createElement("div");
-  const date = document.createElement("p");
-  const img = document.createElement("img");
-  const oval = document.createElement("p");
-
-  div.className = "comment";
-  icon.className = "comment_icon";
-  date.className = "latest-posts__comment";
-  oval.className = "oval";
-
-  img.setAttribute("src", "./images/atoms/a-icon-comment.svg");
-  img.setAttribute("alt", "icon");
-
-  const time = date.cloneNode(false);
-  const commetn = date.cloneNode(false);
-
-  date.textContent = value.date;
-  time.textContent = value.time;
-  commetn.textContent = value.commetn;
-
-  icon.append(img);
-  div.append(date);
-  div.append(oval);
-  div.append(time);
-  div.append(oval.cloneNode(false));
-  div.append(icon);
-  div.append(commetn);
-
-  return div;
-};
-
-const markupSocialLink = () => {
-  const ul = document.createElement("ul");
-  ul.className = "social_list";
-
-  data.social.forEach((elem) => {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
-    const div = document.createElement("div");
-    const img = document.createElement("img");
-
-    li.className = "social_item";
-    a.className = "social_link";
-    div.className = "social_icon";
-
-    a.setAttribute("href", elem.href);
-    a.setAttribute("target", "_blank");
-    img.setAttribute("src", elem.icon);
-    img.setAttribute("alt", "icon");
-
-    div.append(img);
-    a.append(div);
-    li.append(a);
-    ul.append(li);
-  });
-  return ul;
-};
-
-const markupHeader = () => {
-  const header = document.createElement("header");
-  const headerContainer = document.createElement("div");
-  const container = document.createElement("div");
-  const nav = document.createElement("nav");
-  const logo = document.createElement("a");
-  const ul = document.createElement("ul");
-
-  header.className = "header";
-  headerContainer.className = "header__container";
-  container.className = "container";
-  nav.className = "header__navigation";
-  logo.className = "logo";
-  ul.className = "header__menu";
-
-  logo.textContent = data.header.logo.img;
-  logo.setAttribute("href", data.header.logo.href);
-  header.setAttribute("id", "header");
-
-  data.header.content.forEach((elem) => {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
-
-    li.className = "header__menu__item";
-    a.className = "header__menu__link";
-
-    a.setAttribute("href", elem.href);
-    a.textContent = elem.name;
-
-    li.append(a);
-    ul.append(li);
-  });
-
-  nav.append(logo);
-  nav.append(ul);
-  container.append(nav);
-  headerContainer.append(container);
-  header.append(headerContainer);
-
-  return header;
-};
 
 const markupHero = () => {
-  const section = document.createElement("section");
-  const container = document.createElement("div");
-  const btnContainer = document.createElement("div");
-  const title = document.createElement("h1");
-  const text = document.createElement("p");
-  const firstBtn = createButton("button-dark hero__btn__dark");
-  const secondBtn = createButton("button-light hero__btn__ligth");
-
-  section.className = "hero";
-  container.className = "container";
-  btnContainer.className = "hero__btn";
-  title.className = "hero__title";
-  text.className = "hero__text";
-
-  section.setAttribute("id", "home");
-  title.textContent = data.hero.title.primary;
-  text.textContent = data.hero.title.second;
-  firstBtn.textContent = "Explore";
-  secondBtn.textContent = "Learn more";
+  const section = createElem({
+    nodeType: "section",
+    className: "hero",
+    attribute: [{ name: "id", value: "home" }],
+  });
+  const container = createElem({ nodeType: "div", className: "container" });
+  const btnContainer = createElem({ nodeType: "div", className: "hero__btn" });
+  const title = createElem({
+    nodeType: "h1",
+    className: "hero__title",
+    text: data.hero.title.primary,
+  });
+  const text = createElem({
+    nodeType: "p",
+    className: "hero__text",
+    text: data.hero.title.second,
+  });
+  const firstBtn = createElem({
+    nodeType: "button",
+    text: "Explore",
+    className: "button-dark hero__btn__dark",
+    attribute: [{ name: "type", value: "button" }],
+  });
+  const secondBtn = createElem({
+    nodeType: "button",
+    text: "Learn more",
+    className: "button-light hero__btn__ligth",
+    attribute: [{ name: "type", value: "button" }],
+  });
 
   btnContainer.append(firstBtn);
   btnContainer.append(secondBtn);
@@ -159,48 +43,66 @@ const markupHero = () => {
 };
 
 const markupAbout = () => {
-  const section = document.createElement("section");
-  const container = document.createElement("div");
-  const aboutcontainer = document.createElement("div");
-  const aboutImg = document.createElement("div");
-  const divIcon = document.createElement("div");
-  const p = document.createElement("p");
-  const img = document.createElement("img");
-  const imgIconPlay = document.createElement("img");
-  const ul = document.createElement("ul");
-
-  section.className = "about section";
-  container.className = "container";
-  ul.className = "about__examples";
-  divIcon.className = "play__icon";
-  p.className = "text";
-  aboutImg.className = "about__image__container";
-  img.className = "about__img";
-  aboutcontainer.className = "about__container";
-
-  section.setAttribute("id", "about");
-  p.textContent = data.about.title.second;
-  img.setAttribute("src", data.about.content.images.src);
-  img.setAttribute("alt", data.about.content.images.alt);
-  img.setAttribute("width", data.about.content.images.width);
-  imgIconPlay.setAttribute("src", "./images/atoms/a-icon-play.svg");
-  imgIconPlay.setAttribute("alt", "icon");
+  const section = createElem({
+    nodeType: "section",
+    className: "about section",
+    attribute: [{ name: "id", value: "about" }],
+  });
+  const container = createElem({ nodeType: "div", className: "container" });
+  const ul = createElem({ nodeType: "ul", className: "about__examples" });
+  const aboutcontainer = createElem({
+    nodeType: "div",
+    className: "about__container",
+  });
+  const aboutImg = createElem({
+    nodeType: "div",
+    className: "about__image__container",
+  });
+  const divIcon = createElem({
+    nodeType: "div",
+    className: "play__icon",
+  });
+  const p = createElem({
+    nodeType: "p",
+    className: "text",
+    text: data.about.title.second,
+  });
+  const img = createElem({
+    nodeType: "img",
+    className: "about__img",
+    attribute: [
+      { name: "src", value: data.about.content.images.src },
+      { name: "alt", value: data.about.content.images.alt },
+      { name: "width", value: data.about.content.images.width },
+    ],
+  });
+  const imgIconPlay = createElem({
+    nodeType: "img",
+    attribute: [
+      { name: "src", value: "./images/atoms/a-icon-play.svg" },
+      { name: "alt", value: "icon" },
+    ],
+  });
 
   data.about.content.exampel.forEach((elem, idx) => {
-    const li = document.createElement("li");
-    const img = document.createElement("img");
-    const div = document.createElement("div");
-    const divCorner = document.createElement("div");
-    const p = document.createElement("p");
-
-    li.className = elem.nameClass;
-    div.className = "about__icon";
-    p.className = "about__text";
-    divCorner.className = idx % 2 === 0 ? "right__box" : "left__box";
-
-    img.setAttribute("src", elem.img);
-    img.setAttribute("alt", "icon");
-    p.textContent = elem.text;
+    const li = createElem({ nodeType: "li", className: elem.nameClass });
+    const div = createElem({ nodeType: "div", className: "about__icon" });
+    const p = createElem({
+      nodeType: "p",
+      className: "about__text",
+      text: elem.text,
+    });
+    const divCorner = createElem({
+      nodeType: "div",
+      className: idx % 2 === 0 ? "right__box" : "left__box",
+    });
+    const img = createElem({
+      nodeType: "img",
+      attribute: [
+        { name: "src", value: elem.img },
+        { name: "alt", value: "icon" },
+      ],
+    });
 
     div.append(img);
     li.append(div);
@@ -223,33 +125,48 @@ const markupAbout = () => {
 };
 
 const markupLatestPosts = () => {
-  const section = document.createElement("section");
-  const container = document.createElement("div");
-  const ul = document.createElement("ul");
-  const p = document.createElement("p");
-
-  section.className = "section";
-  container.className = "container";
-  p.className = "text";
-  ul.className = "latest-posts__list";
-
-  section.setAttribute("id", "latest-posts");
-  p.textContent = data.latestPosts.title.second;
+  const section = createElem({
+    nodeType: "section",
+    className: "section",
+    attribute: [{ name: "id", value: "latest-posts" }],
+  });
+  const container = createElem({
+    nodeType: "div",
+    className: "container",
+  });
+  const ul = createElem({
+    nodeType: "ul",
+    className: "latest-posts__list",
+  });
+  const p = createElem({
+    nodeType: "p",
+    className: "text",
+    text: data.latestPosts.title.second,
+  });
 
   data.latestPosts.content.forEach((elem) => {
-    const li = document.createElement("li");
-    const img = document.createElement("img");
-    const p = document.createElement("p");
-    const h3 = document.createElement("h3");
-
-    li.className = "latest-posts__item";
-    p.className = "latest-posts__text";
-    h3.className = "latest-posts__title";
-
-    img.setAttribute("src", elem.img.src);
-    img.setAttribute("width", elem.img.width);
-    h3.textContent = elem.h3;
-    p.textContent = elem.text;
+    const li = createElem({
+      nodeType: "li",
+      className: "latest-posts__item",
+    });
+    const p = createElem({
+      nodeType: "p",
+      className: "latest-posts__text",
+      text: elem.text,
+    });
+    const h3 = createElem({
+      nodeType: "h3",
+      className: "latest-posts__title",
+      text: elem.h3,
+    });
+    const img = createElem({
+      nodeType: "img",
+      className: "latest-posts__text",
+      attribute: [
+        { name: "src", value: elem.img.src },
+        { name: "width", value: elem.img.width },
+      ],
+    });
 
     li.append(img);
     li.append(h3);
@@ -269,59 +186,107 @@ const markupLatestPosts = () => {
 };
 
 const markupPortfolio = () => {
-  const section = document.createElement("section");
-  const container = document.createElement("div");
-  const boxBtnArrow = document.createElement("div");
-  const divIconBtnLeft = document.createElement("div");
-  const divIconBtnRight = document.createElement("div");
-  const ul = document.createElement("ul");
-  const p = document.createElement("p");
-  const imgIconBtn = document.createElement("img");
-  const btn = createButton("button-light btn-all-works");
-  const btnArrowLeft = createButton("button-arrow");
-  const btnArrowRigth = createButton("button-arrow");
-
-  section.className = "portfolio section";
-  container.className = "container";
-  p.className = "text";
-  ul.className = "portfolio__list";
-  boxBtnArrow.className = "box-btn_arrow";
-  divIconBtnLeft.className = "arrow_icon_left";
-  divIconBtnRight.className = "arrow_icon_rigth";
-
-  section.setAttribute("id", "portfolio");
-  p.textContent = data.portfolio.title.second;
-  btn.textContent = "See all works";
-  imgIconBtn.setAttribute("src", "./images/atoms/a-icon-arrow.svg");
-  imgIconBtn.setAttribute("alt", "icon");
+  const section = createElem({
+    nodeType: "section",
+    className: "portfolio section",
+    attribute: [{ name: "id", value: "portfolio" }],
+  });
+  const container = createElem({
+    nodeType: "div",
+    className: "container",
+  });
+  const boxBtnArrow = createElem({
+    nodeType: "div",
+    className: "box-btn_arrow",
+  });
+  const divIconBtnLeft = createElem({
+    nodeType: "div",
+    className: "arrow_icon_left",
+  });
+  const divIconBtnRight = createElem({
+    nodeType: "div",
+    className: "arrow_icon_rigth",
+  });
+  const ul = createElem({
+    nodeType: "ul",
+    className: "portfolio__list",
+  });
+  const p = createElem({
+    nodeType: "p",
+    className: "text",
+    text: data.portfolio.title.second,
+  });
+  const imgIconBtn = createElem({
+    nodeType: "img",
+    attribute: [
+      { name: "src", value: "./images/atoms/a-icon-arrow.svg" },
+      { name: "alt", value: "icon" },
+    ],
+  });
+  const btn = createElem({
+    nodeType: "button",
+    className: "button-light btn-all-works",
+    text: "See all works",
+    attribute: [{ name: "type", value: "button" }],
+  });
+  const btnArrowLeft = createElem({
+    nodeType: "button",
+    className: "button-arrow",
+    attribute: [{ name: "type", value: "button" }],
+  });
+  const btnArrowRigth = createElem({
+    nodeType: "button",
+    className: "button-arrow",
+    attribute: [{ name: "type", value: "button" }],
+  });
 
   data.portfolio.content.forEach((elem) => {
-    const li = document.createElement("li");
-    const img = document.createElement("img");
-    const imgIconAttach = document.createElement("img");
-    const imgIconSearch = document.createElement("img");
-    const p = document.createElement("p");
-    const h3 = document.createElement("h3");
-    const divText = document.createElement("div");
-    const divIcon = document.createElement("div");
-    const divIconBox = document.createElement("div");
-
-    li.className = "portfolio__item";
-    p.className = "portfolio__item_text";
-    h3.className = "portfolio__item_title";
-    divText.className = "text_box";
-    divIcon.className = "icon_box";
-    divIconBox.className = "portfolio_icon";
+    const li = createElem({
+      nodeType: "li",
+      className: "portfolio__item",
+    });
+    const divIconBox = createElem({
+      nodeType: "div",
+      className: "portfolio_icon",
+    });
+    const divText = createElem({
+      nodeType: "div",
+      className: "text_box",
+    });
+    const divIcon = createElem({
+      nodeType: "div",
+      className: "icon_box",
+    });
+    const img = createElem({
+      nodeType: "img",
+      attribute: [{ name: "src", value: elem.img }],
+    });
+    const p = createElem({
+      nodeType: "p",
+      className: "portfolio__item_text",
+      text: elem.text,
+    });
+    const h3 = createElem({
+      nodeType: "h3",
+      className: "portfolio__item_title",
+      text: elem.h3,
+    });
+    const imgIconAttach = createElem({
+      nodeType: "img",
+      attribute: [
+        { name: "src", value: "./images/atoms/a-icon-attach.svg" },
+        { name: "alt", value: "icon" },
+      ],
+    });
+    const imgIconSearch = createElem({
+      nodeType: "img",
+      attribute: [
+        { name: "src", value: "./images/atoms/a-icon-search-1.svg" },
+        { name: "alt", value: "icon" },
+      ],
+    });
 
     const divIconBoxSecond = divIconBox.cloneNode(false);
-
-    img.setAttribute("src", elem.img);
-    imgIconAttach.setAttribute("src", "./images/atoms/a-icon-attach.svg");
-    imgIconAttach.setAttribute("alt", "icon");
-    imgIconSearch.setAttribute("src", "./images/atoms/a-icon-search-1.svg");
-    imgIconSearch.setAttribute("alt", "icon");
-    h3.textContent = elem.h3;
-    p.textContent = elem.text;
 
     divIconBox.append(imgIconAttach);
     divIconBoxSecond.append(imgIconSearch);
@@ -357,50 +322,88 @@ const markupPortfolio = () => {
 };
 
 const markupTestimonials = () => {
-  const section = document.createElement("section");
-  const container = document.createElement("div");
-  const testimonialsContainer = document.createElement("div");
-  const testimonialsBox = document.createElement("ul");
-  const divIconBtnLeft = document.createElement("div");
-  const divIconBtnRight = document.createElement("div");
-  const containerBtn = document.createElement("div");
-  const btnLeft = createButton("button-arrow");
-  const btnRight = createButton("button-arrow");
-  const imgIconBtn = document.createElement("img");
-
-  section.className = "testimonials";
-  container.className = "container testimonials__btn__box";
-  testimonialsContainer.className = "testimonials__container";
-  divIconBtnLeft.className = "arrow_icon_left";
-  divIconBtnRight.className = "arrow_icon_rigth";
-  testimonialsBox.className = "slides__container";
-  containerBtn.className = "btn__container";
-
-  section.setAttribute("id", "testimonials");
-  imgIconBtn.setAttribute("src", "./images/atoms/a-icon-arrow.svg");
-  imgIconBtn.setAttribute("alt", "icon");
-  btnLeft.setAttribute("id", "left-btn");
-  btnRight.setAttribute("id", "rigth-btn");
+  const section = createElem({
+    nodeType: "section",
+    className: "testimonials",
+    attribute: [{ name: "id", value: "testimonials" }],
+  });
+  const container = createElem({
+    nodeType: "div",
+    className: "container testimonials__btn__box",
+  });
+  const testimonialsContainer = createElem({
+    nodeType: "div",
+    className: "testimonials__container",
+  });
+  const divIconBtnLeft = createElem({
+    nodeType: "div",
+    className: "arrow_icon_left",
+  });
+  const divIconBtnRight = createElem({
+    nodeType: "div",
+    className: "arrow_icon_rigth",
+  });
+  const containerBtn = createElem({
+    nodeType: "div",
+    className: "btn__container",
+  });
+  const testimonialsBox = createElem({
+    nodeType: "ul",
+    className: "slides__container",
+  });
+  const imgIconBtn = createElem({
+    nodeType: "img",
+    attribute: [
+      { name: "src", value: "./images/atoms/a-icon-arrow.svg" },
+      { name: "alt", value: "icon" },
+    ],
+  });
+  const btnLeft = createElem({
+    nodeType: "button",
+    className: "button-arrow",
+    attribute: [
+      { name: "type", value: "button" },
+      { name: "id", value: "left-btn" },
+    ],
+  });
+  const btnRight = createElem({
+    nodeType: "button",
+    className: "button-arrow",
+    attribute: [
+      { name: "type", value: "button" },
+      { name: "id", value: "rigth-btn" },
+    ],
+  });
 
   data.testimonials.content.forEach((elem) => {
-    const testimonialsUser = document.createElement("li");
-    const userPhoto = document.createElement("img");
-    const userDiscrp = document.createElement("div");
-    const userText = document.createElement("p");
-    const userName = document.createElement("p");
-
-    testimonialsUser.className = "testimonials__box";
-    userDiscrp.className = "testimonials__box_user";
-    userText.className = "testimonials__box_citation";
-    userName.className = "testimonials__box_text";
+    const testimonialsUser = createElem({
+      nodeType: "li",
+      className: "testimonials__box",
+    });
+    const userDiscrp = createElem({
+      nodeType: "div",
+      className: "testimonials__box_user",
+    });
+    const userText = createElem({
+      nodeType: "p",
+      className: "testimonials__box_citation",
+      text: elem.text,
+    });
+    const userName = createElem({
+      nodeType: "p",
+      className: "testimonials__box_text",
+      text: elem.name,
+    });
+    const userPhoto = createElem({
+      nodeType: "img",
+      attribute: [
+        { name: "src", value: elem.image },
+        { name: "alt", value: "user photo" },
+        { name: "width", value: 280 },
+      ],
+    });
 
     const userProf = userName.cloneNode(false);
-
-    userPhoto.setAttribute("src", elem.image);
-    userPhoto.setAttribute("alt", "user photo");
-    userPhoto.setAttribute("width", 280);
-    userText.textContent = elem.text;
-    userName.textContent = elem.name;
     userProf.textContent = elem.profession;
 
     userDiscrp.append(userText);
@@ -431,102 +434,185 @@ const markupTestimonials = () => {
 };
 
 const markupContact = () => {
-  const section = document.createElement("section");
-  const container = document.createElement("div");
-  const contactContainer = document.createElement("div");
-  const stepBox = document.createElement("div");
-  const mapBox = document.createElement("div");
-  const formBox = document.createElement("div");
-  const mapTextBox = document.createElement("div");
-  const p = document.createElement("p");
-  const mapText = document.createElement("p");
-  const formText = document.createElement("p");
-  const stepTitle = document.createElement("h3");
-  const stepList = document.createElement("ul");
-  const iconBox = document.createElement("div");
-  const imgIcon = document.createElement("img");
-  const imgMap = document.createElement("img");
-  const iconHidepass = document.createElement("img");
-  const form = document.createElement("form");
-  const labelText = document.createElement("label");
-  const spanText = document.createElement("span");
-  const hidepass = document.createElement("span");
-  const hidepassIcon = document.createElement("span");
-  const hidepassText = document.createElement("span");
-  const inputText = document.createElement("input");
-  const btnForm = createButton("button-dark form_contact-us_btn");
-  const linkEmail = document.createElement("a");
-
-  section.className = "contact_us section";
-  container.className = "container";
-  contactContainer.className = "contact_us-box";
-  stepBox.className = "step_box";
-  mapBox.className = "map_box";
-  formBox.className = "form-box";
-  mapTextBox.className = "map_text-box";
-  p.className = "text";
-  stepTitle.className = "title_step";
-  stepList.className = "step_list";
-  mapText.className = "map-text";
-  iconBox.className = "map_icon";
-  form.className = "form_contact-us";
-  labelText.className = "form_field";
-  spanText.className = "input_text";
-  inputText.className = "form-input";
-  hidepass.className = "hidepass";
-  hidepassIcon.className = "hidepass_icon";
-  hidepassText.className = "hidepass_text";
-  formText.className = "form_text";
-
-  section.setAttribute("id", "contact");
-  p.textContent = data.contact.title.second;
-  stepTitle.textContent = data.contact.content.step.stepTitle;
-  mapText.textContent = data.contact.content.map.text;
-  imgIcon.setAttribute("src", "./images/atoms/a-icon-mail.svg");
-  imgIcon.setAttribute("alt", "icon");
-  imgMap.setAttribute("src", data.contact.content.map.src);
-  imgMap.setAttribute("alt", "map");
-  imgMap.setAttribute("width", 380);
-  form.setAttribute("action", "#");
-  spanText.textContent = "Your name";
-  inputText.setAttribute("type", "text");
-  inputText.setAttribute("name", "user-name");
-  inputText.setAttribute("required", "required");
-  iconHidepass.setAttribute("src", "./images/atoms/a-icon-hidepass.svg");
-  iconHidepass.setAttribute("alt", "icon");
-  hidepassText.textContent = "show";
-  btnForm.setAttribute("type", "submit");
-  btnForm.textContent = "Send message";
-  formText.textContent = "If you need to have a DNA first, just contact us at ";
-  linkEmail.textContent = "email@gmail.com";
-  linkEmail.setAttribute("href", "mailto:email@gmail.com");
+  const section = createElem({
+    nodeType: "section",
+    className: "contact_us section",
+    attribute: [{ name: "id", value: "contact" }],
+  });
+  const container = createElem({
+    nodeType: "div",
+    className: "container",
+  });
+  const contactContainer = createElem({
+    nodeType: "div",
+    className: "contact_us-box",
+  });
+  const stepBox = createElem({
+    nodeType: "div",
+    className: "step_box",
+  });
+  const mapBox = createElem({
+    nodeType: "div",
+    className: "map_box",
+  });
+  const formBox = createElem({
+    nodeType: "div",
+    className: "form-box",
+  });
+  const mapTextBox = createElem({
+    nodeType: "div",
+    className: "map_text-box",
+  });
+  const iconBox = createElem({
+    nodeType: "div",
+    className: "map_icon",
+  });
+  const stepList = createElem({
+    nodeType: "ul",
+    className: "step_list",
+  });
+  const p = createElem({
+    nodeType: "p",
+    className: "text",
+    text: data.contact.title.second,
+  });
+  const mapText = createElem({
+    nodeType: "p",
+    className: "map-text",
+    text: data.contact.content.map.text,
+  });
+  const formText = createElem({
+    nodeType: "p",
+    className: "form_text",
+    text: "If you need to have a DNA first, just contact us at",
+  });
+  const stepTitle = createElem({
+    nodeType: "h3",
+    className: "title_step",
+    text: data.contact.content.step.stepTitle,
+  });
+  const spanText = createElem({
+    nodeType: "span",
+    className: "input_text",
+    text: "Your name",
+  });
+  const hidepass = createElem({
+    nodeType: "span",
+    className: "hidepass",
+  });
+  const hidepassIcon = createElem({
+    nodeType: "span",
+    className: "hidepass_icon",
+  });
+  const hidepassText = createElem({
+    nodeType: "span",
+    className: "hidepass_text",
+    text: "show",
+  });
+  const imgIcon = createElem({
+    nodeType: "img",
+    attribute: [
+      { name: "src", value: "./images/atoms/a-icon-mail.svg" },
+      { name: "alt", value: "icon" },
+    ],
+  });
+  const imgMap = createElem({
+    nodeType: "img",
+    attribute: [
+      { name: "src", value: data.contact.content.map.src },
+      { name: "alt", value: "map" },
+      { name: "width", value: 380 },
+    ],
+  });
+  const iconHidepass = createElem({
+    nodeType: "img",
+    attribute: [
+      { name: "src", value: "./images/atoms/a-icon-hidepass.svg" },
+      { name: "alt", value: "icon" },
+    ],
+  });
+  const form = createElem({
+    nodeType: "form",
+    className: "form_contact-us",
+    attribute: [{ name: "action", value: "#" }],
+  });
+  const labelText = createElem({
+    nodeType: "label",
+    className: "form_field",
+  });
+  const inputText = createElem({
+    nodeType: "input",
+    className: "form-input",
+    attribute: [
+      { name: "type", value: "text" },
+      { name: "name", value: "user-name" },
+      { name: "required", value: "required" },
+    ],
+  });
+  const inputEmail = createElem({
+    nodeType: "input",
+    className: "form-input",
+    attribute: [
+      { name: "type", value: "email" },
+      { name: "name", value: "user-email" },
+      { name: "required", value: "required" },
+    ],
+  });
+  const inputPassword = createElem({
+    nodeType: "input",
+    className: "form-input",
+    attribute: [
+      { name: "type", value: "password" },
+      { name: "name", value: "user-password" },
+      { name: "required", value: "required" },
+    ],
+  });
+  const linkEmail = createElem({
+    nodeType: "a",
+    text: "email@gmail.com",
+    attribute: [{ name: "href", value: "mailto:email@gmail.com" }],
+  });
+  const btnForm = createElem({
+    nodeType: "button",
+    className: "button-dark form_contact-us_btn",
+    text: "Send message",
+    attribute: [{ name: "type", value: "submit" }],
+  });
 
   const labeltEmail = labelText.cloneNode(true);
-  const inputEmail = inputText.cloneNode(true);
-  const spanEmail = spanText.cloneNode(true);
-  spanEmail.textContent = "Email";
   const labelPassword = labelText.cloneNode(true);
-  const inputPassword = inputText.cloneNode(true);
+  const spanEmail = spanText.cloneNode(true);
   const spanPassword = spanText.cloneNode(true);
+  spanEmail.textContent = "Email";
   spanPassword.textContent = "Password";
 
   data.contact.content.step.stepList.forEach((elem, idx) => {
-    const stepItem = document.createElement("li");
-    const stepItemTitle = document.createElement("p");
-    const stepItemText = document.createElement("p");
-    const ovalBox = document.createElement("div");
-    const ovalBorder = document.createElement("div");
-    const ovalPoint = document.createElement("div");
-
-    stepItem.className = "step_item";
-    stepItemTitle.className = "step_title";
-    stepItemText.className = "step_text";
-    ovalBox.className = "oval_box";
-    ovalBorder.className = "oval_border";
-    ovalPoint.className = "oval_border_center";
-
-    stepItemTitle.textContent = `${idx + 1}. ${elem.title}`;
-    stepItemText.textContent = elem.text;
+    const stepItem = createElem({
+      nodeType: "li",
+      className: "step_item",
+    });
+    const ovalBox = createElem({
+      nodeType: "div",
+      className: "oval_box",
+    });
+    const ovalBorder = createElem({
+      nodeType: "div",
+      className: "oval_border",
+    });
+    const ovalPoint = createElem({
+      nodeType: "div",
+      className: "oval_border_center",
+    });
+    const stepItemTitle = createElem({
+      nodeType: "p",
+      className: "step_title",
+      text: `${idx + 1}. ${elem.title}`,
+    });
+    const stepItemText = createElem({
+      nodeType: "p",
+      className: "step_text",
+      text: elem.text,
+    });
 
     ovalBorder.append(ovalPoint);
     ovalBox.append(ovalBorder);
@@ -574,33 +660,6 @@ const markupContact = () => {
   section.append(container);
 
   return section;
-};
-
-const markupFooter = () => {
-  const footer = document.createElement("footer");
-  const container = document.createElement("div");
-  const footerBox = document.createElement("div");
-  const logo = document.createElement("a");
-  const p = document.createElement("p");
-
-  container.className = "container";
-  logo.className = "logo";
-  p.className = "footer_box_text";
-  footerBox.className = "footer_box";
-  footer.className = "footer";
-
-  logo.textContent = data.footer.logo.img;
-  logo.setAttribute("href", data.footer.logo.name);
-  p.textContent = data.footer.content.text;
-  footer.setAttribute("id", "footer");
-
-  footerBox.append(markupSocialLink());
-  footerBox.append(logo);
-  footerBox.append(p);
-  container.append(footerBox);
-  footer.append(container);
-
-  return footer;
 };
 
 const renderMarkup = () => {

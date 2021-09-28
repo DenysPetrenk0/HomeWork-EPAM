@@ -48,10 +48,11 @@
   margin-bottom: 50px;
   border-radius: 5px;
   background-color: #fcf6f6;
+  cursor: url(../images/atoms/pointer-5.svg), pointer;
 
   &_info {
-    // position: relative;
     margin-left: 40px;
+    background-color: #fcf6f6;
   }
 
   &_play_icon {
@@ -64,7 +65,22 @@
   }
 
   &:hover {
-    box-shadow: 0 3px 10px 0 #6d6d6d;
+    box-shadow: 0 11px 20px -13px #6d6d6d;
+  }
+
+  &_comment {
+    position: relative;
+    padding: 17px 27px;
+    background-color: #fcf6f6;
+
+    &_author {
+      display: flex;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__padding {
+    padding-top: 80px;
   }
 }
 
@@ -125,6 +141,7 @@
   &_btn {
     height: 45px;
     width: 121px;
+    cursor: url(../images/atoms/pointer-4.svg), pointer;
   }
 
   &_icon {
@@ -134,8 +151,15 @@
     height: 40px;
     width: 40px;
     fill: #d8d8d8;
-    margin-top: 15px;
-    margin-right: 20px;
+    margin: 18px 22px;
+
+    &_container {
+      position: absolute;
+      top: 0;
+      right: 0;
+      border: 3px solid #ffffff;
+      border-radius: 5px;
+    }
   }
 }
 
@@ -152,15 +176,5 @@
 
   &_btn {
     margin: 0 auto;
-  }
-}
-
-.blog_comment {
-  position: relative;
-  padding: 17px 27px;
-
-  &_author {
-    display: flex;
-    margin-bottom: 40px;
   }
 }

@@ -175,6 +175,46 @@ a {
 }
 
 /** @format */
+.header__blog {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  background: #fff;
+}
+
+.logo {
+  color: var(--primery-color);
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 1.64;
+}
+
+.header_nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.header_list {
+  display: flex;
+}
+
+.header_item:not(:last-child) {
+  margin-right: 40px;
+}
+
+.header_nav-link {
+  font-family: Hind Siliguri;
+  color: var(--primery-color);
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 1.66;
+}
+
+/** @format */
 .hero {
   padding-top: 155px;
   padding-bottom: 206px;
@@ -416,7 +456,7 @@ a {
 .latest-posts__comment {
   font-family: Hind Siliguri;
   color: var(--comment-color);
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: 0;
   line-height: 1.66;
   margin-right: 10px;
@@ -591,6 +631,21 @@ a {
   padding: 60px 40px 0 48px;
 }
 
+.testimonials__box_citation::before {
+  content: open-quote;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  height: 45px;
+  width: 13px;
+  color: #ffffff;
+  font-family: "Hind Siliguri";
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 45px;
+}
+
 .testimonials__box_text {
   font-family: Hind Siliguri;
   color: var(--white-color);
@@ -655,7 +710,8 @@ a {
   height: 17px;
   width: 17px;
   border-radius: 50%;
-  border: 3px solid var(--primery-color);
+  border: 4px solid var(--primery-color);
+  background-color: white;
 }
 
 .oval_border_center {
@@ -870,10 +926,12 @@ a {
   margin-bottom: 50px;
   border-radius: 5px;
   background-color: #fcf6f6;
+  cursor: url(../images/atoms/pointer-5.svg), pointer;
 }
 
 .blog_info {
   margin-left: 40px;
+  background-color: #fcf6f6;
 }
 
 .blog_play_icon {
@@ -886,7 +944,22 @@ a {
 }
 
 .blog:hover {
-  box-shadow: 0 3px 10px 0 #6d6d6d;
+  box-shadow: 0 11px 20px -13px #6d6d6d;
+}
+
+.blog_comment {
+  position: relative;
+  padding: 17px 27px;
+  background-color: #fcf6f6;
+}
+
+.blog_comment_author {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.blog__padding {
+  padding-top: 80px;
 }
 
 .author {
@@ -947,6 +1020,7 @@ a {
 .author_btn {
   height: 45px;
   width: 121px;
+  cursor: url(../images/atoms/pointer-4.svg), pointer;
 }
 
 .author_icon {
@@ -956,8 +1030,15 @@ a {
   height: 40px;
   width: 40px;
   fill: #d8d8d8;
-  margin-top: 15px;
-  margin-right: 20px;
+  margin: 18px 22px;
+}
+
+.author_icon_container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 3px solid #ffffff;
+  border-radius: 5px;
 }
 
 .star_icon {
@@ -976,20 +1057,10 @@ a {
   margin: 0 auto;
 }
 
-.blog_comment {
-  position: relative;
-  padding: 17px 27px;
-}
-
-.blog_comment_author {
-  display: flex;
-  margin-bottom: 40px;
-}
-
 /** @format */
 .post_container {
   display: flex;
-  padding-top: 50px;
+  padding-top: 133px;
 }
 
 .post_info {
@@ -1018,7 +1089,7 @@ a {
 .post_service {
   width: 460px;
   padding-top: 200px;
-  padding-left: 15px;
+  padding-left: 35px;
 }
 
 .post_service_title {
@@ -1051,6 +1122,7 @@ a {
   padding: 10px 14px;
   margin-left: 15px;
   margin-bottom: 15px;
+  cursor: url(../images/atoms/pointer-4.svg), pointer;
 }
 
 .latest_posts {
@@ -1187,6 +1259,21 @@ a {
   padding-top: 23px;
 }
 
+.Reviews_list {
+  position: relative;
+}
+
+.Reviews_list::before {
+  z-index: 0;
+  top: 0;
+  left: 37px;
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 2px;
+  background: #dddddd;
+}
+
 .Reviews_title {
   font-family: Hind Siliguri;
   color: var(--primery-color);
@@ -1198,6 +1285,7 @@ a {
 }
 
 .Reviews_img_author {
+  z-index: 1;
   height: 80px;
   width: 80px;
   margin-right: 35px;
@@ -1215,6 +1303,62 @@ a {
   letter-spacing: 0;
   line-height: 1.66;
   max-width: 511px;
+}
+
+.Reviews_item:first-child {
+  position: relative;
+}
+
+.Reviews_item:first-child::before {
+  position: absolute;
+  top: -40px;
+  left: 30px;
+  content: "";
+  box-sizing: border-box;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border: 2px solid #dddddd;
+  background-color: #ffffff;
+}
+
+.Reviews_item:first-child::after {
+  z-index: 0;
+  top: -26px;
+  left: 37px;
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 2px;
+  background: #dddddd;
+}
+
+.Reviews_item:last-child {
+  position: relative;
+}
+
+.Reviews_item:last-child::before {
+  position: absolute;
+  top: 225px;
+  left: 30px;
+  content: "";
+  box-sizing: border-box;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border: 2px solid #dddddd;
+  background-color: #ffffff;
+}
+
+.Reviews_item:last-child::after {
+  z-index: 0;
+  top: 77px;
+  left: 37px;
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 2px;
+  background: #dddddd;
 }
 
 .Reviews_btn {
@@ -1326,7 +1470,7 @@ a {
 }
 
 .button-arrow:hover {
-  box-shadow: 0 3px 10px 0 #6d6d6d;
+  box-shadow: 0 3px 5px 0 #6d6d6d;
 }
 
 .arrow_icon_left {
@@ -1515,6 +1659,7 @@ details[open] .accordion_icon {
 
 .according_menu_link:hover {
   font-weight: 500;
+  cursor: url(../images/atoms/pointer-3.svg), pointer;
 }
 
 .according_menu_item {
