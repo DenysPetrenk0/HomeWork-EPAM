@@ -74,4 +74,4 @@ slideContainer.addEventListener("mouseleave", startSlide);
 leftBtn.addEventListener("click", movePrevSlide);
 rigthBtn.addEventListener("click", moveNextSlide);
 
-startSlide();
+// startSlide();

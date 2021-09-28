@@ -103,7 +103,6 @@ a {
 
 .header__container {
   background-image: url(../images/hero-bg.jpg);
-  width: 1440px;
   margin: 0 auto;
   background-repeat: no-repeat;
   background-size: cover;
@@ -181,7 +180,6 @@ a {
   padding-bottom: 206px;
   background-image: url(../images/hero-bg.jpg);
   background-repeat: no-repeat;
-  width: 1440px;
   background-size: cover;
   margin: 0 auto;
 }
@@ -551,7 +549,6 @@ a {
 .testimonials {
   background-image: linear-gradient(rgba(222, 222, 222, 0.6), rgba(222, 222, 222, 0.6)), url(../images/testimonial-bg.png);
   background-repeat: no-repeat;
-  width: 1440px;
   background-size: cover;
   margin: 0 auto;
   padding: 80px 0;
