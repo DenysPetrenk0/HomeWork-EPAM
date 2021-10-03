@@ -167,11 +167,15 @@ function markupAuthorBlog(value, idx) {
     attribute: [
       {
         name: "src",
-        value: `https://image.tmdb.org/t/p/w500/${value[0].profile_path}`,
+        value:
+          value[0].profile_path !== null
+            ? `https://image.tmdb.org/t/p/w500/${value[0].profile_path}`
+            : "../images/authors/Grace.png",
       },
       { name: "alt", value: "author photo" },
     ],
   });
+
   const authorInfo = createElem({
     nodeType: "div",
     className: "author_info",
@@ -260,9 +264,7 @@ function murkupCommentBlog(value) {
       attribute: [
         {
           name: "src",
-          value: elem.author_details.avatar_path
-            ? elem.author_details.avatar_path
-            : "../images/authors/Grace.png",
+          value: "../images/authors/Grace.png",
         },
         { name: "alt", value: "author photo" },
       ],
