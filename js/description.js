@@ -12,7 +12,7 @@ const markupDescription = (value) => {
   const date = createElem({
     nodeType: "p",
     className: "latest-posts__comment",
-    text: value.date,
+    text: value ? value.date : "20 oct, 2019",
   });
   const oval = createElem({
     nodeType: "p",
@@ -29,8 +29,8 @@ const markupDescription = (value) => {
   const time = date.cloneNode(false);
   const commetn = date.cloneNode(false);
 
-  time.textContent = value.time;
-  commetn.textContent = value.commetn;
+  time.textContent = value ? value.time : "10 min read";
+  commetn.textContent = value ? value.commetn : 11;
 
   icon.append(img);
   div.append(date);
