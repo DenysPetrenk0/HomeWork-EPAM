@@ -1,6 +1,7 @@
 /** @format */
 
-const markupMain = () => {
+const markupMain = (movies) => {
+  console.log(movies);
   const main = document.createElement("main");
   const container = createElem({
     nodeType: "div",
@@ -49,7 +50,9 @@ const markupMain = () => {
 
   containerSection = container.cloneNode(false);
 
-  data.blog.content.textBlog.forEach((elem) => {
+  // value.forEach((elem) => console.log(elem));
+
+  movies.forEach((movie) => {
     const blog = createElem({
       nodeType: "div",
       className: "blog",
@@ -69,7 +72,10 @@ const markupMain = () => {
     const img = createElem({
       nodeType: "img",
       attribute: [
-        { name: "src", value: elem.image.src },
+        {
+          name: "src",
+          value: `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`,
+        },
         { name: "alt", value: "blog img" },
         { name: "width", value: 560 },
       ],
@@ -77,26 +83,26 @@ const markupMain = () => {
     const imgIconImg = createElem({
       nodeType: "img",
       attribute: [
-        { name: "src", value: elem.image.icon },
+        // { name: "src", value: elem.image.icon },
         { name: "alt", value: "icon" },
       ],
     });
     const iconAuthorBlog = createElem({
       nodeType: "img",
       attribute: [
-        { name: "src", value: elem.icon },
+        { name: "src", value: "./images/atoms/a-icon-playmini.svg" },
         { name: "alt", value: "icon" },
       ],
     });
     const blogTitle = createElem({
       nodeType: "h2",
       className: "author_blog_title",
-      text: elem.title,
+      text: movie.original_title,
     });
     const blogText = createElem({
       nodeType: "p",
       className: "author_blog_text",
-      text: elem.text,
+      text: movie.overview,
     });
     const readMore = createElem({
       nodeType: "a",
@@ -108,16 +114,17 @@ const markupMain = () => {
       nodeType: "audio",
       attribute: [{ name: "controls", value: "controls" }],
     });
-    const author = markupAuthor(elem);
+
+    getReviews(movie.id);
 
     authorIconBlog.append(iconAuthorBlog);
-    infoBlog.append(author);
+    // infoBlog.append(author);
     infoBlog.append(blogTitle);
-    elem.audio ? infoBlog.append(audio) : null;
+    // elem.audio ? infoBlog.append(audio) : null;
     infoBlog.append(blogText);
     infoBlog.append(readMore);
     infoBlog.append(authorIconBlog);
-    elem.image.icon ? blogIconImg.append(imgIconImg) : null;
+    // elem.image.icon ? blogIconImg.append(imgIconImg) : null;
     blog.append(blogIconImg);
     blog.append(img);
     blog.append(infoBlog);
@@ -156,10 +163,10 @@ const markupMain = () => {
         { name: "alt", value: "icon" },
       ],
     });
-    const author = markupAuthor(elem);
+    // const author = markupAuthor(elem);
 
     authorCommentIcon.append(commentIcon);
-    blogComment.append(author);
+    // blogComment.append(author);
     blogComment.append(commentTitle);
     blogComment.append(commentText);
     blogComment.append(readMore);
@@ -181,12 +188,17 @@ const markupMain = () => {
   return main;
 };
 
-const renderBlog = () => {
+const renderBlog = (results) => {
   const root = document.getElementById("root");
 
   root.insertAdjacentElement("beforeend", markupHeaderBlog());
-  root.insertAdjacentElement("beforeend", markupMain());
+  root.insertAdjacentElement("beforeend", markupMain(results.results));
   root.insertAdjacentElement("beforeend", markupFooterBlog());
 };
 
-renderBlog();
+// renderBlog();
+function getMovie() {
+  fetchMovies().then(renderBlog);
+}
+
+getMovie();

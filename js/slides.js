@@ -5,6 +5,7 @@ const slide = document.querySelector(".slides__container");
 const leftBtn = document.getElementById("left-btn");
 const rigthBtn = document.getElementById("rigth-btn");
 const interval = 3000;
+const transition = "1.5s";
 
 let slides = document.querySelectorAll(".testimonials__box");
 let index = 1;
@@ -21,7 +22,10 @@ slide.prepend(lastSlide);
 
 const slideWidth = slides[index].clientWidth;
 
-slide.style.transform = `translateX(${-slideWidth * index}px)`;
+const slideTransform = () => `translateX(${-slideWidth * index}px)`;
+const getSlide = () => document.querySelectorAll(".testimonials__box");
+
+slide.style.transform = slideTransform();
 
 const startSlide = () => {
   slideId = setInterval(() => {
@@ -29,21 +33,19 @@ const startSlide = () => {
   }, interval);
 };
 
-const getSlide = () => document.querySelectorAll(".testimonials__box");
-
 slide.addEventListener("transitionend", () => {
   slides = getSlide();
 
   if (slides[index].id === firstSlide.id) {
     slide.style.transition = "none";
     index = 1;
-    slide.style.transform = `translateX(${-slideWidth * index}px)`;
+    slide.style.transform = slideTransform();
   }
 
   if (slides[index].id === lastSlide.id) {
     slide.style.transition = "none";
     index = slides.length - 2;
-    slide.style.transform = `translateX(${-slideWidth * index}px)`;
+    slide.style.transform = slideTransform();
   }
 });
 
@@ -52,8 +54,8 @@ const moveNextSlide = () => {
 
   if (index >= slides.length - 1) return;
   index++;
-  slide.style.transform = `translateX(${-slideWidth * index}px)`;
-  slide.style.transition = "1.5s";
+  slide.style.transform = slideTransform();
+  slide.style.transition = transition;
 };
 
 const movePrevSlide = () => {
@@ -61,8 +63,8 @@ const movePrevSlide = () => {
 
   if (index <= 0) return;
   index--;
-  slide.style.transform = `translateX(${-slideWidth * index}px)`;
-  slide.style.transition = "1.5s";
+  slide.style.transform = slideTransform();
+  slide.style.transition = transition;
 };
 
 slideContainer.addEventListener("mouseenter", () => {
