@@ -103,7 +103,6 @@ a {
 
 .header__container {
   background-image: url(../images/hero-bg.jpg);
-  width: 1440px;
   margin: 0 auto;
   background-repeat: no-repeat;
   background-size: cover;
@@ -221,7 +220,6 @@ a {
   padding-bottom: 206px;
   background-image: url(../images/hero-bg.jpg);
   background-repeat: no-repeat;
-  width: 1440px;
   background-size: cover;
   margin: 0 auto;
 }
@@ -591,10 +589,13 @@ a {
 .testimonials {
   background-image: linear-gradient(rgba(222, 222, 222, 0.6), rgba(222, 222, 222, 0.6)), url(../images/testimonial-bg.png);
   background-repeat: no-repeat;
-  width: 1440px;
   background-size: cover;
   margin: 0 auto;
   padding: 80px 0;
+}
+
+.testimonials__btn__box {
+  position: relative;
 }
 
 .testimonials .title {
@@ -602,15 +603,15 @@ a {
 }
 
 .testimonials__container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto;
+  width: 560px;
+  overflow: hidden;
 }
 
 .testimonials__box {
+  min-width: 100%;
   display: flex;
   justify-content: center;
-  padding: 0 30px;
 }
 
 .testimonials__box_user {
@@ -620,7 +621,6 @@ a {
 }
 
 .testimonials__box_citation {
-  position: relative;
   font-family: Hind Siliguri;
   color: var(--white-color);
   font-size: 17px;
@@ -653,6 +653,21 @@ a {
   letter-spacing: 0;
   line-height: 1.66;
   padding-left: 48px;
+}
+
+.slides__container {
+  display: flex;
+  width: 100%;
+}
+
+.btn__container {
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 710px;
 }
 
 /** @format */
@@ -1324,7 +1339,7 @@ a {
 
 .Reviews_item:last-child::before {
   position: absolute;
-  top: 200px;
+  top: 225px;
   left: 30px;
   content: "";
   box-sizing: border-box;

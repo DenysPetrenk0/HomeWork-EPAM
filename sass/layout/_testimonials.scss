@@ -1,4 +1,5 @@
 /** @format */
+
 .testimonials {
   background-image: linear-gradient(
       rgba(222, 222, 222, 0.6),
@@ -6,25 +7,29 @@
     ),
     url(../images/testimonial-bg.png);
   background-repeat: no-repeat;
-  width: 1440px;
+  // width: 1440px;
   background-size: cover;
   margin: 0 auto;
   padding: 80px 0;
+
+  &__btn__box {
+    position: relative;
+  }
 
   & .title {
     margin-bottom: 65px;
   }
 
   &__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0 auto;
+    width: 560px;
+    overflow: hidden;
   }
 
   &__box {
+    min-width: 100%;
     display: flex;
     justify-content: center;
-    padding: 0 30px;
 
     &_user {
       height: 265px;
@@ -33,7 +38,6 @@
     }
 
     &_citation {
-      position: relative;
       font-family: Hind Siliguri;
       color: var(--white-color);
       font-size: 17px;
@@ -68,4 +72,19 @@
       padding-left: 48px;
     }
   }
+}
+
+.slides__container {
+  display: flex;
+  width: 100%;
+}
+
+.btn__container {
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 710px;
 }

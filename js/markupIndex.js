@@ -329,7 +329,7 @@ const markupTestimonials = () => {
   });
   const container = createElem({
     nodeType: "div",
-    className: "container",
+    className: "container testimonials__btn__box",
   });
   const testimonialsContainer = createElem({
     nodeType: "div",
@@ -343,8 +343,13 @@ const markupTestimonials = () => {
     nodeType: "div",
     className: "arrow_icon_rigth",
   });
+  const containerBtn = createElem({
+    nodeType: "div",
+    className: "btn__container",
+  });
   const testimonialsBox = createElem({
     nodeType: "ul",
+    className: "slides__container",
   });
   const imgIconBtn = createElem({
     nodeType: "img",
@@ -356,12 +361,18 @@ const markupTestimonials = () => {
   const btnLeft = createElem({
     nodeType: "button",
     className: "button-arrow",
-    attribute: [{ name: "type", value: "button" }],
+    attribute: [
+      { name: "type", value: "button" },
+      { name: "id", value: "left-btn" },
+    ],
   });
   const btnRight = createElem({
     nodeType: "button",
     className: "button-arrow",
-    attribute: [{ name: "type", value: "button" }],
+    attribute: [
+      { name: "type", value: "button" },
+      { name: "id", value: "rigth-btn" },
+    ],
   });
 
   data.testimonials.content.forEach((elem) => {
@@ -408,14 +419,15 @@ const markupTestimonials = () => {
   divIconBtnRight.append(imgIconBtn.cloneNode(false));
   btnLeft.append(divIconBtnLeft);
   btnRight.append(divIconBtnRight);
+  containerBtn.append(btnLeft);
+  containerBtn.append(btnRight);
 
-  testimonialsContainer.append(btnLeft);
   testimonialsContainer.append(testimonialsBox);
-  testimonialsContainer.append(btnRight);
   container.append(
     markupTitle(data.testimonials.title.primary, "title_border-testimonials")
   );
   container.append(testimonialsContainer);
+  container.append(containerBtn);
   section.append(container);
 
   return section;

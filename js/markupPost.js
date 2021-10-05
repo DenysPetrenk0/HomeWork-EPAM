@@ -1,5 +1,3 @@
-/** @format */
-
 const markupMain = () => {
   const main = document.createElement("main");
   const container = createElem({
@@ -300,6 +298,7 @@ const markupMain = () => {
   });
 
   data.post.content.postService.tags.buttonTags.forEach((elem) => {
+
     const btnTags = createElem({
       nodeType: "button",
       className: "button-light tags_btn",
