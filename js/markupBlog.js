@@ -1,4 +1,5 @@
 /** @format */
+const IMG_URL = "https://image.tmdb.org/t/p/w500/";
 
 function markupMain(value) {
   const main = document.createElement("main");
@@ -49,7 +50,7 @@ function markupMain(value) {
 
   containerSection = container.cloneNode(false);
 
-  value.forEach((elem, idx) => {
+  value.results.forEach((elem, idx) => {
     const blog = createElem({
       nodeType: "div",
       className: "blog",
@@ -71,7 +72,7 @@ function markupMain(value) {
       attribute: [
         {
           name: "src",
-          value: `https://image.tmdb.org/t/p/w500/${elem.backdrop_path}`,
+          value: `${IMG_URL}${elem.backdrop_path}`,
         },
         { name: "alt", value: "blog img" },
         { name: "width", value: 560 },
@@ -114,7 +115,6 @@ function markupMain(value) {
     getCast(elem.id, idx);
 
     authorIconBlog.append(iconAuthorBlog);
-    // infoBlog.append(author);
     infoBlog.append(blogTitle);
     // elem.audio ? infoBlog.append(audio) : null;
     infoBlog.append(blogText);
@@ -151,12 +151,13 @@ const renderBlog = (value) => {
 };
 
 const getMovie = () => {
-  fetchMovie().then(renderBlog);
+  fetchData(`popular?api_key=${API_KEY}&language=en-US&page=1`).then(
+    renderBlog
+  );
 };
-
 getMovie();
 
-function markupAuthorBlog(value, idx) {
+function markupAuthorBlog(value, idx, id) {
   const author = createElem({
     nodeType: "div",
     className: "author",
@@ -169,8 +170,8 @@ function markupAuthorBlog(value, idx) {
         name: "src",
         value:
           value[0].profile_path !== null
-            ? `https://image.tmdb.org/t/p/w500/${value[0].profile_path}`
-            : "../images/authors/Grace.png",
+            ? `${IMG_URL}${value[0].profile_path}`
+            : "./images/authors/Grace.png",
       },
       { name: "alt", value: "author photo" },
     ],
@@ -185,7 +186,7 @@ function markupAuthorBlog(value, idx) {
     className: "author_name",
     text: value[0].name,
   });
-  const comment = markupDescription();
+  getMovieDetails(id, idx);
 
   data.blog.content.textBlog[0].author.description.stars.forEach((item) => {
     const divIconStar = createElem({
@@ -201,11 +202,9 @@ function markupAuthorBlog(value, idx) {
     });
 
     divIconStar.append(imgIconStar);
-    comment.append(divIconStar);
   });
 
   authorInfo.append(authorName);
-  authorInfo.append(comment);
   author.append(authorImg);
   author.append(authorInfo);
 
@@ -214,11 +213,13 @@ function markupAuthorBlog(value, idx) {
 }
 
 const getCast = (id, idx) => {
-  fetchCast(id).then((value) => markupAuthorBlog(value, idx));
+  fetchData(`${id}/credits?api_key=${API_KEY}&language=en-US`).then((value) =>
+    markupAuthorBlog(value.cast, idx, id)
+  );
 };
 
 function murkupCommentBlog(value) {
-  value.forEach((elem) => {
+  value.results.forEach((elem) => {
     const blogComment = createElem({
       nodeType: "div",
       className: "blog_comment",
@@ -246,7 +247,7 @@ function murkupCommentBlog(value) {
     const commentIcon = createElem({
       nodeType: "img",
       attribute: [
-        { name: "src", value: "../images/atoms/a-icon-text.svg" },
+        { name: "src", value: "./images/atoms/a-icon-text.svg" },
         { name: "alt", value: "icon" },
       ],
     });
@@ -264,7 +265,7 @@ function murkupCommentBlog(value) {
       attribute: [
         {
           name: "src",
-          value: "../images/authors/Grace.png",
+          value: "./images/authors/Grace.png",
         },
         { name: "alt", value: "author photo" },
       ],
@@ -310,5 +311,98 @@ function murkupCommentBlog(value) {
 }
 
 const getReviews = () => {
-  fetchReviews(550988).then(murkupCommentBlog);
+  fetchData(`550988/reviews?api_key=${API_KEY}&language=en-US&page=1`).then(
+    murkupCommentBlog
+  );
 };
+
+const markupDescriptionBlog = (value, idx) => {
+  const div = createElem({
+    nodeType: "div",
+    className: "comment",
+  });
+  const icon = createElem({
+    nodeType: "div",
+    className: "comment_icon",
+  });
+  const date = createElem({
+    nodeType: "p",
+    className: "latest-posts__comment",
+    text: currentDate(value.release_date),
+  });
+  const oval = createElem({
+    nodeType: "p",
+    className: "oval",
+  });
+  const img = createElem({
+    nodeType: "img",
+    attribute: [
+      { name: "src", value: "./images/atoms/a-icon-comment.svg" },
+      { name: "alt", value: "icon" },
+    ],
+  });
+
+  const time = date.cloneNode(false);
+  const commetn = date.cloneNode(false);
+
+  time.textContent = `${value.runtime} min read`;
+  commetn.textContent = value.revenue;
+
+  icon.append(img);
+  div.append(date);
+  div.append(oval);
+  div.append(time);
+  div.append(oval.cloneNode(false));
+  div.append(icon);
+  div.append(commetn);
+
+  data.blog.content.textBlog[0].author.description.stars.forEach((item) => {
+    const divIconStar = createElem({
+      nodeType: "div",
+      className: "star_icon",
+    });
+    const imgIconStar = createElem({
+      nodeType: "img",
+      attribute: [
+        { name: "src", value: item },
+        { name: "alt", value: "icon" },
+      ],
+    });
+
+    divIconStar.append(imgIconStar);
+    div.append(divIconStar);
+  });
+
+  const authorInfo = document.querySelectorAll(".author_info");
+  authorInfo[idx].insertAdjacentElement("beforeend", div);
+};
+
+function getMovieDetails(id, idx) {
+  fetchData(`${id}?api_key=${API_KEY}&language=en-US`).then((value) => {
+    markupDescriptionBlog(value, idx);
+  });
+}
+
+const month = [
+  "jan",
+  "feb",
+  "mar",
+  "apr",
+  "May",
+  "june",
+  "july",
+  "aug",
+  "sept",
+  "oct",
+  "nov",
+  "dec",
+];
+
+function currentDate(value) {
+  const date = new Date(Date.parse(value));
+  const year = date.getFullYear();
+  const wordMonth = month[date.getMonth() + 1];
+  const day = date.getDate();
+
+  return `${day} ${wordMonth}, ${year}`;
+}
