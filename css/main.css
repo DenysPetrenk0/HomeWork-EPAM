@@ -972,6 +972,10 @@ a {
   margin-left: 15px;
 }
 
+.author_info_comment {
+  margin-left: 15px;
+}
+
 .author_name {
   font-family: Hind Siliguri;
   color: var(--primery-color);
