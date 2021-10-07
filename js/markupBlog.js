@@ -1,5 +1,8 @@
 /** @format */
 const IMG_URL = "https://image.tmdb.org/t/p/w500/";
+const fullStar = "./images/atoms/star-1.svg";
+const emptyStar = "./images/atoms/star-2.svg";
+const halfStar = "./images/atoms/star-3.svg";
 
 function markupMain(value) {
   const main = document.createElement("main");
@@ -155,6 +158,7 @@ const getMovie = () => {
     renderBlog
   );
 };
+
 getMovie();
 
 function markupAuthorBlog(value, idx, id) {
@@ -187,22 +191,6 @@ function markupAuthorBlog(value, idx, id) {
     text: value[0].name,
   });
   getMovieDetails(id, idx);
-
-  data.blog.content.textBlog[0].author.description.stars.forEach((item) => {
-    const divIconStar = createElem({
-      nodeType: "div",
-      className: "star_icon",
-    });
-    const imgIconStar = createElem({
-      nodeType: "img",
-      attribute: [
-        { name: "src", value: item },
-        { name: "alt", value: "icon" },
-      ],
-    });
-
-    divIconStar.append(imgIconStar);
-  });
 
   authorInfo.append(authorName);
   author.append(authorImg);
@@ -277,7 +265,9 @@ function murkupCommentBlog(value) {
     });
     const comment = markupDescription();
 
-    data.blog.content.textBlog[0].author.description.stars.forEach((item) => {
+    arrStars = translatesRatingIntoStars(elem.author_details.rating);
+
+    arrStars.forEach((item) => {
       const divIconStar = createElem({
         nodeType: "div",
         className: "star_icon",
@@ -356,7 +346,8 @@ const markupDescriptionBlog = (value, idx) => {
   div.append(icon);
   div.append(commetn);
 
-  data.blog.content.textBlog[0].author.description.stars.forEach((item) => {
+  arrStars = translatesRatingIntoStars(value.vote_average);
+  arrStars.forEach((item) => {
     const divIconStar = createElem({
       nodeType: "div",
       className: "star_icon",
@@ -405,4 +396,27 @@ function currentDate(value) {
   const day = date.getDate();
 
   return `${day} ${wordMonth}, ${year}`;
+}
+
+function movieRatingPercent(value) {
+  const retingPercent = value * 10;
+  return retingPercent;
+}
+
+function translatesRatingIntoStars(value) {
+  let reting = movieRatingPercent(value);
+  let newArr = [];
+  for (let i = 0; i < 5; i++) {
+    reting = reting - 20;
+    if (reting > 0) {
+      if (reting >= 20) {
+        newArr.push(fullStar);
+      } else {
+        newArr.push(halfStar);
+      }
+    } else {
+      newArr.push(emptyStar);
+    }
+  }
+  return newArr;
 }
