@@ -91,6 +91,9 @@
 
   &_info {
     margin-left: 15px;
+    &_comment {
+      margin-left: 15px;
+    }
   }
 
   &_name {
@@ -106,6 +109,7 @@
     margin-right: 15px;
     height: 52px;
     width: 52px;
+    border-radius: 50%;
   }
 
   &_blog_title {

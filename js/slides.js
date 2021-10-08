@@ -21,7 +21,6 @@ slide.append(firstSlide);
 slide.prepend(lastSlide);
 
 const slideWidth = slides[index].clientWidth;
-
 const slideTransform = () => `translateX(${-slideWidth * index}px)`;
 const getSlide = () => document.querySelectorAll(".testimonials__box");
 
