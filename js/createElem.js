@@ -13,10 +13,3 @@ const createElem = ({ nodeType, className, text = null, attribute = null }) => {
 
   return elem;
 };
-
-// const elem = createElem({
-//   nodeType: "",
-//   className: "",
-//   text: "",
-//   attribute: [{ name: "", value: "" }],
-// });
