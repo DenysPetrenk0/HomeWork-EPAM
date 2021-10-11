@@ -232,12 +232,18 @@ const markupPortfolio = () => {
   const btnArrowLeft = createElem({
     nodeType: "button",
     className: "button-arrow",
-    attribute: [{ name: "type", value: "button" }],
+    attribute: [
+      { name: "type", value: "button" },
+      { name: "id", value: "portfolio-left-btn" },
+    ],
   });
   const btnArrowRigth = createElem({
     nodeType: "button",
     className: "button-arrow",
-    attribute: [{ name: "type", value: "button" }],
+    attribute: [
+      { name: "type", value: "button" },
+      { name: "id", value: "portfolio-right-btn" },
+    ],
   });
 
   data.portfolio.content.forEach((elem) => {
@@ -363,7 +369,7 @@ const markupTestimonials = () => {
     className: "button-arrow",
     attribute: [
       { name: "type", value: "button" },
-      { name: "id", value: "left-btn" },
+      { name: "id", value: "testimonials-left-btn" },
     ],
   });
   const btnRight = createElem({
@@ -371,7 +377,7 @@ const markupTestimonials = () => {
     className: "button-arrow",
     attribute: [
       { name: "type", value: "button" },
-      { name: "id", value: "rigth-btn" },
+      { name: "id", value: "testimonials-rigth-btn" },
     ],
   });
 

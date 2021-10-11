@@ -1,8 +1,13 @@
 /** @format */
 
-const createElem = ({ nodeType, className, text = null, attribute = null }) => {
+const createElem = ({
+  nodeType,
+  className = null,
+  text = null,
+  attribute = null,
+}) => {
   const elem = document.createElement(nodeType);
-  elem.className = className;
+  className ? (elem.className = className) : null;
   elem.textContent = text;
 
   if (attribute) {
