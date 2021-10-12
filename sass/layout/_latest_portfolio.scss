@@ -7,6 +7,10 @@
     margin-bottom: 40px;
   }
 
+  &__container {
+    overflow: hidden;
+  }
+
   &__item {
     position: relative;
     min-width: calc((100% - 80px) / 3);

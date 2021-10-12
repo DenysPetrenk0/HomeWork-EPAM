@@ -1,7 +1,6 @@
 /** @format */
 
 // let index = 1;
-// let slideId;
 
 const refsTestimonials = {
   slideContainer: document.querySelector(".testimonials__btn__box"),
@@ -9,9 +8,10 @@ const refsTestimonials = {
   slides: document.querySelectorAll(".testimonials__box"),
   leftBtn: document.getElementById("testimonials-left-btn"),
   rigthBtn: document.getElementById("testimonials-rigth-btn"),
-  interval: 2000,
+  interval: 3000,
   transition: "1.5s",
   nameClass: ".testimonials__box",
+  adjustment: 0,
 };
 
 const refsPortfolio = {
@@ -23,9 +23,85 @@ const refsPortfolio = {
   interval: 2000,
   transition: "2.0s",
   nameClass: ".portfolio__item",
+  adjustment: 40,
 };
 
-const Slide = function ({
+function Slider() {
+  let index = 1;
+  let slideId;
+
+  this.firstSlide = this.slides[0].cloneNode(true);
+  this.lastSlide = this.slides[this.slides.length - 1].cloneNode(true);
+
+  this.firstSlide.setAttribute("id", "first-slide");
+  this.lastSlide.setAttribute("id", "last-slide");
+
+  this.slide.append(this.firstSlide);
+  this.slide.prepend(this.lastSlide);
+
+  this.slideWidth = this.slides[index].clientWidth + this.adjustment;
+
+  this.slideTransform = function () {
+    return `translateX(${-this.slideWidth * index}px)`;
+  };
+
+  this.getSlide = function () {
+    return document.querySelectorAll(this.nameClass);
+  };
+
+  this.slide.style.transform = this.slideTransform();
+
+  this.slide.addEventListener("transitionend", () => {
+    let slides = this.getSlide();
+    if (slides[index].id === this.firstSlide.id) {
+      this.slide.style.transition = "none";
+      index = 1;
+      this.slide.style.transform = this.slideTransform();
+    }
+
+    if (slides[index].id === this.lastSlide.id) {
+      this.slide.style.transition = "none";
+      index = slides.length - 2;
+      this.slide.style.transform = this.slideTransform();
+    }
+  });
+
+  this.startSlide = function () {
+    slideId = setInterval(() => {
+      this.moveNextSlide();
+    }, this.interval);
+  };
+
+  this.moveNextSlide = function () {
+    let slides = this.getSlide();
+
+    if (index >= slides.length - 1) return;
+    index++;
+    this.slide.style.transform = this.slideTransform();
+    this.slide.style.transition = this.transition;
+  };
+
+  this.movePrevSlide = function () {
+    if (index <= 0) return;
+    index--;
+    this.slide.style.transform = this.slideTransform();
+    this.slide.style.transition = this.transition;
+  };
+
+  this.slideContainer.addEventListener("mouseenter", () => {
+    clearInterval(slideId);
+  });
+
+  this.slideContainer.addEventListener(
+    "mouseleave",
+    this.startSlide.bind(this)
+  );
+
+  this.leftBtn.addEventListener("click", this.movePrevSlide.bind(this));
+  this.rigthBtn.addEventListener("click", this.moveNextSlide.bind(this));
+}
+
+function FirstSliderInstance({
   slide,
   slides,
   slideContainer,
@@ -34,79 +110,56 @@ const Slide = function ({
   interval,
   transition,
   nameClass,
+  adjustment,
 }) {
-  let index = 1;
-  let slideId;
+  this.slide = slide;
+  this.slides = slides;
+  this.slideContainer = slideContainer;
+  this.leftBtn = leftBtn;
+  this.rigthBtn = rigthBtn;
+  this.interval = interval;
+  this.transition = transition;
+  this.nameClass = nameClass;
+  this.adjustment = adjustment;
 
-  this.firstSlide = slides[0].cloneNode(true);
-  this.lastSlide = slides[slides.length - 1].cloneNode(true);
+  Slider.call(this);
 
-  this.firstSlide.setAttribute("id", "first-slide");
-  this.lastSlide.setAttribute("id", "last-slide");
-
-  slide.append(this.firstSlide);
-  slide.prepend(this.lastSlide);
-
-  this.slideWidth = slides[index].clientWidth + 40; // 40
-
-  this.slideTransform = function () {
-    return `translateX(${-this.slideWidth * index}px)`;
-  };
-  this.getSlide = function () {
-    return document.querySelectorAll(nameClass);
-  };
-
-  slide.style.transform = this.slideTransform();
-
-  this.startSlide = function () {
-    slideId = setInterval(() => {
-      this.moveNextSlide();
-    }, interval);
-  };
-
-  slide.addEventListener("transitionend", () => {
-    let slides = this.getSlide();
-    if (slides[index].id === this.firstSlide.id) {
-      slide.style.transition = "none";
-      index = 1;
-      slide.style.transform = this.slideTransform();
-    }
-
-    if (slides[index].id === this.lastSlide.id) {
-      slide.style.transition = "none";
-      index = slides.length - 2; //2
-      slide.style.transform = this.slideTransform();
-    }
+  this.slide.addEventListener("mousemove", (event) => {
+    pos = event.clientX - event.offsetX;
+    pos > 300 ? this.movePrevSlide() : this.moveNextSlide();
   });
+}
 
-  this.moveNextSlide = function () {
-    let slides = this.getSlide();
+function SecondSliderInstance({
+  slide,
+  slides,
+  slideContainer,
+  leftBtn,
+  rigthBtn,
+  interval,
+  transition,
+  nameClass,
+  adjustment,
+}) {
+  this.slide = slide;
+  this.slides = slides;
+  this.slideContainer = slideContainer;
+  this.leftBtn = leftBtn;
+  this.rigthBtn = rigthBtn;
+  this.interval = interval;
+  this.transition = transition;
+  this.nameClass = nameClass;
+  this.adjustment = adjustment;
 
-    if (index >= slides.length - 1) return;
-    index++;
-    slide.style.transform = this.slideTransform();
-    slide.style.transition = transition;
-  };
+  Slider.call(this);
+}
 
-  this.movePrevSlide = function () {
-    if (index <= 0) return;
-    index--;
-    slide.style.transform = this.slideTransform();
-    slide.style.transition = transition;
-  };
-
-  // slideContainer.addEventListener("mouseenter", () => {
-  //   clearInterval(slideId);
-  // });
-
-  // slideContainer.addEventListener("mouseleave", this.startSlide.bind(this));
-
-  leftBtn.addEventListener("click", this.movePrevSlide.bind(this));
-  rigthBtn.addEventListener("click", this.moveNextSlide.bind(this));
-};
-
-const testimonialsSlide = new Slide(refsTestimonials);
-const portfolioSlide = new Slide(refsPortfolio);
+const testimonialsSlide = new FirstSliderInstance(refsTestimonials);
+const portfolioSlide = new SecondSliderInstance(refsPortfolio);
 
 // testimonialsSlide.startSlide();
 // portfolioSlide.startSlide();
+
+// console.dir(Slider);
+// console.dir(testimonialsSlide);
+// console.dir(portfolioSlide);

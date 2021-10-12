@@ -203,6 +203,10 @@ const markupPortfolio = () => {
     nodeType: "div",
     className: "arrow_icon_left",
   });
+  const containerPortfolio = createElem({
+    nodeType: "div",
+    className: "portfolio__container",
+  });
   const divIconBtnRight = createElem({
     nodeType: "div",
     className: "arrow_icon_rigth",
@@ -318,8 +322,10 @@ const markupPortfolio = () => {
   container.append(
     markupTitle(data.portfolio.title.primary, "title_border-portfolio")
   );
+  containerPortfolio.append(ul);
+  containerPortfolio;
   container.append(p);
-  container.append(ul);
+  container.append(containerPortfolio);
   container.append(boxBtnArrow);
   container.append(btn);
   section.append(container);

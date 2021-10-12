@@ -491,6 +491,10 @@ a {
   margin-bottom: 40px;
 }
 
+.portfolio__container {
+  overflow: hidden;
+}
+
 .portfolio__item {
   position: relative;
   min-width: calc((100% - 80px) / 3);
