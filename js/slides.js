@@ -1,7 +1,5 @@
 /** @format */
 
-// let index = 1;
-
 const refsTestimonials = {
   slideContainer: document.querySelector(".testimonials__btn__box"),
   slide: document.querySelector(".slides__container"),
@@ -101,7 +99,7 @@ function Slider() {
   this.rigthBtn.addEventListener("click", this.moveNextSlide.bind(this));
 }
 
-function FirstSliderInstance({
+function testimonialsSectionSlider({
   slide,
   slides,
   slideContainer,
@@ -124,10 +122,29 @@ function FirstSliderInstance({
 
   Slider.call(this);
 
-  this.slide.addEventListener("mousemove", (event) => {
-    pos = event.clientX - event.offsetX;
-    pos > 300 ? this.movePrevSlide() : this.moveNextSlide();
-  });
+  const keyControl = (event) => {
+    if (event.code === "ArrowRight") {
+      this.moveNextSlide();
+    }
+
+    if (event.code === "ArrowLeft") {
+      this.movePrevSlide();
+    }
+  };
+
+  const mouseScrollControl = (event) => {
+    event.preventDefault();
+    if (event.deltaY > 0) {
+      this.moveNextSlide();
+    }
+
+    if (event.deltaY < 0) {
+      this.movePrevSlide();
+    }
+  };
+
+  this.slide.addEventListener("wheel", mouseScrollControl);
+  document.addEventListener("keyup", keyControl);
 }
 
 function SecondSliderInstance({
@@ -152,14 +169,33 @@ function SecondSliderInstance({
   this.adjustment = adjustment;
 
   Slider.call(this);
+
+  let startX = 0;
+  let finishX = 0;
+  let result = 0;
+
+  const mousePressDown = (event) => {
+    event.preventDefault();
+    startX = event.clientX;
+  };
+
+  const mousePressUp = (event) => {
+    finishX = event.clientX;
+    result = startX - finishX;
+    if (result < 0 && result * -1 > 50) {
+      this.movePrevSlide();
+    }
+    if (result > 0 && result > 50) {
+      this.moveNextSlide();
+    }
+  };
+
+  this.slideContainer.addEventListener("mousedown", mousePressDown);
+  this.slideContainer.addEventListener("mouseup", mousePressUp);
 }
 
-const testimonialsSlide = new FirstSliderInstance(refsTestimonials);
+const testimonialsSlide = new testimonialsSectionSlider(refsTestimonials);
 const portfolioSlide = new SecondSliderInstance(refsPortfolio);
 
-// testimonialsSlide.startSlide();
-// portfolioSlide.startSlide();
-
-// console.dir(Slider);
-// console.dir(testimonialsSlide);
-// console.dir(portfolioSlide);
+testimonialsSlide.startSlide();
+portfolioSlide.startSlide();
