@@ -21,6 +21,9 @@ const calculateFibByCycle = (num) => {
   return next;
 };
 
+// It is much faster than recursion and does not require re-computation.
+// The loop starts at i = 3 because the first and second values of the sequence are given a = 1, b = 1.
+
 const calculateFibByRecursion = (num) => {
   if (!Number.isInteger(num)) {
     return "Passed argument is not a number";
@@ -31,5 +34,12 @@ const calculateFibByRecursion = (num) => {
     return calculateFibByRecursion(num - 1) + calculateFibByRecursion(num - 2); //all elements of the sequence are recalculated
   }
 };
+
+// recursion generates a large tree of nested calls,
+// with a number of values being evaluated over and over again.
+// You can optimize this by remembering the already calculated values.
+// this solution is time - consuming.
+// That is, the execution time of this function grows exponentially.
+
 test(calculateFibByCycle, 75, "Cycle");
 test(calculateFibByRecursion, 20, "Recursion");
