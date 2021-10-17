@@ -1002,6 +1002,16 @@ a {
   margin-bottom: 23px;
 }
 
+.author_blog_text_sec {
+  font-family: Hind Siliguri;
+  color: var(--primery-color);
+  font-size: 17px;
+  letter-spacing: 0;
+  line-height: 1.52;
+  margin-bottom: 30px;
+  max-width: 1033px;
+}
+
 .author_blog_text {
   font-family: Hind Siliguri;
   color: var(--primery-color);
@@ -1026,6 +1036,7 @@ a {
   height: 45px;
   width: 121px;
   cursor: url(../images/atoms/pointer-4.svg), pointer;
+  margin-bottom: 40px;
 }
 
 .author_icon {
