@@ -24,7 +24,7 @@ const refsPortfolio = {
   adjustment: 40,
 };
 
-function Slider() {
+function Slider(obj) {
   let index = 1;
   let slideId;
 
@@ -38,7 +38,7 @@ function Slider() {
     transition,
     nameClass,
     adjustment,
-  } = this.obj;
+  } = obj;
 
   this.firstSlide = slides[0].cloneNode(true);
   this.lastSlide = slides[slides.length - 1].cloneNode(true);
@@ -109,9 +109,8 @@ function Slider() {
 }
 
 function TestimonialsSectionSlider(obj) {
-  this.obj = obj;
-  const { slide } = this.obj;
-  Slider.call(this);
+  const { slide } = obj;
+  Slider.call(this, obj);
 
   const keyControl = (event) => {
     if (event.code === "ArrowRight") {
@@ -139,9 +138,8 @@ function TestimonialsSectionSlider(obj) {
 }
 
 function PortfolioSectionSlider(obj) {
-  this.obj = obj;
-  const { slideContainer } = this.obj;
-  Slider.call(this);
+  const { slideContainer } = obj;
+  Slider.call(this, obj);
 
   let startX = 0;
   let finishX = 0;
