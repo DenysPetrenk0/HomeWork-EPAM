@@ -203,6 +203,10 @@ const markupPortfolio = () => {
     nodeType: "div",
     className: "arrow_icon_left",
   });
+  const containerPortfolio = createElem({
+    nodeType: "div",
+    className: "portfolio__container",
+  });
   const divIconBtnRight = createElem({
     nodeType: "div",
     className: "arrow_icon_rigth",
@@ -232,12 +236,18 @@ const markupPortfolio = () => {
   const btnArrowLeft = createElem({
     nodeType: "button",
     className: "button-arrow",
-    attribute: [{ name: "type", value: "button" }],
+    attribute: [
+      { name: "type", value: "button" },
+      { name: "id", value: "portfolio-left-btn" },
+    ],
   });
   const btnArrowRigth = createElem({
     nodeType: "button",
     className: "button-arrow",
-    attribute: [{ name: "type", value: "button" }],
+    attribute: [
+      { name: "type", value: "button" },
+      { name: "id", value: "portfolio-right-btn" },
+    ],
   });
 
   data.portfolio.content.forEach((elem) => {
@@ -312,8 +322,10 @@ const markupPortfolio = () => {
   container.append(
     markupTitle(data.portfolio.title.primary, "title_border-portfolio")
   );
+  containerPortfolio.append(ul);
+  containerPortfolio;
   container.append(p);
-  container.append(ul);
+  container.append(containerPortfolio);
   container.append(boxBtnArrow);
   container.append(btn);
   section.append(container);
@@ -363,7 +375,7 @@ const markupTestimonials = () => {
     className: "button-arrow",
     attribute: [
       { name: "type", value: "button" },
-      { name: "id", value: "left-btn" },
+      { name: "id", value: "testimonials-left-btn" },
     ],
   });
   const btnRight = createElem({
@@ -371,7 +383,7 @@ const markupTestimonials = () => {
     className: "button-arrow",
     attribute: [
       { name: "type", value: "button" },
-      { name: "id", value: "rigth-btn" },
+      { name: "id", value: "testimonials-rigth-btn" },
     ],
   });
 

@@ -1,78 +1,172 @@
 /** @format */
 
-const slideContainer = document.querySelector(".testimonials__btn__box");
-const slide = document.querySelector(".slides__container");
-const leftBtn = document.getElementById("left-btn");
-const rigthBtn = document.getElementById("rigth-btn");
-const interval = 3000;
-const transition = "1.5s";
-
-let slides = document.querySelectorAll(".testimonials__box");
-let index = 1;
-let slideId;
-
-const firstSlide = slides[0].cloneNode(true);
-const lastSlide = slides[slides.length - 1].cloneNode(true);
-
-firstSlide.setAttribute("id", "first-slide");
-lastSlide.setAttribute("id", "last-slide");
-
-slide.append(firstSlide);
-slide.prepend(lastSlide);
-
-const slideWidth = slides[index].clientWidth;
-const slideTransform = () => `translateX(${-slideWidth * index}px)`;
-const getSlide = () => document.querySelectorAll(".testimonials__box");
-
-slide.style.transform = slideTransform();
-
-const startSlide = () => {
-  slideId = setInterval(() => {
-    moveNextSlide();
-  }, interval);
+const refsTestimonials = {
+  slideContainer: document.querySelector(".testimonials__btn__box"),
+  slide: document.querySelector(".slides__container"),
+  slides: document.querySelectorAll(".testimonials__box"),
+  leftBtn: document.getElementById("testimonials-left-btn"),
+  rigthBtn: document.getElementById("testimonials-rigth-btn"),
+  interval: 3000,
+  transition: "1.5s",
+  nameClass: ".testimonials__box",
+  adjustment: 0,
 };
 
-slide.addEventListener("transitionend", () => {
-  slides = getSlide();
-
-  if (slides[index].id === firstSlide.id) {
-    slide.style.transition = "none";
-    index = 1;
-    slide.style.transform = slideTransform();
-  }
-
-  if (slides[index].id === lastSlide.id) {
-    slide.style.transition = "none";
-    index = slides.length - 2;
-    slide.style.transform = slideTransform();
-  }
-});
-
-const moveNextSlide = () => {
-  slides = getSlide();
-
-  if (index >= slides.length - 1) return;
-  index++;
-  slide.style.transform = slideTransform();
-  slide.style.transition = transition;
+const refsPortfolio = {
+  slideContainer: document.querySelector("#portfolio"),
+  slide: document.querySelector(".portfolio__list"),
+  slides: document.querySelectorAll(".portfolio__item"),
+  leftBtn: document.getElementById("portfolio-left-btn"),
+  rigthBtn: document.getElementById("portfolio-right-btn"),
+  interval: 2000,
+  transition: "2.0s",
+  nameClass: ".portfolio__item",
+  adjustment: 40,
 };
 
-const movePrevSlide = () => {
-  slides = getSlide();
+function Slider(config) {
+  let index = 1;
+  let slideId;
 
-  if (index <= 0) return;
-  index--;
-  slide.style.transform = slideTransform();
-  slide.style.transition = transition;
-};
+  const {
+    slide,
+    slides,
+    slideContainer,
+    leftBtn,
+    rigthBtn,
+    interval,
+    transition,
+    nameClass,
+    adjustment,
+  } = config;
 
-slideContainer.addEventListener("mouseenter", () => {
-  clearInterval(slideId);
-});
+  this.firstSlide = slides[0].cloneNode(true);
+  this.lastSlide = slides[slides.length - 1].cloneNode(true);
 
-slideContainer.addEventListener("mouseleave", startSlide);
+  this.firstSlide.setAttribute("id", "first-slide");
+  this.lastSlide.setAttribute("id", "last-slide");
 
-leftBtn.addEventListener("click", movePrevSlide);
-rigthBtn.addEventListener("click", moveNextSlide);
+  slide.append(this.firstSlide);
+  slide.prepend(this.lastSlide);
 
-startSlide();
+  this.slideWidth = slides[index].clientWidth + adjustment;
+
+  this.slideTransform = function () {
+    return `translateX(${-this.slideWidth * index}px)`;
+  };
+
+  this.getSlide = function () {
+    return document.querySelectorAll(nameClass);
+  };
+
+  slide.style.transform = this.slideTransform();
+
+  slide.addEventListener("transitionend", () => {
+    let slides = this.getSlide();
+    if (slides[index].id === this.firstSlide.id) {
+      slide.style.transition = "none";
+      index = 1;
+      slide.style.transform = this.slideTransform();
+    }
+
+    if (slides[index].id === this.lastSlide.id) {
+      slide.style.transition = "none";
+      index = slides.length - 2;
+      slide.style.transform = this.slideTransform();
+    }
+  });
+
+  this.startSlide = function () {
+    slideId = setInterval(() => {
+      this.moveNextSlide();
+    }, interval);
+  };
+
+  this.moveNextSlide = function () {
+    let slides = this.getSlide();
+
+    if (index >= slides.length - 1) return;
+    index++;
+    slide.style.transform = this.slideTransform();
+    slide.style.transition = transition;
+  };
+
+  this.movePrevSlide = function () {
+    if (index <= 0) return;
+    index--;
+    slide.style.transform = this.slideTransform();
+    slide.style.transition = transition;
+  };
+
+  slideContainer.addEventListener("mouseenter", () => {
+    clearInterval(slideId);
+  });
+
+  slideContainer.addEventListener("mouseleave", this.startSlide.bind(this));
+
+  leftBtn.addEventListener("click", this.movePrevSlide.bind(this));
+  rigthBtn.addEventListener("click", this.moveNextSlide.bind(this));
+}
+
+function TestimonialsSectionSlider(config) {
+  const { slide } = config;
+  Slider.call(this, config);
+
+  const keyControl = (event) => {
+    if (event.code === "ArrowRight") {
+      this.moveNextSlide();
+    }
+
+    if (event.code === "ArrowLeft") {
+      this.movePrevSlide();
+    }
+  };
+
+  const mouseScrollControl = (event) => {
+    event.preventDefault();
+    if (event.deltaY > 0) {
+      this.moveNextSlide();
+    }
+
+    if (event.deltaY < 0) {
+      this.movePrevSlide();
+    }
+  };
+
+  slide.addEventListener("wheel", mouseScrollControl);
+  document.addEventListener("keyup", keyControl);
+}
+
+function PortfolioSectionSlider(config) {
+  const { slideContainer } = config;
+  Slider.call(this, config);
+
+  let startX = 0;
+  let finishX = 0;
+  let result = 0;
+
+  const mousePressDown = (event) => {
+    event.preventDefault();
+    startX = event.clientX;
+  };
+
+  const mousePressUp = (event) => {
+    finishX = event.clientX;
+    result = startX - finishX;
+    if (result < 0 && result * -1 > 50) {
+      this.movePrevSlide();
+    }
+    if (result > 0 && result > 50) {
+      this.moveNextSlide();
+    }
+  };
+
+  slideContainer.addEventListener("mousedown", mousePressDown);
+  slideContainer.addEventListener("mouseup", mousePressUp);
+}
+
+const testimonialsSlide = new TestimonialsSectionSlider(refsTestimonials);
+const portfolioSlide = new PortfolioSectionSlider(refsPortfolio);
+
+testimonialsSlide.startSlide();
+portfolioSlide.startSlide();
