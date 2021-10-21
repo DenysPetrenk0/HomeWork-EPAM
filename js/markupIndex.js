@@ -529,11 +529,18 @@ const markupContact = () => {
     ],
   });
   const imgMap = createElem({
-    nodeType: "img",
+    nodeType: "iframe",
     attribute: [
-      { name: "src", value: data.contact.content.map.src },
-      { name: "alt", value: "map" },
+      {
+        name: "src",
+        value:
+          "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d169324.28019641404!2d34.860271201149416!3d48.462441175911565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe303fd08468f%3A0xa1cf3d5f2c11aba!2z0JTQvdC40L_RgNC-LCDQlNC90LXQv9GA0L7Qv9C10YLRgNC-0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwgNDkwMDA!5e0!3m2!1sru!2sua!4v1634846052584!5m2!1sru!2sua",
+      },
+      { name: "style", value: "border:0;" },
+      { name: "allowfullscreen", value: "" },
+      { name: "loading", value: "lazy" },
       { name: "width", value: 380 },
+      { name: "height", value: 575 },
     ],
   });
   const iconHidepass = createElem({
