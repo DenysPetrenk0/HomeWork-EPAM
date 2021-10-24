@@ -4,15 +4,15 @@ const fullStar = "./images/atoms/star-1.svg";
 const emptyStar = "./images/atoms/star-2.svg";
 const halfStar = "./images/atoms/star-3.svg";
 
-function markupMain(value) {
+function markupMain() {
   const main = document.createElement("main");
   const container = createElem({
     nodeType: "div",
-    className: "container",
+    className: "container title_blog",
   });
   const section = createElem({
     nodeType: "section",
-    className: "content",
+    className: "content container",
   });
   const search = createElem({
     nodeType: "div",
@@ -26,15 +26,61 @@ function markupMain(value) {
     nodeType: "div",
     className: "container read-more",
   });
+  const searchForm = createElem({
+    nodeType: "form",
+    className: "search_form",
+  });
+  const chackBoxContainer = createElem({
+    nodeType: "div",
+    className: "chackBox__container",
+  });
   const input = createElem({
     nodeType: "input",
     className: "search_imput",
     attribute: [
       { name: "type", value: "text" },
-      { name: "name", value: "user-name" },
+      { name: "autocomplete", value: "off" },
       { name: "placeholder", value: "Search by author" },
       { name: "required", value: "required" },
     ],
+  });
+  const chackBoxAuthor = createElem({
+    nodeType: "input",
+    attribute: [
+      { name: "type", value: "radio" },
+      { name: "name", value: "chack" },
+      { name: "value", value: "author" },
+      { name: "data-placeholder", value: "author" },
+      { name: "id", value: "author" },
+      { name: "checked", value: "checked" },
+    ],
+  });
+  const labelChackBoxAuthor = createElem({
+    nodeType: "label",
+    text: "author",
+    className: "search_chackBox_text",
+    attribute: [{ name: "for", value: "author" }],
+  });
+  const chackBoxMovie = createElem({
+    nodeType: "input",
+    attribute: [
+      { name: "type", value: "radio" },
+      { name: "name", value: "chack" },
+      { name: "data-placeholder", value: "movie" },
+      { name: "value", value: "movie" },
+      { name: "id", value: "movie" },
+    ],
+  });
+  const labelChackBoxMovie = createElem({
+    nodeType: "label",
+    text: "movie",
+    className: "search_chackBox_text",
+    attribute: [{ name: "for", value: "movie" }],
+  });
+  const btnSearchInput = createElem({
+    nodeType: "button",
+    className: "search_btn",
+    attribute: [{ name: "type", value: "submit" }],
   });
   const imgIconSearch = createElem({
     nodeType: "img",
@@ -51,81 +97,19 @@ function markupMain(value) {
     attribute: [{ name: "type", value: "button" }],
   });
 
-  containerSection = container.cloneNode(false);
-
-  value.results.forEach((elem, idx) => {
-    const blog = createElem({
-      nodeType: "div",
-      className: "blog",
-    });
-    const blogIconImg = createElem({
-      nodeType: "div",
-      className: "blog_play_icon",
-    });
-    const infoBlog = createElem({
-      nodeType: "div",
-      className: "blog_info",
-    });
-    const authorIconBlog = createElem({
-      nodeType: "div",
-      className: "author_icon",
-    });
-    const img = createElem({
-      nodeType: "img",
-      attribute: [
-        {
-          name: "src",
-          value: `${IMG_URL}${elem.backdrop_path}`,
-        },
-        { name: "alt", value: "blog img" },
-        { name: "width", value: 560 },
-      ],
-    });
-    const iconAuthorBlog = createElem({
-      nodeType: "img",
-      attribute: [
-        { name: "src", value: "./images/atoms/a-icon-playmini.svg" },
-        { name: "alt", value: "icon" },
-      ],
-    });
-    const blogTitle = createElem({
-      nodeType: "h2",
-      className: "author_blog_title",
-      text: elem.original_title,
-    });
-    const blogText = createElem({
-      nodeType: "p",
-      className: "author_blog_text",
-      text: elem.overview,
-    });
-    const readMore = createElem({
-      nodeType: "a",
-      className: "button-light author_btn",
-      text: "Read more",
-      attribute: [{ name: "href", value: "" }],
-    });
-
-    getCast(elem.id, idx);
-    getReviews(elem.id, idx);
-
-    authorIconBlog.append(iconAuthorBlog);
-    infoBlog.append(blogTitle);
-    infoBlog.append(blogText);
-    infoBlog.append(readMore);
-    infoBlog.append(authorIconBlog);
-    blog.append(blogIconImg);
-    blog.append(img);
-    blog.append(infoBlog);
-    containerSection.append(blog);
-  });
-
   container.append(markupTitle(data.blog.title.primary, "title_border-blog"));
   readMoreContainer.append(readMoreBtn);
-  search.append(input);
   searchIcon.append(imgIconSearch);
-  search.append(searchIcon);
+  btnSearchInput.append(searchIcon);
+  chackBoxContainer.append(chackBoxAuthor);
+  chackBoxContainer.append(labelChackBoxAuthor);
+  chackBoxContainer.append(chackBoxMovie);
+  chackBoxContainer.append(labelChackBoxMovie);
+  searchForm.append(input);
+  searchForm.append(btnSearchInput);
+  searchForm.append(chackBoxContainer);
+  search.append(searchForm);
   container.append(search);
-  section.append(containerSection);
   main.append(container);
   main.append(section);
   main.append(readMoreContainer);
@@ -133,21 +117,92 @@ function markupMain(value) {
   return main;
 }
 
-const renderBlog = (value) => {
+const renderBlog = () => {
   const root = document.getElementById("root");
-
   root.insertAdjacentElement("beforeend", markupHeaderBlog());
-  root.insertAdjacentElement("beforeend", markupMain(value));
+  root.insertAdjacentElement("beforeend", markupMain());
   root.insertAdjacentElement("beforeend", markupFooterBlog());
 };
 
-const getMovie = () => {
-  fetchData(`popular?api_key=${API_KEY}&language=en-US&page=1`).then(
-    renderBlog
-  );
+renderBlog();
+
+const createBlog = (value) => {
+  const content = document.querySelector(".content");
+
+  value.forEach((elem, idx) => {
+    if (regExp.test(elem.original_title)) {
+      const blog = createElem({
+        nodeType: "div",
+        className: "blog",
+      });
+      const blogIconImg = createElem({
+        nodeType: "div",
+        className: "blog_play_icon",
+      });
+      const infoBlog = createElem({
+        nodeType: "div",
+        className: "blog_info",
+      });
+      const authorIconBlog = createElem({
+        nodeType: "div",
+        className: "author_icon",
+      });
+      const img = createElem({
+        nodeType: "img",
+        attribute: [
+          {
+            name: "src",
+            value: `${IMG_URL}${elem.backdrop_path}`,
+          },
+          { name: "alt", value: "blog img" },
+          { name: "width", value: 560 },
+        ],
+      });
+      const iconAuthorBlog = createElem({
+        nodeType: "img",
+        attribute: [
+          { name: "src", value: "./images/atoms/a-icon-playmini.svg" },
+          { name: "alt", value: "icon" },
+        ],
+      });
+      const blogTitle = createElem({
+        nodeType: "h2",
+        className: "author_blog_title",
+        text: elem.original_title,
+      });
+      const blogText = createElem({
+        nodeType: "p",
+        className: "author_blog_text",
+        text: elem.overview,
+      });
+      const readMore = createElem({
+        nodeType: "a",
+        className: "button-light author_btn",
+        text: "Read more",
+        attribute: [{ name: "href", value: "" }],
+      });
+
+      getCast(elem.id, idx);
+      getReviews(elem.id, idx);
+
+      authorIconBlog.append(iconAuthorBlog);
+      infoBlog.append(blogTitle);
+      infoBlog.append(blogText);
+      infoBlog.append(readMore);
+      infoBlog.append(authorIconBlog);
+      blog.append(blogIconImg);
+      blog.append(img);
+      blog.append(infoBlog);
+      content.insertAdjacentElement("beforeend", blog);
+    }
+  });
 };
 
-getMovie();
+const getMovie = () => {
+  fetchData(`movie/popular?api_key=${API_KEY}&language=en-US&page=1`).then(
+    (result) => createBlog(result.results)
+  );
+};
 
 function markupAuthorBlog(value, idx, id) {
   const author = createElem({
@@ -189,8 +244,8 @@ function markupAuthorBlog(value, idx, id) {
 }
 
 const getCast = (id, idx) => {
-  fetchData(`${id}/credits?api_key=${API_KEY}&language=en-US`).then((value) =>
-    markupAuthorBlog(value.cast, idx, id)
+  fetchData(`movie/${id}/credits?api_key=${API_KEY}&language=en-US`).then(
+    (value) => markupAuthorBlog(value.cast, idx, id)
   );
 };
 
@@ -271,9 +326,11 @@ function murkupCommentBlog(value, id, idx) {
 }
 
 const getReviews = (id, idx) => {
-  fetchData(`${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`).then(
-    (result) => {
-      murkupCommentBlog(result.results[0], id, idx);
-    }
-  );
+  fetchData(
+    `movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`
+  ).then((result) => {
+    murkupCommentBlog(result.results[0], id, idx);
+  });
 };
+
+document.addEventListener("DOMContentLoaded", getMovie);
