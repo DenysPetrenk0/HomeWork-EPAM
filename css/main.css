@@ -488,13 +488,16 @@ a {
 
 .portfolio__list {
   display: flex;
-  margin-right: -40px;
   margin-bottom: 40px;
+}
+
+.portfolio__container {
+  overflow: hidden;
 }
 
 .portfolio__item {
   position: relative;
-  flex-basis: calc((100% - 80px) / 3);
+  min-width: calc((100% - 80px) / 3);
   margin-right: 40px;
   cursor: url(../images/atoms/pointer-2.svg), pointer;
 }
@@ -1573,7 +1576,7 @@ a {
   border-left: 1px solid var(--primery-color);
   border-right: 1px solid var(--primery-color);
   border-bottom: 1px solid var(--primery-color);
-  top: 62%;
+  top: 63%;
   left: 511px;
 }
 
