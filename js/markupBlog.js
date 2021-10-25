@@ -12,7 +12,7 @@ class Post {
     this.id = id;
   }
 
-  createTextPost(text) {
+  #createTextPost(text) {
     return createElem({
       nodeType: "p",
       className: "author_blog_text",
@@ -20,7 +20,7 @@ class Post {
     });
   }
 
-  createTitlePost(text) {
+  #createTitlePost(text) {
     return createElem({
       nodeType: "p",
       className: "author_blog_title",
@@ -34,8 +34,8 @@ class Post {
   createTextContent(result) {
     const blog = this.createPostBox();
     const iconAuthorBlog = this.createPostIcon();
-    const blogTitle = this.createTitlePost(result);
-    const blogText = this.createTextPost(result);
+    const blogTitle = this.#createTitlePost(result);
+    const blogText = this.#createTextPost(result);
     const audio = this.createAudio();
     const infoBlog = createElem({
       nodeType: "div",
@@ -61,7 +61,9 @@ class Post {
       attribute: [
         {
           name: "src",
-          value: `${IMG_URL}${result.production_companies[0].logo_path}`,
+          value: result.production_companies[0].logo_path
+            ? `${IMG_URL}${result.production_companies[0].logo_path}`
+            : "../images/authors/Alex.png",
         },
         { name: "alt", value: "author photo" },
       ],
@@ -95,11 +97,15 @@ class Post {
 }
 
 class PicturePost extends Post {
+  constructor({ id, idx }) {
+    super(id);
+    this.idx = idx;
+  }
   createPostBox() {
     return createElem({
       nodeType: "div",
       className: "blog",
-      attribute: [{ name: "id", value: "blogImg" }],
+      attribute: [{ name: "id", value: "blogImg" + this.idx }],
     });
   }
   createPostIcon() {
@@ -123,17 +129,24 @@ class PicturePost extends Post {
         { name: "width", value: 560 },
       ],
     });
-    const blog = document.getElementById("blogImg");
+    const blog = document.getElementById("blogImg" + this.idx);
     blog.insertAdjacentElement("afterbegin", img);
   }
 }
+const picturePost = function (id, idx) {
+  return new PicturePost({ id: id, idx: idx });
+};
 
 class VideoPost extends Post {
+  constructor({ id, idx }) {
+    super(id);
+    this.idx = idx;
+  }
   createPostBox() {
     return createElem({
       nodeType: "div",
       className: "blog",
-      attribute: [{ name: "id", value: "blogVideo" }],
+      attribute: [{ name: "id", value: "blogVideo" + this.idx }],
     });
   }
   createPostIcon() {
@@ -168,17 +181,24 @@ class VideoPost extends Post {
         },
       ],
     });
-    const blog = document.getElementById("blogVideo");
+    const blog = document.getElementById("blogVideo" + this.idx);
     blog.insertAdjacentElement("afterbegin", video);
   }
 }
+const videoPost = function (id, idx) {
+  return new VideoPost({ id: id, idx: idx });
+};
 
 class MusicPost extends Post {
+  constructor({ id, idx }) {
+    super(id);
+    this.idx = idx;
+  }
   createPostBox() {
     return createElem({
       nodeType: "div",
       className: "blog",
-      attribute: [{ name: "id", value: "blogMusic" }],
+      attribute: [{ name: "id", value: "blogMusic" + this.idx }],
     });
   }
   createAudio() {
@@ -208,10 +228,13 @@ class MusicPost extends Post {
         { name: "width", value: 560 },
       ],
     });
-    const blog = document.getElementById("blogMusic");
+    const blog = document.getElementById("blogMusic" + this.idx);
     blog.insertAdjacentElement("afterbegin", img);
   }
 }
+const musicPost = function (id, idx) {
+  return new MusicPost({ id: id, idx: idx });
+};
 
 class TextPost extends Post {
   createPostBox() {
@@ -238,6 +261,11 @@ class TextPost extends Post {
     });
   }
 }
+const textPost = function (id) {
+  return new TextPost({ id: id });
+};
+
+const arrVariantPost = ["picturePost", "videoPost", "musicPost", "textPost"];
 
 const getPost = (id, typePost) => {
   const nodePost = document.getElementById("containerSection");
@@ -249,6 +277,7 @@ const getPost = (id, typePost) => {
       ),
         typePost.createContent(result);
     });
+    return;
   }
   if (typePost.constructor.name === "VideoPost") {
     fetchData(`${id}${TEXT_POST}`).then((result) => {
@@ -260,6 +289,7 @@ const getPost = (id, typePost) => {
     fetchData(`${id}${VIDEO_POST}`).then((result) => {
       typePost.createContent(result);
     });
+    return;
   }
   if (typePost.constructor.name === "MusicPost") {
     fetchData(`${id}${TEXT_POST}`).then((result) => {
@@ -269,6 +299,7 @@ const getPost = (id, typePost) => {
       ),
         typePost.createContent(result);
     });
+    return;
   }
   if (typePost.constructor.name === "TextPost") {
     fetchData(`${id}${TEXT_POST}`).then((result) => {
@@ -277,6 +308,7 @@ const getPost = (id, typePost) => {
         typePost.createTextContent(result)
       );
     });
+    return;
   }
 };
 
@@ -349,7 +381,6 @@ function markupMain() {
 
 const renderBlog = () => {
   const root = document.getElementById("root");
-
   root.insertAdjacentElement("beforeend", markupHeaderBlog());
   root.insertAdjacentElement("beforeend", markupMain());
   root.insertAdjacentElement("beforeend", markupFooterBlog());
@@ -357,11 +388,33 @@ const renderBlog = () => {
 
 renderBlog();
 
-const videoPost = new VideoPost({ id: 580489 });
-getPost(580489, videoPost);
-const musicPost = new MusicPost({ id: 639721 });
-getPost(639721, musicPost);
-const picturePost = new PicturePost({ id: 550988 });
-getPost(550988, picturePost);
-const textPost = new TextPost({ id: 568620 });
-getPost(568620, textPost);
+const createBlog = (value) => {
+  value.forEach((item, idx) => {
+    if (getRandomIntInclusive() === 0) {
+      getPost(item.id, picturePost(item.id, idx));
+      return;
+    }
+    if (getRandomIntInclusive() === 0) {
+      getPost(item.id, videoPost(item.id, idx));
+      return;
+    }
+    if (getRandomIntInclusive() === 0) {
+      getPost(item.id, musicPost(item.id, idx));
+      return;
+    }
+    if (getRandomIntInclusive() === 0) {
+      getPost(item.id, textPost(item.id, idx));
+      return;
+    }
+  });
+};
+
+const getMovie = () => {
+  fetchData(`popular?api_key=${API_KEY}&language=en-US&page=1`).then(
+    (result) => {
+      createBlog(result.results);
+    }
+  );
+};
+
+document.addEventListener("DOMContentLoaded", getMovie);
