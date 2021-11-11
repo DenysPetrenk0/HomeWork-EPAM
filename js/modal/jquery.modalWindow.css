@@ -64,7 +64,6 @@ p {
 
 .button-modal {
   font-family: Hind Siliguri;
-  margin: 0 auto;
   font-weight: 500;
   font-size: 20px;
   line-height: 25px;
@@ -78,10 +77,12 @@ p {
   width: 100px;
   height: 45px;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .btn-modal__container {
-  /* width: 100vw; */
+  display: flex;
+  justify-content: center;
   padding: 10px;
 }
 

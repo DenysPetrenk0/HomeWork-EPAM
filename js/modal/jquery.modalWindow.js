@@ -19,7 +19,7 @@
 
   const defauls = {
     content: "success",
-    buttonText: "OK",
+    buttonText: ["OK"],
     type: successType,
   };
 
@@ -73,19 +73,22 @@
       const btnContainer = $("<div>", {
         class: `btn-modal__container ${this.config.type.containet}`,
       });
-      const btnOk = $("<button>", {
-        type: "button",
-        class: `button-modal ${this.config.type.button}`,
-        text: this.config.buttonText,
-      });
 
       btnClose.append(crossIcon);
       backdrop.append(modal);
       modal.append(btnClose).append(messageText).append(btnContainer);
-      btnContainer.append(btnOk);
+
+      this.config.buttonText.forEach((item) => {
+        const btnOk = $("<button>", {
+          type: "button",
+          class: `button-modal ${this.config.type.button}`,
+          text: item,
+        });
+        btnContainer.append(btnOk);
+        btnOk.click(this.toggleModal);
+      });
 
       btnClose.click(this.toggleModal);
-      btnOk.click(this.toggleModal);
       $(document).one("keyup", this.escCloseModal);
 
       $("body").toggleClass("modal-open");
