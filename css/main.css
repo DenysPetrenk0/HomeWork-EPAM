@@ -1027,6 +1027,16 @@ a {
   margin-bottom: 23px;
 }
 
+.author_blog_text_sec {
+  font-family: Hind Siliguri;
+  color: var(--primery-color);
+  font-size: 17px;
+  letter-spacing: 0;
+  line-height: 1.52;
+  margin-bottom: 30px;
+  max-width: 1033px;
+}
+
 .author_blog_text {
   font-family: Hind Siliguri;
   color: var(--primery-color);
@@ -1051,6 +1061,12 @@ a {
   height: 45px;
   width: 121px;
   cursor: url(../images/atoms/pointer-4.svg), pointer;
+  margin-right: 10px;
+}
+
+.author_btn_container {
+  display: flex;
+  margin-bottom: 40px;
 }
 
 .author_icon {
@@ -1612,7 +1628,7 @@ a {
   border-left: 1px solid var(--primery-color);
   border-right: 1px solid var(--primery-color);
   border-bottom: 1px solid var(--primery-color);
-  top: 64%;
+  top: 63%;
   left: 543px;
 }
 

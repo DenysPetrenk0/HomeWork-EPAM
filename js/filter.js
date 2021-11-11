@@ -5,7 +5,7 @@ const refsFilter = {
   search: document.querySelector(".search_imput"),
   radioAuthor: document.getElementById("author"),
   radioMovie: document.getElementById("movie"),
-  content: document.querySelector(".content"),
+  content: document.getElementById("containerSection"),
 };
 let query = "";
 
@@ -61,11 +61,7 @@ const changeNamePlaceholder = (event) => {
   localStorage.setItem("checked", checkedImput);
 };
 
-refsFilter.form.addEventListener("change", (event) => {
-  changeNamePlaceholder(event);
-});
-
-refsFilter.form.addEventListener("submit", (event) => {
+const searchForm = (event) => {
   query = refsFilter.search.value;
   event.preventDefault();
   refsFilter.search.value = "";
@@ -81,4 +77,7 @@ refsFilter.form.addEventListener("submit", (event) => {
     localStorage.setItem("checked", "movie");
     return;
   }
-});
+};
+
+refsFilter.form.addEventListener("change", changeNamePlaceholder);
+refsFilter.form.addEventListener("submit", searchForm);
