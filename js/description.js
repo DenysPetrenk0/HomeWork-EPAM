@@ -43,7 +43,7 @@ const markupDescription = (value) => {
   return div;
 };
 
-const markupDescriptionBlog = (value, idx, nameClass) => {
+const markupDescriptionBlog = (value) => {
   const div = createElem({
     nodeType: "div",
     className: "comment",
@@ -100,15 +100,11 @@ const markupDescriptionBlog = (value, idx, nameClass) => {
     divIconStar.append(imgIconStar);
     div.append(divIconStar);
   });
-
-  const authorInfo = document.querySelectorAll(nameClass);
-  if (authorInfo[idx]) {
-    authorInfo[idx].insertAdjacentElement("beforeend", div);
-  }
+  return div;
 };
 
 function getMovieDetails(id, idx, nameClass) {
-  fetchData(`${id}?api_key=${API_KEY}&language=en-US`).then((value) => {
+  fetchData(`movie/${id}?api_key=${API_KEY}&language=en-US`).then((value) => {
     markupDescriptionBlog(value, idx, nameClass);
   });
 }

@@ -72,7 +72,7 @@
   padding-top: 7px;
   padding-left: 8px;
   padding-right: 25px;
-  padding-bottom: 33px;
+  padding-bottom: 30px;
 }
 
 .map-text {
@@ -94,12 +94,13 @@
   border-radius: 5px;
   background-color: var(--white-color);
   box-shadow: 0 8px 25px 0 #b7b7b7;
-  padding-top: 10px;
-  padding-left: 20px;
 }
 
 .form_contact-us {
-  padding: 50px 30px;
+  width: 380px;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 50px;
 
   &_btn {
     height: 45px;
@@ -110,6 +111,8 @@
 
 .map_text-box {
   display: flex;
+  margin-left: 20px;
+  margin-top: 10px;
 }
 
 .map_icon {
