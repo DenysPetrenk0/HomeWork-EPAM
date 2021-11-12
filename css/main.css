@@ -747,7 +747,7 @@ a {
   padding-top: 7px;
   padding-left: 8px;
   padding-right: 25px;
-  padding-bottom: 33px;
+  padding-bottom: 30px;
 }
 
 .map-text {
@@ -769,12 +769,13 @@ a {
   border-radius: 5px;
   background-color: var(--white-color);
   box-shadow: 0 8px 25px 0 #b7b7b7;
-  padding-top: 10px;
-  padding-left: 20px;
 }
 
 .form_contact-us {
-  padding: 50px 30px;
+  width: 380px;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 50px;
 }
 
 .form_contact-us_btn {
@@ -785,6 +786,8 @@ a {
 
 .map_text-box {
   display: flex;
+  margin-left: 20px;
+  margin-top: 10px;
 }
 
 .map_icon {
@@ -882,21 +885,40 @@ a {
 
 /** @format */
 .search {
-  position: relative;
   display: flex;
   justify-content: flex-end;
   margin-top: 52px;
   margin-bottom: 30px;
 }
 
-.search_icon {
-  top: 50%;
+.search_form {
+  position: relative;
+}
+
+.search_btn {
+  top: 15%;
   right: 0;
-  transform: translate(0, -50%);
+  transform: translate(0, -15%);
   position: absolute;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.search_icon {
   height: 20px;
   width: 20px;
   fill: var(--primery-color);
+  margin-right: 15px;
+}
+
+.search_chackBox_text {
+  font-family: Hind Siliguri;
+  color: var(--primery-color);
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 1.66;
+  margin-left: 5px;
   margin-right: 15px;
 }
 
@@ -1039,6 +1061,11 @@ a {
   height: 45px;
   width: 121px;
   cursor: url(../images/atoms/pointer-4.svg), pointer;
+  margin-right: 10px;
+}
+
+.author_btn_container {
+  display: flex;
   margin-bottom: 40px;
 }
 
@@ -1074,6 +1101,19 @@ a {
 
 .read-more_btn {
   margin: 0 auto;
+}
+
+.chackBox__container {
+  padding: 10px;
+}
+
+.no_result {
+  font-family: Hind Siliguri;
+  color: var(--primery-color);
+  font-size: 37px;
+  letter-spacing: 0;
+  line-height: 1.52;
+  text-align: center;
 }
 
 /** @format */
@@ -1588,7 +1628,7 @@ a {
   border-left: 1px solid var(--primery-color);
   border-right: 1px solid var(--primery-color);
   border-bottom: 1px solid var(--primery-color);
-  top: 64%;
+  top: 63%;
   left: 543px;
 }
 
@@ -1619,7 +1659,7 @@ a {
 }
 
 .title_blog {
-  margin-top: 55px;
+  padding-top: 135px;
 }
 
 /** @format */

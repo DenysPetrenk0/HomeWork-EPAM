@@ -12,7 +12,7 @@ class Post {
     this.id = id;
   }
 
-  #createTextPost(text) {
+  createTextPost(text) {
     return createElem({
       nodeType: "p",
       className: "author_blog_text",
@@ -35,7 +35,7 @@ class Post {
     const blog = this.createPostBox();
     const iconAuthorBlog = this.createPostIcon();
     const blogTitle = this.#createTitlePost(result);
-    const blogText = this.#createTextPost(result);
+    const blogText = this.createTextPost(result);
     const audio = this.createAudio();
     const infoBlog = createElem({
       nodeType: "div",
@@ -50,6 +50,12 @@ class Post {
       className: "button-light author_btn",
       text: "Read more",
       attribute: [{ name: "href", value: "" }],
+    });
+    const deleteBtn = createElem({
+      nodeType: "button",
+      text: "Delete Post",
+      className: "button-light hero__btn__ligth",
+      attribute: [{ name: "type", value: "button" }],
     });
     const author = createElem({
       nodeType: "div",
@@ -73,6 +79,10 @@ class Post {
       nodeType: "div",
       className: "author_info",
     });
+    const authorBtnContainer = createElem({
+      nodeType: "div",
+      className: "author_btn_container",
+    });
     const authorName = createElem({
       nodeType: "p",
       className: "author_name",
@@ -89,7 +99,9 @@ class Post {
     infoBlog.append(blogTitle);
     audio ? infoBlog.append(audio) : null;
     infoBlog.append(blogText);
-    infoBlog.append(readMore);
+    authorBtnContainer.append(readMore);
+    authorBtnContainer.append(deleteBtn);
+    infoBlog.append(authorBtnContainer);
     infoBlog.append(authorIconBlog);
     blog.append(infoBlog);
     return blog;
@@ -182,7 +194,9 @@ class VideoPost extends Post {
       ],
     });
     const blog = document.getElementById("blogVideo" + this.idx);
-    blog.insertAdjacentElement("afterbegin", video);
+    if (blog) {
+      blog.insertAdjacentElement("afterbegin", video);
+    }
   }
 }
 const videoPost = function (id, idx) {
@@ -270,7 +284,7 @@ const arrVariantPost = ["picturePost", "videoPost", "musicPost", "textPost"];
 const getPost = (id, typePost) => {
   const nodePost = document.getElementById("containerSection");
   if (typePost.constructor.name === "PicturePost") {
-    fetchData(`${id}${TEXT_POST}`).then((result) => {
+    fetchData(`movie/${id}${TEXT_POST}`).then((result) => {
       nodePost.insertAdjacentElement(
         "beforeend",
         typePost.createTextContent(result)
@@ -280,19 +294,19 @@ const getPost = (id, typePost) => {
     return;
   }
   if (typePost.constructor.name === "VideoPost") {
-    fetchData(`${id}${TEXT_POST}`).then((result) => {
+    fetchData(`movie/${id}${TEXT_POST}`).then((result) => {
       nodePost.insertAdjacentElement(
         "beforeend",
         typePost.createTextContent(result)
       );
     });
-    fetchData(`${id}${VIDEO_POST}`).then((result) => {
+    fetchData(`movie/${id}${VIDEO_POST}`).then((result) => {
       typePost.createContent(result);
     });
     return;
   }
   if (typePost.constructor.name === "MusicPost") {
-    fetchData(`${id}${TEXT_POST}`).then((result) => {
+    fetchData(`movie/${id}${TEXT_POST}`).then((result) => {
       nodePost.insertAdjacentElement(
         "beforeend",
         typePost.createTextContent(result)
@@ -302,7 +316,7 @@ const getPost = (id, typePost) => {
     return;
   }
   if (typePost.constructor.name === "TextPost") {
-    fetchData(`${id}${TEXT_POST}`).then((result) => {
+    fetchData(`movie/${id}${TEXT_POST}`).then((result) => {
       nodePost.insertAdjacentElement(
         "beforeend",
         typePost.createTextContent(result)
@@ -316,11 +330,11 @@ function markupMain() {
   const main = document.createElement("main");
   const container = createElem({
     nodeType: "div",
-    className: "container",
+    className: "container title_blog",
   });
   const section = createElem({
     nodeType: "section",
-    className: "content",
+    className: "content container",
   });
   const search = createElem({
     nodeType: "div",
@@ -334,15 +348,61 @@ function markupMain() {
     nodeType: "div",
     className: "container read-more",
   });
+  const searchForm = createElem({
+    nodeType: "form",
+    className: "search_form",
+  });
+  const chackBoxContainer = createElem({
+    nodeType: "div",
+    className: "chackBox__container",
+  });
   const input = createElem({
     nodeType: "input",
     className: "search_imput",
     attribute: [
       { name: "type", value: "text" },
-      { name: "name", value: "user-name" },
+      { name: "autocomplete", value: "off" },
       { name: "placeholder", value: "Search by author" },
       { name: "required", value: "required" },
     ],
+  });
+  const chackBoxAuthor = createElem({
+    nodeType: "input",
+    attribute: [
+      { name: "type", value: "radio" },
+      { name: "name", value: "chack" },
+      { name: "value", value: "author" },
+      { name: "data-placeholder", value: "author" },
+      { name: "id", value: "author" },
+      { name: "checked", value: "checked" },
+    ],
+  });
+  const labelChackBoxAuthor = createElem({
+    nodeType: "label",
+    text: "author",
+    className: "search_chackBox_text",
+    attribute: [{ name: "for", value: "author" }],
+  });
+  const chackBoxMovie = createElem({
+    nodeType: "input",
+    attribute: [
+      { name: "type", value: "radio" },
+      { name: "name", value: "chack" },
+      { name: "data-placeholder", value: "movie" },
+      { name: "value", value: "movie" },
+      { name: "id", value: "movie" },
+    ],
+  });
+  const labelChackBoxMovie = createElem({
+    nodeType: "label",
+    text: "movie",
+    className: "search_chackBox_text",
+    attribute: [{ name: "for", value: "movie" }],
+  });
+  const btnSearchInput = createElem({
+    nodeType: "button",
+    className: "search_btn",
+    attribute: [{ name: "type", value: "submit" }],
   });
   const imgIconSearch = createElem({
     nodeType: "img",
@@ -367,9 +427,16 @@ function markupMain() {
 
   container.append(markupTitle(data.blog.title.primary, "title_border-blog"));
   readMoreContainer.append(readMoreBtn);
-  search.append(input);
   searchIcon.append(imgIconSearch);
-  search.append(searchIcon);
+  btnSearchInput.append(searchIcon);
+  chackBoxContainer.append(chackBoxAuthor);
+  chackBoxContainer.append(labelChackBoxAuthor);
+  chackBoxContainer.append(chackBoxMovie);
+  chackBoxContainer.append(labelChackBoxMovie);
+  searchForm.append(input);
+  searchForm.append(btnSearchInput);
+  searchForm.append(chackBoxContainer);
+  search.append(searchForm);
   container.append(search);
   section.append(containerSection);
   main.append(container);
@@ -394,15 +461,15 @@ const createBlog = (value) => {
       getPost(item.id, picturePost(item.id, idx));
       return;
     }
-    if (getRandomIntInclusive() === 0) {
+    if (getRandomIntInclusive() === 1) {
       getPost(item.id, videoPost(item.id, idx));
       return;
     }
-    if (getRandomIntInclusive() === 0) {
+    if (getRandomIntInclusive() === 2) {
       getPost(item.id, musicPost(item.id, idx));
       return;
     }
-    if (getRandomIntInclusive() === 0) {
+    if (getRandomIntInclusive() === 3) {
       getPost(item.id, textPost(item.id, idx));
       return;
     }
@@ -410,7 +477,7 @@ const createBlog = (value) => {
 };
 
 const getMovie = () => {
-  fetchData(`popular?api_key=${API_KEY}&language=en-US&page=1`).then(
+  fetchData(`movie/popular?api_key=${API_KEY}&language=en-US&page=1`).then(
     (result) => {
       createBlog(result.results);
     }

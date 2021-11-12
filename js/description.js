@@ -103,6 +103,12 @@ const markupDescriptionBlog = (value) => {
   return div;
 };
 
+function getMovieDetails(id, idx, nameClass) {
+  fetchData(`movie/${id}?api_key=${API_KEY}&language=en-US`).then((value) => {
+    markupDescriptionBlog(value, idx, nameClass);
+  });
+}
+
 const month = [
   "jan",
   "feb",
