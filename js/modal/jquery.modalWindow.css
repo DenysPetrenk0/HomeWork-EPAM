@@ -23,7 +23,6 @@ p {
 
 .modal-open {
   overflow: hidden;
-  /* position: fixed; */
 }
 
 .modal {
@@ -38,7 +37,6 @@ p {
   padding-top: 20px;
   max-width: 450px;
   height: 40%;
-  /* max-height: 609px; */
   background-color: #ffffff;
   transition: transform 250ms;
 }
@@ -90,7 +88,7 @@ p {
   font-family: Hind Siliguri;
   text-align: center;
   font-weight: 500;
-  font-size: 30px;
+  font-size: 20px;
   letter-spacing: 0;
 }
 

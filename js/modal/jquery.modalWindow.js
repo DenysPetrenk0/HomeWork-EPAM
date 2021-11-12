@@ -66,8 +66,8 @@
         text: this.config.content,
       });
       const crossIcon = $("<img>", {
-        // src: "./js/modal/images/cross.svg",
-        src: "./images/cross.svg",
+        src: "./js/modal/images/cross.svg",
+        // src: "./images/cross.svg",
         class: "close__btn__icon",
       });
       const btnContainer = $("<div>", {
