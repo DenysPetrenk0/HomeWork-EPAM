@@ -194,7 +194,9 @@ class VideoPost extends Post {
       ],
     });
     const blog = document.getElementById("blogVideo" + this.idx);
-    blog.insertAdjacentElement("afterbegin", video);
+    if (blog) {
+      blog.insertAdjacentElement("afterbegin", video);
+    }
   }
 }
 const videoPost = function (id, idx) {
