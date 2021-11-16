@@ -1,20 +1,28 @@
 /** @format */
 
 (function ($) {
+  const tegNameMonalWindov = () => {
+    $("div.backdrop").toggleClass("backdrop").html(""),
+      $("body").toggleClass("modal-open");
+  };
+
   const successType = {
     text: "modal-text__success",
     containet: "modal-containet__success",
     button: "modal-btn_success",
+    type: "success",
   };
   const errorType = {
     text: "modal-text__error",
     containet: "modal-container__error",
     button: "modal-btn_error",
+    type: "error",
   };
   const confirmType = {
     text: "modal-text__confirm",
     containet: "modal-container__confirm",
     button: "modal-btn_confirm",
+    type: "confirm",
   };
 
   const defauls = {
@@ -24,32 +32,29 @@
   };
 
   class Modal {
-    constructor(element, options) {
+    constructor(element, options, settingsModal) {
       this.config = $.extend({}, defauls, options);
       this.element = element;
+      this.settingsModal = settingsModal;
       this.init();
     }
 
-    toggleModal() {
-      $("div.modal").toggleClass("is-hidden");
-      $("div.backdrop").toggleClass("backdrop");
-      $("body").toggleClass("modal-open");
-    }
+    toggleModal = () => {
+      this.settingsModal();
+    };
 
-    escCloseModal(event) {
+    escCloseModal = (event) => {
       if (event.key === "Escape" || event.keyCode === 27) {
-        $("div.modal").toggleClass("is-hidden");
-        $("div.backdrop").toggleClass("backdrop");
-        $("body").toggleClass("modal-open");
+        this.toggleModal();
       }
-    }
+    };
 
-    init() {
-      if (this.config.type === "success") {
+    init = () => {
+      if (this.config.type === successType.type) {
         this.config.type = successType;
-      } else if (this.config.type === "error") {
+      } else if (this.config.type === errorType.type) {
         this.config.type = errorType;
-      } else if (this.config.type === "confirm") {
+      } else if (this.config.type === confirmType.type) {
         this.config.type = confirmType;
       }
 
@@ -92,11 +97,11 @@
       $(document).one("keyup", this.escCloseModal);
 
       $("body").toggleClass("modal-open");
-    }
+    };
   }
 
   $.fn.modalWindow = function (options) {
-    new Modal(this, options);
+    new Modal(this, options, tegNameMonalWindov);
     return this;
   };
 })(jQuery);
