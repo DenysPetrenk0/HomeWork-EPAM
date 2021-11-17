@@ -46,10 +46,10 @@ class Post {
       className: "author_icon",
     });
     const readMore = createElem({
-      nodeType: "a",
+      nodeType: "button",
       className: "button-light author_btn",
       text: "Read more",
-      attribute: [{ name: "href", value: "" }],
+      attribute: [{ name: "type", value: "button" }],
     });
     const deleteBtn = createElem({
       nodeType: "button",
