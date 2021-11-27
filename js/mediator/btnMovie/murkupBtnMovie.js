@@ -1,6 +1,6 @@
 /** @format */
 
-const markupMovieList = (arr, button) => {
+const murkupBtnMovie = (arr, button) => {
   const elemCenter = document.getElementById("movie_list");
   const elemRight = document.getElementById(`right_${button}`);
   const ul = createElem({

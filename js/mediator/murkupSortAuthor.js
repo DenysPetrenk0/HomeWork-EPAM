@@ -40,4 +40,4 @@
   root.insertAdjacentElement("beforeend", markupFooterBlog());
 })();
 
-document.addEventListener("DOMContentLoaded", getPopular);
+document.addEventListener("DOMContentLoaded", apiService.getPopularMovie());

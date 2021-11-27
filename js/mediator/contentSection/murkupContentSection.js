@@ -8,6 +8,11 @@ const murkupContentSection = (value) => {
     nodeType: "div",
     className: "content__section__box",
   });
+  const spiner = createElem({
+    nodeType: "div",
+    className: "",
+    text: "spiner",
+  });
   const title = createElem({
     nodeType: "p",
     className: "author_blog_title content__section__title",
@@ -38,5 +43,4 @@ const murkupContentSection = (value) => {
   value ? div.append(text) : null;
   container.append(div);
 };
-
 murkupContentSection();
