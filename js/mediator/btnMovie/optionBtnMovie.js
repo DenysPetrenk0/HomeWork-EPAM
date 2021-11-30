@@ -19,10 +19,15 @@ const addCurrentClass = (event) => {
 };
 
 const addMovieContent = (event) => {
-  if (event.target.tagName === "BUTTON") {
+  const { tagName, textContent } = event.target;
+  if (tagName === "BUTTON") {
     addCurrentClass(event);
     refsBtnMovie.contentContainer.innerHTML = "";
-    apiService.getInfoMovie(event.target.textContent);
+    apiService.getInfo({
+      query: textContent,
+      callBack: murkupContentSection,
+      value: "movie",
+    });
   }
 };
 

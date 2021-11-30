@@ -1486,6 +1486,7 @@ a {
   grid-template-areas: "item1  item1  item1 item4" "item2  item2  item2 item4" "item3  item3  item3 item4" "item3  item3  item3 item4" "item3  item3  item3 item4" "item3  item3  item3 item4";
   grid-gap: 5px;
   padding-top: 78px;
+  padding-bottom: 100px;
 }
 
 .content__horizontal-btn {

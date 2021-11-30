@@ -61,19 +61,11 @@ class ApiService {
       });
   }
 
-  getListAuthor(query) {
+  getInfo({ query, callBack, value }) {
     fetchData(
-      `search/person?api_key=${API_KEY}&query=${query}&language=en-US&page=1&include_adult=false`
+      `search/${value}?api_key=${API_KEY}&query=${query}&language=en-US&page=1&include_adult=false`
     ).then((result) => {
-      murkupBtnMovie(result.results[0].known_for, query);
-    });
-  }
-
-  getInfoMovie(query) {
-    fetchData(
-      `search/movie?api_key=${API_KEY}&query=${query}&language=en-US&page=1&include_adult=false`
-    ).then((result) => {
-      murkupContentSection(result.results[0]);
+      callBack(result, query);
     });
   }
 }

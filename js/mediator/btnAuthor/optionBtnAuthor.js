@@ -14,7 +14,11 @@ const addMovieList = (event) => {
       refsBtnAuthor.movieList[i].remove();
       refsBtnAuthor.movieListRight[i].remove();
     }
-    apiService.getListAuthor(textContent);
+    apiService.getInfo({
+      query: textContent,
+      callBack: murkupBtnMovie,
+      value: "person",
+    });
   }
 };
 

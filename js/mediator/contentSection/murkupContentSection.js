@@ -8,15 +8,10 @@ const murkupContentSection = (value) => {
     nodeType: "div",
     className: "content__section__box",
   });
-  const spiner = createElem({
-    nodeType: "div",
-    className: "",
-    text: "spiner",
-  });
   const title = createElem({
     nodeType: "p",
     className: "author_blog_title content__section__title",
-    text: value ? value.original_title : "title",
+    text: value ? value.results[0].original_title : "title",
   });
   const img = createElem({
     nodeType: "img",
@@ -24,7 +19,7 @@ const murkupContentSection = (value) => {
       {
         name: "src",
         value: value
-          ? `${IMG_URL}${value.backdrop_path}`
+          ? `${IMG_URL}${value.results[0].backdrop_path}`
           : "../../images/sort_author/movie.jpeg",
       },
       { name: "alt", value: "image" },
@@ -35,7 +30,7 @@ const murkupContentSection = (value) => {
   const text = createElem({
     nodeType: "p",
     className: "content__section__text",
-    text: value ? value.overview : "text",
+    text: value ? value.results[0].overview : "text",
   });
 
   value ? div.append(title) : null;

@@ -7,7 +7,7 @@ const murkupBtnMovie = (arr, button) => {
     nodeType: "ul",
     className: "movie-info__list",
   });
-  arr.forEach((item) => {
+  arr.results[0].known_for.forEach((item) => {
     const li = createElem({
       nodeType: "li",
       className: "movie-info__list__item",
