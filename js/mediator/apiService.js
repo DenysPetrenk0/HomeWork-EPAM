@@ -21,18 +21,12 @@ class ApiService {
     btnRight.createBtn();
   }
 
-  returnId(value) {
+  returnIds(value) {
     return value.results.map((item) => item.id);
   }
 
   findDirector(arr) {
-    let value = null;
-    arr.crew.forEach((item) => {
-      if (item.job === "Director") {
-        value = { name: item.name, id: item.id };
-      }
-    });
-    return value;
+    return arr.crew.find((item) => item.job === "Director");
   }
 
   createArr(value, name) {
@@ -59,7 +53,7 @@ class ApiService {
 
   getPopularMovie() {
     fetchData(`movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
-      .then((result) => this.returnId(result))
+      .then((result) => this.returnIds(result))
       .then((result) => this.getCredits(result));
   }
 

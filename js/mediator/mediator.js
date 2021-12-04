@@ -38,12 +38,8 @@ class Mediator {
     });
   }
 
-  createArrBtn(element) {
-    return Array.prototype.slice.call(element);
-  }
-
   addCurrentClass(event) {
-    const buttons = this.createArrBtn(this.refs.buttons);
+    const buttons = [...this.refs.buttons];
     buttons.forEach((button) => {
       button.classList.remove("movie-info__list__btn__current");
       if (event.target.getAttribute("data-name") === button.textContent) {
