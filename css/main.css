@@ -1479,6 +1479,101 @@ a {
 }
 
 /** @format */
+.content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-areas: "item1  item1  item1 item4" "item2  item2  item2 item4" "item3  item3  item3 item4" "item3  item3  item3 item4" "item3  item3  item3 item4" "item3  item3  item3 item4";
+  grid-gap: 5px;
+  padding-top: 78px;
+  padding-bottom: 100px;
+}
+
+.content__horizontal-btn {
+  grid-area: item1;
+  display: flex;
+  align-items: center;
+}
+
+.content__list-movie {
+  grid-area: item2;
+  display: flex;
+  align-items: center;
+}
+
+.content__vertical-btn {
+  grid-area: item4;
+  margin-top: 100px;
+}
+
+.content__section {
+  grid-area: item3;
+}
+
+.content__section__box {
+  width: 800px;
+}
+
+.content__section__title {
+  font-family: Hind Siliguri;
+  color: var(--primery-color);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.content__section__text {
+  font-family: Hind Siliguri;
+  color: var(--primery-color);
+  font-size: 17px;
+  letter-spacing: 0;
+  line-height: 1.52;
+  margin-top: 10px;
+}
+
+.content__btn {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 130px;
+  height: 45px;
+}
+
+.movie-info__list {
+  display: flex;
+}
+
+.movie-info__list__item {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.movie-info__list__btn {
+  font-family: Hind Siliguri;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: 0;
+  color: var(--secondry-color);
+  border-radius: 5px;
+  border-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.movie-info__list__btn:hover {
+  background: var(--hover-color);
+  color: var(--white-color);
+}
+
+.movie-info__list__btn__current {
+  background: var(--hover-color);
+  color: var(--white-color);
+}
+
+/** @format */
 .button-dark {
   font-family: Hind Siliguri;
   font-weight: 500;
