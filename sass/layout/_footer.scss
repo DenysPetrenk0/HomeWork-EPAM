@@ -1,24 +1,101 @@
 /** @format */
 .footer {
-  position: fixed;
-  z-index: 11;
-  background-color: #f8f8f8;
-  border-top: 1px solid #dddddd;
-  width: 100%;
-  margin: 0 auto;
-  bottom: 0;
+  background: var(--primery-color);
+
+  &__title {
+    margin-bottom: 25px;
+    color: var(--white-color);
+    font-family: Lato;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 1.22;
+  }
+
+  &__box {
+    padding-top: 40px;
+    padding-bottom: 28px;
+  }
+
+  &__logo {
+    &__box {
+      width: 340px;
+    }
+
+    &__link {
+      color: var(--secondry-color);
+      font-family: Lato;
+      font-size: 30px;
+      letter-spacing: 0;
+      line-height: 1.2;
+    }
+
+    &__text {
+      margin-top: 36px;
+      margin-bottom: 39px;
+      color: var(--white-color);
+      font-family: Lato;
+      font-size: 18px;
+      letter-spacing: 0;
+      line-height: 1.5;
+    }
+  }
+
+  &__box {
+    display: flex;
+  }
+
+  &__menu {
+    &__list {
+      display: flex;
+      margin-left: 140px;
+    }
+
+    &__item {
+      width: 220px;
+    }
+  }
+
+  &__social {
+    &__item {
+      margin-right: 12px;
+    }
+
+    &__link {
+      height: 30px;
+      width: 30px;
+    }
+
+    &__list {
+      display: flex;
+    }
+
+    &__icon {
+      height: 16px;
+      width: 21px;
+      fill: var(--comment-color);
+
+      .footer__social__link:hover & {
+        fill: var(--white-color);
+      }
+    }
+  }
 }
 
-.footer_box {
-  display: flex;
-  justify-content: space-between;
-  padding: 24px 0;
+.menu-inform {
+  &__item {
+    margin-bottom: 15px;
+  }
 
-  &_text {
-    font-family: Hind Siliguri;
-    color: #333333;
-    font-size: 15px;
+  &__link {
+    color: var(--white-color);
+    font-family: Lato;
+    font-size: 16px;
     letter-spacing: 0;
-    line-height: 1.66;
+    line-height: 1.375;
+
+    &:hover {
+      color: var(--hover-secondry-color);
+      border-bottom: 1px solid var(--hover-secondry-color);
+    }
   }
 }

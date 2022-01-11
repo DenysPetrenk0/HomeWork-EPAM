@@ -1,1 +1,556 @@
 <!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixel Perfect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+      integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/main.min.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <nav class="navigation">
+          <div class="navigation__logo__box">
+            <a href="./index.html" class="navigation__logo__link">
+              <img src="./images/Logo.png" alt="logo" width="66" />
+              <p class="navigation__logo__text">PixelStudio</p>
+            </a>
+          </div>
+          <ul class="navigation__menu">
+            <li class="navigation__menu__item">
+              <a href="" class="navigation__menu__link">Home</a>
+            </li>
+            <li class="navigation__menu__item">
+              <a href="" class="navigation__menu__link">Portfolio</a>
+            </li>
+            <li class="navigation__menu__item">
+              <a href="" class="navigation__menu__link">My work</a>
+            </li>
+            <li class="navigation__menu__item">
+              <a href="" class="navigation__menu__link">About me</a>
+            </li>
+            <li class="navigation__menu__item">
+              <a href="" class="navigation__menu__link">Element</a>
+            </li>
+            <li class="navigation__menu__item">
+              <a href="" class="navigation__menu__link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <h1 class="visually-hidden">hero</h1>
+      <section class="welcome">
+        <div class="container">
+          <h2 class="title">Welcome !</h2>
+          <div class="welcome__content__box">
+            <div class="welcome__content__box__text">
+              <p class="title__secondary welcome__title">
+                Welcome to
+                <span class="title__secondary__text">PixelStudio</span>
+              </p>
+              <p class="content__text welcome__text">
+                From a designer’s perspective, it’s all about downloads. Some
+                fonts are tightly held intellectual property with very
+                intentionally limited sharing. So, at a minimum, a Typography
+                page must provide direct download or instructions on how to get
+                approval to obtain them. Most teams provide a downloadable ZIP
+                that includes all the files you need to install and use fonts
+                locally. Headings are a critical contributor to page hierarchy.
+                Most systems offer at least four, although some offer many more.
+                Page titles usually (but not always) align with the largest
+                heading level.
+              </p>
+              <p class="content__text">
+                Additionally, some systems offer specialized headers outside the
+                typical heading scale, such as a picture’s caption or an eyebrow
+                <span class="content__text__bold"
+                  >Morningstar Design System</span
+                >. Just because a header exists outside the traditional scale
+                doesn’t mean it’s not a header viably reused across a catalog.
+              </p>
+            </div>
+            <img src="./images/alex-gruber.png" alt="Magic grape" width="580" />
+          </div>
+          <ul class="welcome__content__list">
+            <li class="welcome__content__item">
+              <h3 class="welcome__content__item__title">What I do?</h3>
+              <p class="content__text">
+                A misconception I debunk early and often: developing a
+                typography system for UI components is equivalent to solving.
+              </p>
+            </li>
+            <li class="welcome__content__item">
+              <h3 class="welcome__content__item__title">Who I do it?</h3>
+              <p class="content__text">
+                Article typography is made of headings, body text, and a few
+                other components like an captioned image.
+              </p>
+            </li>
+            <li class="welcome__content__item">
+              <h3 class="welcome__content__item__title">About me</h3>
+              <p class="content__text">
+                Nam libero tempore, cum soluta nobis est eligendi optio cumque
+                nihil impedit quo minus id quod maxime placeat.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="about-me">
+        <div class="container">
+          <h2 class="title">About me</h2>
+          <div class="about-me__box">
+            <div class="about-me__box__text">
+              <p class="content__text">
+                Applying heading scales shouldn’t require use of a specific HTML
+                element. Instead, tease apart the two concerns. A system should
+                weave heading levels consistently throughout components and
+                offers tools for adopters to do the same with their custom
+                creations. In particular, line-height is challenging. In some
+                libraries, we’ll use conventions and tools to crop away negative
+                space established by line-height from all text included in
+                components, as described in Space in Design Systems. Libraries
+                cropping line height include Morningstar Design System,
+                Discovery Education’s Comet Design System.
+              </p>
+              <p class="about-me__citation border-first">
+                Advantages for the customers: using the same design language for
+                the complex interface, or even different digital channels,
+                results in product consistency and the reduction of cognitive
+                load for the users.
+              </p>
+              <p class="about-me__citation border-second">
+                This is our journey to the the simplest and most beautiful
+                banking design in the world, as we see it. Light Bank was
+                created by the UXDA team in order to inspire change.
+              </p>
+              <p class="about-me__citation border-third">
+                We encourage you to go one step further beyond average and
+                create the best financial solutions that your customers are
+                seeking. We hope you can use this UX design case study as a
+                guide to get there.
+              </p>
+              <h3 class="title__secondary">Heading Levels and Special Cases</h3>
+              <p class="about-me__text__letter">S</p>
+              <p class="content__text">
+                ystems can offer centrally-tuned responsive type sizes across a
+                predictable set of breakpoints. For body text, size increases
+                slowly.
+              </p>
+              <p class="content__text">
+                As a system gets started with type, dig into details and start
+                some conventions, such as how you’ll cope with line-height.
+                However, avoid finalizing all rules before making the first
+                thing. Instead, be comfortable with chaos early and smooth
+                details as a library takes shape. As you near a major release,
+                lock in conventions and ensure tools are consistently applied.
+              </p>
+              <h3 class="title__secondary">Text color</h3>
+              <ul class="about-me__text__list">
+                <li class="about-me__text__item">
+                  <p class="content__text">
+                    <span class="content__text__bold">Primary</span>, for most
+                    interface text whether body or heading.
+                  </p>
+                </li>
+                <li class="about-me__text__item">
+                  <p class="content__text">
+                    <span class="content__text__bold">Secondary</span>, for
+                    diminished contrast (often, the “gray text”) for
+                    supplemental information.
+                  </p>
+                </li>
+                <li class="about-me__text__item">
+                  <p class="content__text">
+                    <span class="content__text__bold">Interactive</span>, not
+                    just for links but also flat buttons, tab labels, and more.
+                  </p>
+                </li>
+                <li class="about-me__text__item">
+                  <p class="content__text">
+                    <span class="content__text__bold">Disabled</span>, often
+                    resulting is especially lower contrast treatments.
+                  </p>
+                </li>
+                <li class="about-me__text__item">
+                  <p class="content__text">
+                    <span class="content__text__bold">An invitation</span> to
+                    contact a technical architect, since a license for the font
+                    is required. Organizations requires this to control the
+                    recurring and often non-trivial cost of hosting and serving
+                    the font.
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <div class="about-me__box__aside">
+              <div class="about-me__box__aside__flickr">
+                <h3 class="title__secondary">From Flickr</h3>
+                <ul class="about-me__box__aside__flickr__list">
+                  <li class="about-me__box__aside__flickr__item">
+                    <img src="./images/about-me/Group.png" alt="" width="136" />
+                  </li>
+                  <li class="about-me__box__aside__flickr__item">
+                    <img
+                      src="./images/about-me/Group1.png"
+                      alt=""
+                      width="136"
+                    />
+                  </li>
+                  <li class="about-me__box__aside__flickr__item">
+                    <img
+                      src="./images/about-me/Group3.png"
+                      alt=""
+                      width="136"
+                    />
+                  </li>
+                  <li class="about-me__box__aside__flickr__item">
+                    <img
+                      src="./images/about-me/Group4.png"
+                      alt=""
+                      width="136"
+                    />
+                  </li>
+                  <li class="about-me__box__aside__flickr__item">
+                    <img
+                      src="./images/about-me/Group5.png"
+                      alt=""
+                      width="136"
+                    />
+                  </li>
+                  <li class="about-me__box__aside__flickr__item">
+                    <img
+                      src="./images/about-me/Group6.png"
+                      alt=""
+                      width="136"
+                    />
+                  </li>
+                </ul>
+              </div>
+              <div class="about-me__box__aside__links">
+                <h3 class="title__secondary">Links</h3>
+                <details>
+                  <summary class="about-me__box__aside__links">
+                    Themeforest
+                  </summary>
+                </details>
+                <details>
+                  <summary class="about-me__box__aside__links">
+                    GraphicRiver
+                  </summary>
+                </details>
+                <details>
+                  <summary class="about-me__box__aside__links">
+                    CodeCanyon
+                  </summary>
+                </details>
+                <details>
+                  <summary class="about-me__box__aside__links">
+                    ActiveDen
+                  </summary>
+                </details>
+                <details>
+                  <summary class="about-me__box__aside__links">3DOcean</summary>
+                </details>
+                <details>
+                  <summary class="about-me__box__aside__links">
+                    VideoHive
+                  </summary>
+                </details>
+                <details>
+                  <summary class="about-me__box__aside__links">
+                    Audiojungle
+                  </summary>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="contact">
+        <div class="container">
+          <h2 class="title">Contact</h2>
+          <div class="contact__content">
+            <div class="contact__form__box">
+              <h3 class="title__secondary">Just say hello!</h3>
+              <form action="#" class="contact__form">
+                <label class="contact__form__field">
+                  <span class="contact__form__text content__text"
+                    >First name *</span
+                  >
+                  <span class="contact__form__wrapper">
+                    <input
+                      type="text"
+                      class="contact__form__input"
+                      name="user-first-name"
+                      placeholder="John"
+                      required
+                    />
+                  </span>
+                </label>
+                <label class="contact__form__field">
+                  <span class="contact__form__text content__text"
+                    >Last name</span
+                  >
+                  <span class="contact__form__wrapper">
+                    <input
+                      type="text"
+                      class="contact__form__input"
+                      name="user-last-name"
+                      placeholder="Johnson"
+                      required
+                    />
+                  </span>
+                </label>
+                <label class="contact__form__field">
+                  <span class="contact__form__text content__text">Email *</span>
+                  <span class="contact__form__wrapper">
+                    <input
+                      type="email"
+                      class="contact__form__input"
+                      name="user-e-mail"
+                      placeholder="example@email.com"
+                      required
+                    />
+                  </span>
+                </label>
+                <label class="contact__form__field">
+                  <span class="contact__form__text content__text">Phone *</span>
+                  <span class="contact__form__wrapper">
+                    <input
+                      type="tel"
+                      class="contact__form__input"
+                      name="user-namber"
+                      placeholder="+ 000 123 456 789"
+                      required
+                    />
+                  </span>
+                </label>
+                <div class="contact__form__group-buttons">
+                  <div class="contact__form__group-radio">
+                    <span class="content__text">Choose option:</span>
+                    <label class="contact__form__radio">
+                      <input type="radio" name="color" value="red" checked />
+                      Male
+                    </label>
+                    <label>
+                      <input type="radio" name="color" value="white" />
+                      Female
+                    </label>
+                    <label>
+                      <input type="radio" name="color" value="green" />
+                      Other
+                    </label>
+                  </div>
+                  <label class="contact__form__field">
+                    <textarea
+                      name="user-message"
+                      class="contact__form__message"
+                      placeholder="Message"
+                    ></textarea>
+                  </label>
+                  <input
+                    type="checkbox"
+                    name="user-policy"
+                    id="user-policy"
+                    class="contact__form__term"
+                  />
+                  <label
+                    for="user-policy"
+                    class="contact__form__desc content__text"
+                  >
+                    Terms & Conditions
+                  </label>
+                  <button type="submit" class="contact__form__btn button">
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="contact__information">
+              <h3 class="title__secondary">Contact information</h3>
+              <p class="content__text contact__text">
+                Feel free to contact us for any of your questions, we’ll get
+                back to you as soon as possible
+              </p>
+              <ul class="contact__information__list">
+                <li class="contact__information__item">
+                  <p class="contact__information__name">Company name</p>
+                  <p class="contact__information__name">798 Street name</p>
+                  <p class="contact__information__name">999 00 City name</p>
+                </li>
+                <li class="contact__information__item">
+                  <p class="contact__information__tel">Phone:</p>
+                  <a href="tel:+000987654321" class="contact__information__tel"
+                    >+000 987 654 321</a
+                  >
+                </li>
+                <li class="contact__information__item">
+                  <p class="contact__information__mail">Email:</p>
+                  <a
+                    href="mailto:sales@yourcompany.com"
+                    class="contact__information__mail__link"
+                    >sales@yourcompany.com</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__box">
+          <div class="footer__logo__box">
+            <a href="" class="footer__logo__link">PixelStudio</a>
+            <p class="footer__logo__text">
+              A true business companion a true business companion a true
+              business companion A true business companion a true business
+              companion a true business companion
+            </p>
+            <div class="footer__social__box">
+              <p class="footer__title">SOCIAL</p>
+              <ul class="footer__social__list">
+                <li class="footer__social__item">
+                  <a
+                    href="https://www.youtube.com/"
+                    class="footer__social__link"
+                    target="_blank"
+                  >
+                    <svg class="footer__social__icon">
+                      <use href="./images/sprite.svg#youtube"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="footer__social__item">
+                  <a
+                    href="https://www.linkedin.com/"
+                    class="footer__social__link"
+                    target="_blank"
+                  >
+                    <svg class="footer__social__icon">
+                      <use href="./images/sprite.svg#linkedin"></use></svg
+                  ></a>
+                </li>
+                <li class="footer__social__item">
+                  <a
+                    href="https://twitter.com/"
+                    class="footer__social__link"
+                    target="_blank"
+                  >
+                    <svg class="footer__social__icon">
+                      <use href="./images/sprite.svg#twitter"></use></svg
+                  ></a>
+                </li>
+                <li class="footer__social__item">
+                  <a
+                    href="https://www.facebook.com/"
+                    class="footer__social__link"
+                    target="_blank"
+                  >
+                    <svg class="footer__social__icon">
+                      <use href="./images/sprite.svg#facebook"></use></svg
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <ul class="footer__menu__list">
+            <li class="footer__menu__item">
+              <h3 class="footer__title">FEATURES</h3>
+              <ul class="menu-inform__list">
+                <li class="menu-inform__item">
+                  <a href="" class="menu-inform__link">Engagement</a>
+                </li>
+                <li class="menu-inform__item">
+                  <a href="" class="menu-inform__link">Retention</a>
+                </li>
+                <li class="menu-inform__item">
+                  <a href="" class="menu-inform__link">Funnels</a>
+                </li>
+              </ul>
+            </li>
+            <li class="footer__menu__item">
+              <h3 class="footer__title">RESOURCES</h3>
+              <ul class="menu-inform__list">
+                <li class="menu-inform__item">
+                  <a href="" class="menu-inform__link">Enterprice</a>
+                </li>
+                <li class="menu-inform__item">
+                  <a href="" class="menu-inform__link">SaaS</a>
+                </li>
+                <li class="menu-inform__item">
+                  <a href="" class="menu-inform__link">Financial services</a>
+                </li>
+                <li class="menu-inform__item">
+                  <a href="" class="menu-inform__link">Consumer Tech</a>
+                </li>
+              </ul>
+            </li>
+            <li class="footer__menu__item">
+              <h3 class="footer__title">MENU</h3>
+              <ul class="menu-inform__list">
+                <li class="menu-inform__item">
+                  <a href="" class="menu-inform__link">Home</a>
+                </li>
+                <li class="menu-inform__item">
+                  <a href="" class="menu-inform__link">Portfolio</a>
+                </li>
+                <li class="menu-inform__item">
+                  <a href="" class="menu-inform__link">My work</a>
+                </li>
+                <li class="menu-inform__item">
+                  <a href="" class="menu-inform__link">About me</a>
+                </li>
+                <li class="menu-inform__item">
+                  <a href="" class="menu-inform__link">Element</a>
+                </li>
+                <li class="menu-inform__item">
+                  <a href="" class="menu-inform__link">Contact</a>
+                </li>
+              </ul>
+            </li>
+            <li class="footer__menu__item">
+              <h3 class="footer__title">INFORMATION</h3>
+              <ul class="menu-inform__list">
+                <li class="menu-inform__item">
+                  <a href="" class="menu-inform__link">About us</a>
+                </li>
+                <li class="menu-inform__item">
+                  <a href="" class="menu-inform__link">Terms & Conditions</a>
+                </li>
+                <li class="menu-inform__item">
+                  <a href="" class="menu-inform__link">User’s guide</a>
+                </li>
+                <li class="menu-inform__item">
+                  <a href="" class="menu-inform__link">Support center</a>
+                </li>
+                <li class="menu-inform__item">
+                  <a href="" class="menu-inform__link">Press info</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

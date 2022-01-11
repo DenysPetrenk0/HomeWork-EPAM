@@ -1,25 +1,14 @@
 /** @format */
 @import "./base/common";
 @import "./base/container";
-@import "./base/section";
-
-@import "./utils/variables";
-@import "./utils/fonts";
 
 @import "./layout/header";
-@import "./layout/header_blog";
-@import "./layout/hero";
-@import "./layout/about_us";
-@import "./layout/latest_posts";
-@import "./layout/latest_portfolio";
-@import "./layout/testimonials";
-@import "./layout/contact_us";
 @import "./layout/footer";
-@import "./layout/blog";
-@import "./layout/post";
-@import "./layout/author";
+@import "./layout/welcome";
+@import "./layout/about-me";
+@import "./layout/contact";
 
-@import "./components/button";
+@import "./utils/variables";
+@import "./utils/visually-hidden";
+
 @import "./components/title";
-@import "./components/social-link";
-@import "./components/accordion";

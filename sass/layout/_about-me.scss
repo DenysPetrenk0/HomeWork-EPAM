@@ -1,0 +1,85 @@
+/** @format */
+
+.about-me {
+  margin-bottom: 100px;
+
+  &__citation {
+    color: var(--primery-color);
+    font-family: Lato;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: 1.5;
+    padding: 50px 60px 23px;
+    margin-bottom: 30px;
+  }
+
+  &__text {
+    &__list {
+      margin-top: 20px;
+    }
+
+    &__item {
+      margin-bottom: 30px;
+    }
+
+    &__letter {
+      color: var(--primery-color);
+      font-family: "Lucida Grande";
+      font-size: 50px;
+      letter-spacing: 0;
+      line-height: 1.18;
+    }
+  }
+
+  &__box {
+    display: flex;
+    margin-top: 50px;
+
+    &__text {
+      width: 700px;
+      margin-right: 140px;
+    }
+
+    &__aside {
+      width: 580px;
+
+      &__flickr {
+        margin-bottom: 50px;
+        margin-top: -40px;
+
+        &__list {
+          display: flex;
+          flex-wrap: wrap;
+          margin-top: 30px;
+          margin-left: -44px;
+          margin-bottom: -44px;
+        }
+
+        &__item {
+          margin-left: 44px;
+          margin-bottom: 44px;
+          padding: 12px;
+          border: 1px solid rgba(206, 199, 199, 0.5);
+        }
+      }
+    }
+  }
+}
+
+.border {
+  &-first {
+    border-left: 6px solid #ec6767;
+    margin-top: 40px;
+  }
+
+  &-second {
+    border-left: 6px solid #aab6ff;
+  }
+
+  &-third {
+    border-left: 6px solid #6be4d5;
+    margin-bottom: 50px;
+  }
+}

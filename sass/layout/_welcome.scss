@@ -1,0 +1,43 @@
+/** @format */
+
+.welcome {
+  padding-top: 73px;
+  padding-bottom: 113px;
+
+  &__content {
+    &__list {
+      display: flex;
+      margin-top: 75px;
+    }
+
+    &__item {
+      padding-right: 140px;
+
+      &__title {
+        margin-bottom: 42px;
+        color: var(--primery-color);
+        font-family: Lato;
+        font-size: 25px;
+        letter-spacing: 0;
+        line-height: 1.2;
+      }
+    }
+
+    &__box {
+      display: flex;
+      padding-top: 40px;
+
+      &__text {
+        padding-right: 140px;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    margin-bottom: 15px;
+  }
+}

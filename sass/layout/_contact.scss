@@ -1,0 +1,119 @@
+/** @format */
+
+.contact {
+  &__content {
+    display: flex;
+  }
+
+  &__text {
+    margin-bottom: 40px;
+  }
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__box {
+      width: 700px;
+      margin-right: 140px;
+    }
+
+    &__field {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 30px;
+
+      &:nth-child(2n + 1) {
+        margin-right: 20px;
+      }
+
+      &::placeholder {
+        color: #a6a6a6;
+        font-family: Lato;
+        font-size: 18px;
+        letter-spacing: 0;
+        line-height: 1.22;
+      }
+    }
+
+    &__text {
+      margin-bottom: 10px;
+    }
+
+    &__input {
+      height: 48px;
+      width: 340px;
+      border: 1px solid #a6a6a6;
+      background-color: var(--white-color);
+      padding-left: 15px;
+    }
+
+    &__group-radio {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__message {
+      display: block;
+      height: 130px;
+      width: 700px;
+    }
+  }
+  &__information {
+    width: 580px;
+
+    &__item {
+      display: flex;
+      margin-bottom: 45px;
+    }
+
+    &__name {
+      color: var(--primery-color);
+      font-family: Lato;
+      font-size: 18px;
+      letter-spacing: 0;
+      line-height: 1.22;
+      margin-right: 40px;
+    }
+
+    &__tel {
+      color: var(--primery-color);
+      font-family: Lato;
+      font-size: 18px;
+      letter-spacing: 0;
+      line-height: 1.22;
+      margin-right: 2px;
+    }
+
+    &__mail {
+      color: var(--primery-color);
+      font-family: "Lucida Grande";
+      font-size: 18px;
+      letter-spacing: 0;
+      line-height: 1.22;
+      margin-right: 2px;
+
+      &__link {
+        color: var(--secondry-color);
+        font-family: Lato;
+      }
+    }
+  }
+}
+
+.button {
+  font-family: Lato;
+  height: 48px;
+  width: 220px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1.22;
+  letter-spacing: 0;
+  background: var(--secondry-color);
+  color: var(--white-color);
+  border-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
