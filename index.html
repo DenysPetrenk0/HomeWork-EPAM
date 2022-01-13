@@ -58,10 +58,10 @@
       <h1 class="visually-hidden">hero</h1>
       <section class="welcome">
         <div class="container">
-          <h2 class="title">Welcome !</h2>
+          <h2 class="title" tabindex="0">Welcome !</h2>
           <div class="welcome__content__box">
             <div class="welcome__content__box__text">
-              <p class="title__secondary welcome__title">
+              <p class="title__secondary welcome__title" tabindex="0">
                 Welcome to
                 <span class="title__secondary__text">PixelStudio</span>
               </p>
@@ -86,25 +86,66 @@
                 doesn’t mean it’s not a header viably reused across a catalog.
               </p>
             </div>
-            <img src="./images/alex-gruber.png" alt="Magic grape" width="580" />
+            <div class="welcome__image__box">
+              <img
+                src="./images/alex-gruber.png"
+                alt="Magic grape"
+                width="580"
+              />
+              <div class="welcome__image__button__box">
+                <buttom class="welcome__image__button-left" type="buttom">
+                  <svg class="welcome__image__button-left__icon">
+                    <use href="./images/sprite.svg#arrow"></use>
+                  </svg>
+                </buttom>
+                <buttom class="welcome__image__button-right" type="buttom">
+                  <svg class="welcome__image__button-right__icon">
+                    <use href="./images/sprite.svg#arrow"></use>
+                  </svg>
+                </buttom>
+              </div>
+              <p class="welcome__image__text">Magic grape</p>
+              <p class="welcome__image__number">1/3</p>
+            </div>
           </div>
           <ul class="welcome__content__list">
             <li class="welcome__content__item">
-              <h3 class="welcome__content__item__title">What I do?</h3>
+              <div class="welcome__content__item__box">
+                <div class="welcome__content__icon">
+                  <img src="./images/Combined1.png" alt="icon" />
+                </div>
+                <h3 class="welcome__content__item__title" tabindex="0">
+                  What I do?
+                </h3>
+              </div>
               <p class="content__text">
                 A misconception I debunk early and often: developing a
                 typography system for UI components is equivalent to solving.
               </p>
             </li>
             <li class="welcome__content__item">
-              <h3 class="welcome__content__item__title">Who I do it?</h3>
+              <div class="welcome__content__item__box">
+                <div class="welcome__content__icon">
+                  <img src="./images/Combined3.png" alt="icon" />
+                </div>
+                <h3 class="welcome__content__item__title" tabindex="0">
+                  Who I do it?
+                </h3>
+              </div>
               <p class="content__text">
                 Article typography is made of headings, body text, and a few
                 other components like an captioned image.
               </p>
             </li>
             <li class="welcome__content__item">
-              <h3 class="welcome__content__item__title">About me</h3>
+              <div class="welcome__content__item__box">
+                <div class="welcome__content__icon">
+                  <img src="./images/Combined2.png" alt="icon" />
+                </div>
+                <h3 class="welcome__content__item__title" tabindex="0">
+                  About me
+                </h3>
+              </div>
               <p class="content__text">
                 Nam libero tempore, cum soluta nobis est eligendi optio cumque
                 nihil impedit quo minus id quod maxime placeat.
@@ -115,45 +156,68 @@
       </section>
       <section class="about-me">
         <div class="container">
-          <h2 class="title">About me</h2>
+          <h2 class="title" tabindex="0">About me</h2>
           <div class="about-me__box">
             <div class="about-me__box__text">
               <p class="content__text">
                 Applying heading scales shouldn’t require use of a specific HTML
                 element. Instead, tease apart the two concerns. A system should
-                weave heading levels consistently throughout components and
-                offers tools for adopters to do the same with their custom
-                creations. In particular, line-height is challenging. In some
-                libraries, we’ll use conventions and tools to crop away negative
-                space established by line-height from all text included in
-                components, as described in Space in Design Systems. Libraries
-                cropping line height include Morningstar Design System,
-                Discovery Education’s Comet Design System.
+                weave <span class="content__text__color">heading</span> levels
+                consistently throughout components and offers tools for adopters
+                to do the same with their custom creations. In particular,
+                line-height is challenging. In some libraries, we’ll use
+                conventions and tools to crop away negative space established by
+                line-height from all text included in components, as described
+                in
+                <span class="content__text__color">Space in Design Systems</span
+                >. Libraries cropping line height include Morningstar Design
+                System, Discovery Education’s Comet Design System.
               </p>
-              <p class="about-me__citation border-first">
-                Advantages for the customers: using the same design language for
-                the complex interface, or even different digital channels,
-                results in product consistency and the reduction of cognitive
-                load for the users.
-              </p>
-              <p class="about-me__citation border-second">
-                This is our journey to the the simplest and most beautiful
-                banking design in the world, as we see it. Light Bank was
-                created by the UXDA team in order to inspire change.
-              </p>
-              <p class="about-me__citation border-third">
-                We encourage you to go one step further beyond average and
-                create the best financial solutions that your customers are
-                seeking. We hope you can use this UX design case study as a
-                guide to get there.
-              </p>
-              <h3 class="title__secondary">Heading Levels and Special Cases</h3>
-              <p class="about-me__text__letter">S</p>
-              <p class="content__text">
-                ystems can offer centrally-tuned responsive type sizes across a
-                predictable set of breakpoints. For body text, size increases
-                slowly.
-              </p>
+              <ul class="about-me__citation__list">
+                <li class="about-me__citation__item">
+                  <p class="about-me__citation border-first">
+                    Advantages for the customers: using the same design language
+                    for the complex interface, or even different digital
+                    channels, results in product consistency and the reduction
+                    of cognitive load for the users.
+                  </p>
+                  <div class="about-me__citation__icon">
+                    <img src="./images/quote.png" alt="icon" />
+                  </div>
+                </li>
+                <li class="about-me__citation__item">
+                  <p class="about-me__citation border-second">
+                    This is our journey to the the simplest and most beautiful
+                    banking design in the world, as we see it. Light Bank was
+                    created by the UXDA team in order to inspire change.
+                  </p>
+                  <div class="about-me__citation__icon">
+                    <img src="./images/quote.png" alt="icon" />
+                  </div>
+                </li>
+                <li class="about-me__citation__item">
+                  <p class="about-me__citation border-third">
+                    We encourage you to go one step further beyond average and
+                    create the best financial solutions that your customers are
+                    seeking. We hope you can use this UX design case study as a
+                    guide to get there.
+                  </p>
+                  <div class="about-me__citation__icon">
+                    <img src="./images/quote.png" alt="icon" />
+                  </div>
+                </li>
+              </ul>
+              <h3 class="title__secondary" tabindex="0">
+                Heading Levels and Special Cases
+              </h3>
+              <div class="about-me__text__letter__box">
+                <p class="about-me__text__letter">S</p>
+                <p class="content__text">
+                  ystems can offer centrally-tuned responsive type sizes across
+                  a predictable set of breakpoints. For body text, size
+                  increases slowly.
+                </p>
+              </div>
               <p class="content__text">
                 As a system gets started with type, dig into details and start
                 some conventions, such as how you’ll cope with line-height.
@@ -162,38 +226,53 @@
                 details as a library takes shape. As you near a major release,
                 lock in conventions and ensure tools are consistently applied.
               </p>
-              <h3 class="title__secondary">Text color</h3>
+              <h3 class="title__secondary" tabindex="0">Text color</h3>
               <ul class="about-me__text__list">
                 <li class="about-me__text__item">
+                  <div class="about-me__text__icon">
+                    <img src="./images/checklist.png" alt="icon" />
+                  </div>
                   <p class="content__text">
                     <span class="content__text__bold">Primary</span>, for most
                     interface text whether body or heading.
                   </p>
                 </li>
                 <li class="about-me__text__item">
-                  <p class="content__text">
+                  <div class="about-me__text__icon">
+                    <img src="./images/checklist.png" alt="icon" />
+                  </div>
+                  <p class="content__text about-me__text">
                     <span class="content__text__bold">Secondary</span>, for
                     diminished contrast (often, the “gray text”) for
                     supplemental information.
                   </p>
                 </li>
                 <li class="about-me__text__item">
-                  <p class="content__text">
+                  <div class="about-me__text__icon">
+                    <img src="./images/checklist.png" alt="icon" />
+                  </div>
+                  <p class="content__text about-me__text">
                     <span class="content__text__bold">Interactive</span>, not
                     just for links but also flat buttons, tab labels, and more.
                   </p>
                 </li>
                 <li class="about-me__text__item">
-                  <p class="content__text">
+                  <div class="about-me__text__icon">
+                    <img src="./images/checklist.png" alt="icon" />
+                  </div>
+                  <p class="content__text about-me__text">
                     <span class="content__text__bold">Disabled</span>, often
                     resulting is especially lower contrast treatments.
                   </p>
                 </li>
                 <li class="about-me__text__item">
-                  <p class="content__text">
-                    <span class="content__text__bold">An invitation</span> to
-                    contact a technical architect, since a license for the font
-                    is required. Organizations requires this to control the
+                  <div class="about-me__text__icon">
+                    <img src="./images/checklist.png" alt="icon" />
+                  </div>
+                  <p class="content__text about-me__text">
+                    <span class="content__text__bold">An invitation</span>
+                    to contact a technical architect, since a license for the
+                    font is required. Organizations requires this to control the
                     recurring and often non-trivial cost of hosting and serving
                     the font.
                   </p>
@@ -202,7 +281,7 @@
             </div>
             <div class="about-me__box__aside">
               <div class="about-me__box__aside__flickr">
-                <h3 class="title__secondary">From Flickr</h3>
+                <h3 class="title__secondary" tabindex="0">From Flickr</h3>
                 <ul class="about-me__box__aside__flickr__list">
                   <li class="about-me__box__aside__flickr__item">
                     <img src="./images/about-me/Group.png" alt="" width="136" />
@@ -247,35 +326,58 @@
               <div class="about-me__box__aside__links">
                 <h3 class="title__secondary">Links</h3>
                 <details>
-                  <summary class="about-me__box__aside__links">
+                  <summary class="about-me__box__aside__title">
+                    <svg class="about-me__box__aside__icon">
+                      <use href="./images/sprite.svg#arrow"></use>
+                    </svg>
                     Themeforest
                   </summary>
                 </details>
                 <details>
-                  <summary class="about-me__box__aside__links">
+                  <summary class="about-me__box__aside__title">
+                    <svg class="about-me__box__aside__icon">
+                      <use href="./images/sprite.svg#arrow"></use>
+                    </svg>
                     GraphicRiver
                   </summary>
                 </details>
                 <details>
-                  <summary class="about-me__box__aside__links">
+                  <summary class="about-me__box__aside__title">
+                    <svg class="about-me__box__aside__icon">
+                      <use href="./images/sprite.svg#arrow"></use>
+                    </svg>
                     CodeCanyon
                   </summary>
                 </details>
                 <details>
-                  <summary class="about-me__box__aside__links">
+                  <summary class="about-me__box__aside__title">
+                    <svg class="about-me__box__aside__icon">
+                      <use href="./images/sprite.svg#arrow"></use>
+                    </svg>
                     ActiveDen
                   </summary>
                 </details>
                 <details>
-                  <summary class="about-me__box__aside__links">3DOcean</summary>
+                  <summary class="about-me__box__aside__title">
+                    <svg class="about-me__box__aside__icon">
+                      <use href="./images/sprite.svg#arrow"></use>
+                    </svg>
+                    3DOcean
+                  </summary>
                 </details>
                 <details>
-                  <summary class="about-me__box__aside__links">
+                  <summary class="about-me__box__aside__title">
+                    <svg class="about-me__box__aside__icon">
+                      <use href="./images/sprite.svg#arrow"></use>
+                    </svg>
                     VideoHive
                   </summary>
                 </details>
                 <details>
-                  <summary class="about-me__box__aside__links">
+                  <summary class="about-me__box__aside__title">
+                    <svg class="about-me__box__aside__icon">
+                      <use href="./images/sprite.svg#arrow"></use>
+                    </svg>
                     Audiojungle
                   </summary>
                 </details>
@@ -286,10 +388,10 @@
       </section>
       <section class="contact">
         <div class="container">
-          <h2 class="title">Contact</h2>
+          <h2 class="title" tabindex="0">Contact</h2>
           <div class="contact__content">
             <div class="contact__form__box">
-              <h3 class="title__secondary">Just say hello!</h3>
+              <h3 class="title__secondary" tabindex="0">Just say hello!</h3>
               <form action="#" class="contact__form">
                 <label class="contact__form__field">
                   <span class="contact__form__text content__text"
@@ -344,18 +446,46 @@
                   </span>
                 </label>
                 <div class="contact__form__group-buttons">
-                  <div class="contact__form__group-radio">
+                  <div class="contact__form__radio-group">
                     <span class="content__text">Choose option:</span>
-                    <label class="contact__form__radio">
-                      <input type="radio" name="color" value="red" checked />
+                    <input
+                      class="contact__form__radio-input visually-hidden"
+                      type="radio"
+                      name="gender"
+                      value="male"
+                      id="male"
+                      checked
+                    />
+                    <label
+                      for="male"
+                      class="contact__form__radio-button content__text"
+                    >
                       Male
                     </label>
-                    <label>
-                      <input type="radio" name="color" value="white" />
+                    <input
+                      class="contact__form__radio-input visually-hidden"
+                      type="radio"
+                      name="gender"
+                      id="female"
+                      value="female"
+                    />
+                    <label
+                      for="female"
+                      class="contact__form__radio-button content__text"
+                    >
                       Female
                     </label>
-                    <label>
-                      <input type="radio" name="color" value="green" />
+                    <input
+                      class="contact__form__radio-input visually-hidden"
+                      type="radio"
+                      name="gender"
+                      value="other"
+                      id="other"
+                    />
+                    <label
+                      for="other"
+                      class="contact__form__radio-button content__text"
+                    >
                       Other
                     </label>
                   </div>
@@ -370,39 +500,56 @@
                     type="checkbox"
                     name="user-policy"
                     id="user-policy"
-                    class="contact__form__term"
+                    class="contact__form__term visually-hidden"
                   />
                   <label
                     for="user-policy"
                     class="contact__form__desc content__text"
                   >
+                    <svg class="contact__form__desc__icon">
+                      <use href="./images/sprite.svg#checkmark"></use>
+                    </svg>
+                    <svg class="contact__form__desc__icon-black">
+                      <use href="./images/sprite.svg#checkmark"></use>
+                    </svg>
                     Terms & Conditions
                   </label>
-                  <button type="submit" class="contact__form__btn button">
-                    Submit
-                  </button>
                 </div>
+                <button type="submit" class="contact__form__btn button">
+                  Submit
+                </button>
               </form>
             </div>
             <div class="contact__information">
-              <h3 class="title__secondary">Contact information</h3>
+              <h3 class="title__secondary" tabindex="0">Contact information</h3>
               <p class="content__text contact__text">
                 Feel free to contact us for any of your questions, we’ll get
                 back to you as soon as possible
               </p>
               <ul class="contact__information__list">
                 <li class="contact__information__item">
+                  <div class="contact__information__item__icon">
+                    <img src="./images/address.png" alt="icon" />
+                  </div>
                   <p class="contact__information__name">Company name</p>
                   <p class="contact__information__name">798 Street name</p>
                   <p class="contact__information__name">999 00 City name</p>
                 </li>
                 <li class="contact__information__item">
+                  <div class="contact__information__item__icon">
+                    <img src="./images/phone.png" alt="icon" />
+                  </div>
                   <p class="contact__information__tel">Phone:</p>
-                  <a href="tel:+000987654321" class="contact__information__tel"
+                  <a
+                    href="tel:+000987654321"
+                    class="contact__information__tel__link"
                     >+000 987 654 321</a
                   >
                 </li>
                 <li class="contact__information__item">
+                  <div class="contact__information__item__icon">
+                    <img src="./images/email.png" alt="icon" />
+                  </div>
                   <p class="contact__information__mail">Email:</p>
                   <a
                     href="mailto:sales@yourcompany.com"
@@ -447,8 +594,9 @@
                     target="_blank"
                   >
                     <svg class="footer__social__icon">
-                      <use href="./images/sprite.svg#linkedin"></use></svg
-                  ></a>
+                      <use href="./images/sprite.svg#linkedin"></use>
+                    </svg>
+                  </a>
                 </li>
                 <li class="footer__social__item">
                   <a
@@ -457,8 +605,9 @@
                     target="_blank"
                   >
                     <svg class="footer__social__icon">
-                      <use href="./images/sprite.svg#twitter"></use></svg
-                  ></a>
+                      <use href="./images/sprite.svg#twitter"></use>
+                    </svg>
+                  </a>
                 </li>
                 <li class="footer__social__item">
                   <a
@@ -467,8 +616,9 @@
                     target="_blank"
                   >
                     <svg class="footer__social__icon">
-                      <use href="./images/sprite.svg#facebook"></use></svg
-                  ></a>
+                      <use href="./images/sprite.svg#facebook"></use>
+                    </svg>
+                  </a>
                 </li>
               </ul>
             </div>

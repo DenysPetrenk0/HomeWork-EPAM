@@ -1,7 +1,7 @@
 /** @format */
 
 .title {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   color: var(--primery-color);
   font-family: Lato;
   font-size: 50px;
@@ -16,7 +16,7 @@
     font-size: 30px;
     letter-spacing: 0;
     line-height: 1.2;
-    margin-top: 40px;
+    margin-top: 30px;
     margin-bottom: 20px;
 
     &__text {
@@ -34,5 +34,10 @@
 
   &__bold {
     font-weight: bold;
+  }
+
+  &__color {
+    font-weight: bold;
+    color: var(--secondry-color);
   }
 }

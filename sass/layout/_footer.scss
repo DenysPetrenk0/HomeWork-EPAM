@@ -63,6 +63,7 @@
     &__link {
       height: 30px;
       width: 30px;
+      cursor: url("../../images/cursor/svg-editor-image-small.svg"), pointer;
     }
 
     &__list {
@@ -92,6 +93,7 @@
     font-size: 16px;
     letter-spacing: 0;
     line-height: 1.375;
+    cursor: url("../../images/cursor/svg-editor-image-small.svg"), pointer;
 
     &:hover {
       color: var(--hover-secondry-color);

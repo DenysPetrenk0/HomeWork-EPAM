@@ -34,6 +34,7 @@
       font-size: 18px;
       letter-spacing: 0;
       line-height: 1.22;
+      cursor: url("../../images/cursor/svg-editor-image-small.svg"), pointer;
 
       &:hover {
         color: var(--hover-secondry-color);
@@ -43,6 +44,3 @@
     }
   }
 }
-
-// .current {
-// }

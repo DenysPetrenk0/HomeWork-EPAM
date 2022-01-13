@@ -1,20 +1,25 @@
 /** @format */
 
 .welcome {
-  padding-top: 73px;
-  padding-bottom: 113px;
+  padding-top: 58px;
+  padding-bottom: 96px;
 
   &__content {
     &__list {
       display: flex;
-      margin-top: 75px;
+      margin-top: 80px;
     }
 
     &__item {
       padding-right: 140px;
 
+      &__box {
+        display: flex;
+        margin-bottom: 27px;
+        align-items: center;
+      }
+
       &__title {
-        margin-bottom: 42px;
         color: var(--primery-color);
         font-family: Lato;
         font-size: 25px;
@@ -28,8 +33,87 @@
       padding-top: 40px;
 
       &__text {
-        padding-right: 140px;
+        width: 700px;
+        margin-right: 144px;
+        margin-top: -40px;
       }
+    }
+
+    &__icon {
+      margin-right: 15px;
+      height: 35px;
+      width: 35px;
+    }
+  }
+
+  &__image {
+    &__box {
+      position: relative;
+      width: 580px;
+    }
+
+    &__button {
+      &__box {
+        position: absolute;
+        display: flex;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+        margin-left: 25px;
+      }
+
+      &-left {
+        cursor: url("../../images/cursor/svg-editor-image.svg"), pointer;
+        margin-right: 470px;
+
+        &__icon {
+          height: 30px;
+          width: 30px;
+          transform: rotate(90deg);
+          fill: var(--white-color);
+
+          .welcome__image__button-left:hover & {
+            fill: var(--hover-color);
+          }
+        }
+      }
+
+      &-right {
+        cursor: url("../../images/cursor/svg-editor-image.svg"), pointer;
+
+        &__icon {
+          height: 30px;
+          width: 30px;
+          transform: rotate(270deg);
+          fill: var(--white-color);
+
+          .welcome__image__button-right:hover & {
+            fill: var(--hover-color);
+          }
+        }
+      }
+    }
+
+    &__text {
+      position: absolute;
+      bottom: 22px;
+      left: 25px;
+      color: var(--white-color);
+      font-family: Lato;
+      font-size: 18px;
+      letter-spacing: 0;
+      line-height: 1.22;
+    }
+
+    &__number {
+      position: absolute;
+      bottom: 22px;
+      right: 25px;
+      color: var(--white-color);
+      font-family: Lato;
+      font-size: 18px;
+      letter-spacing: 0;
+      line-height: 1.22;
     }
   }
 
