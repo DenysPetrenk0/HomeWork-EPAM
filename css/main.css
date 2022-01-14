@@ -94,7 +94,7 @@ a {
 }
 
 .footer__title {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   color: var(--white-color);
   font-family: Lato;
   font-size: 18px;
@@ -120,8 +120,8 @@ a {
 }
 
 .footer__logo__text {
-  margin-top: 36px;
-  margin-bottom: 39px;
+  margin-top: 19px;
+  margin-bottom: 30px;
   color: var(--white-color);
   font-family: Lato;
   font-size: 18px;
@@ -135,15 +135,17 @@ a {
 
 .footer__menu__list {
   display: flex;
+  margin-top: 12px;
   margin-left: 140px;
 }
 
 .footer__menu__item {
   width: 220px;
+  margin-right: 20px;
 }
 
 .footer__social__item {
-  margin-right: 12px;
+  margin-right: 16px;
 }
 
 .footer__social__link {
@@ -157,8 +159,8 @@ a {
 }
 
 .footer__social__icon {
-  height: 16px;
-  width: 21px;
+  height: 20px;
+  width: 20px;
   fill: var(--comment-color);
 }
 
@@ -166,8 +168,12 @@ a {
   fill: var(--white-color);
 }
 
+.menu-inform__list {
+  margin-top: 24px;
+}
+
 .menu-inform__item {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .menu-inform__link {
@@ -196,12 +202,16 @@ a {
 }
 
 .welcome__content__item {
-  padding-right: 140px;
+  width: 340px;
+}
+
+.welcome__content__item:not(:last-child) {
+  margin-right: 141px;
 }
 
 .welcome__content__item__box {
   display: flex;
-  margin-bottom: 27px;
+  margin-bottom: 24px;
   align-items: center;
 }
 
@@ -225,9 +235,15 @@ a {
 }
 
 .welcome__content__icon {
-  margin-right: 15px;
+  margin-right: 18px;
   height: 35px;
   width: 35px;
+}
+
+.welcome__content__icon-last {
+  margin-right: 17px;
+  height: 37px;
+  width: 27px;
 }
 
 .welcome__image__box {
@@ -307,7 +323,7 @@ a {
 
 /** @format */
 .about-me {
-  margin-bottom: 80px;
+  margin-bottom: 82px;
 }
 
 .about-me__citation {
@@ -320,6 +336,10 @@ a {
   line-height: 1.5;
   padding: 40px 55px 20px;
   margin-bottom: 30px;
+}
+
+.about-me__citation__list {
+  margin-bottom: -7px;
 }
 
 .about-me__citation__item {
@@ -352,7 +372,7 @@ a {
   height: 15px;
   width: 15px;
   padding-top: 9px;
-  margin-right: 5px;
+  margin-right: 12px;
 }
 
 .about-me__text__letter {
@@ -360,7 +380,7 @@ a {
   font-family: "Lucida Grande";
   font-size: 50px;
   letter-spacing: 0;
-  line-height: 1.18;
+  line-height: 1.08;
   margin-right: 7px;
 }
 
@@ -391,13 +411,13 @@ a {
   display: flex;
   flex-wrap: wrap;
   margin-top: 25px;
-  margin-left: -40px;
-  margin-bottom: -40px;
+  margin-left: -45px;
+  margin-bottom: -45px;
 }
 
 .about-me__box__aside__flickr__item {
-  margin-left: 40px;
-  margin-bottom: 40px;
+  margin-left: 45px;
+  margin-bottom: 45px;
   padding: 12px;
   border: 1px solid rgba(206, 199, 199, 0.5);
 }
@@ -445,6 +465,7 @@ details {
   width: 220px;
   border-bottom: 1px dashed #cec7c7;
   margin-bottom: 30px;
+  margin-top: 24px;
 }
 
 /** @format */
@@ -463,6 +484,7 @@ details {
 .contact__form {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 40px;
 }
 
 .contact__form__box {
@@ -473,7 +495,7 @@ details {
 .contact__form__field {
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
+  margin-bottom: 21px;
 }
 
 .contact__form__field:nth-child(2n + 1) {
@@ -489,7 +511,7 @@ details {
 }
 
 .contact__form__text {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .contact__form__input {
@@ -510,19 +532,20 @@ details {
 }
 
 .contact__form__group-buttons {
+  margin-top: 4px;
   margin-bottom: 30px;
 }
 
 .contact__form__radio-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .contact__form__radio-button {
   cursor: url("../../images/cursor/svg-editor-image-small.svg"), pointer;
   position: relative;
-  margin-top: 15px;
+  margin-top: 16px;
   padding-left: 39px;
 }
 
@@ -606,6 +629,10 @@ details {
   width: 580px;
 }
 
+.contact__information__list {
+  margin-top: 45px;
+}
+
 .contact__information__item {
   display: flex;
   align-items: center;
@@ -623,7 +650,7 @@ details {
   font-size: 18px;
   letter-spacing: 0;
   line-height: 1.22;
-  padding: 0 20px;
+  padding: 0 18px;
 }
 
 .contact__information__name:not(:last-child) {
@@ -637,7 +664,7 @@ details {
   letter-spacing: 0;
   line-height: 1.22;
   margin-right: 2px;
-  margin-left: 20px;
+  margin-left: 17px;
 }
 
 .contact__information__tel__link {
@@ -661,7 +688,7 @@ details {
   letter-spacing: 0;
   line-height: 1.22;
   margin-right: 2px;
-  margin-left: 20px;
+  margin-left: 17px;
 }
 
 .contact__information__mail__link {
@@ -684,6 +711,10 @@ details {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.button:hover {
+  background: var(--hover-color);
 }
 
 /** @format */
@@ -726,7 +757,7 @@ details {
   font-size: 30px;
   letter-spacing: 0;
   line-height: 1.2;
-  margin-top: 30px;
+  margin-top: 40px;
   margin-bottom: 20px;
 }
 

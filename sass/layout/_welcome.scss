@@ -11,11 +11,15 @@
     }
 
     &__item {
-      padding-right: 140px;
+      width: 340px;
+
+      &:not(:last-child) {
+        margin-right: 141px;
+      }
 
       &__box {
         display: flex;
-        margin-bottom: 27px;
+        margin-bottom: 24px;
         align-items: center;
       }
 
@@ -40,9 +44,15 @@
     }
 
     &__icon {
-      margin-right: 15px;
+      margin-right: 18px;
       height: 35px;
       width: 35px;
+
+      &-last {
+        margin-right: 17px;
+        height: 37px;
+        width: 27px;
+      }
     }
   }
 

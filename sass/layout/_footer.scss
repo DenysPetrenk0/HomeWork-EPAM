@@ -3,7 +3,7 @@
   background: var(--primery-color);
 
   &__title {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     color: var(--white-color);
     font-family: Lato;
     font-size: 18px;
@@ -30,8 +30,8 @@
     }
 
     &__text {
-      margin-top: 36px;
-      margin-bottom: 39px;
+      margin-top: 19px;
+      margin-bottom: 30px;
       color: var(--white-color);
       font-family: Lato;
       font-size: 18px;
@@ -47,17 +47,19 @@
   &__menu {
     &__list {
       display: flex;
+      margin-top: 12px;
       margin-left: 140px;
     }
 
     &__item {
       width: 220px;
+      margin-right: 20px;
     }
   }
 
   &__social {
     &__item {
-      margin-right: 12px;
+      margin-right: 16px;
     }
 
     &__link {
@@ -71,8 +73,8 @@
     }
 
     &__icon {
-      height: 16px;
-      width: 21px;
+      height: 20px;
+      width: 20px;
       fill: var(--comment-color);
 
       .footer__social__link:hover & {
@@ -83,8 +85,12 @@
 }
 
 .menu-inform {
+  &__list {
+    margin-top: 24px;
+  }
+
   &__item {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
   }
 
   &__link {
